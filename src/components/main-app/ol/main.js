@@ -36,9 +36,9 @@ export default function olMain() {
   rasterSource = loadRaster.rasterSource;
   rasterColorSource = loadRaster.rasterColorSource;
 
-  const { clipLayer } = clipRaster({ rasterLayer });
+  const { clipLayer, boundaryLayer } = clipRaster({ rasterLayer });
 
-  map = initMap({ rasterLayer, clipLayer });
+  map = initMap({ rasterLayer, clipLayer, boundaryLayer });
   dragMap(map);
   return map;
 }
