@@ -1,0 +1,3 @@
+export const UPDATE_SHAPE_DATA = 'UPDATE_SHAPE_DATA';
+export const RESET_SHAPE_DATA = 'RESET_SHAPE_DATA';
+export const RESET_ALL = 'RESET_ALL';
