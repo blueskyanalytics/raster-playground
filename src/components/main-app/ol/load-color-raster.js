@@ -11,10 +11,13 @@ export default function loadRasterLayer({
   rasterSource,
   rasterColorSource,
   rgbColorsArray,
+  rasterLayer,
+  opacity,
+  tiles,
 }) {
   //Raster source initilization using XYZ tile type
   rasterSource = new XYZ({
-    url: `${window.location.origin}/assets/tiles/{z}/{x}/{-y}.png`,
+    url: tiles,
     crossOrigin: 'anonymous',
   });
 
@@ -41,9 +44,9 @@ export default function loadRasterLayer({
   });
 
   //Generating image out of coloured raster source
-  const rasterLayer = new ImageLayer({
+  rasterLayer = new ImageLayer({
     source: rasterColorSource,
-    opacity: 1,
+    opacity: opacity ? parseFloat(opacity) : 1,
   });
 
   return { rasterSource, rasterColorSource, rasterLayer };

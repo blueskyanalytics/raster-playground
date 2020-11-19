@@ -6,3 +6,10 @@ export {
   URL_COLORS,
   URL_OPACITY,
 } from './url';
+
+export {
+  SHAPE_URL_DEFAULT,
+  TILES_URL_DEFAULT,
+  COLORS_DEFAULT,
+  OPACITY_DEFAULT,
+} from './default';

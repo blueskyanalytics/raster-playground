@@ -1,6 +1,5 @@
 import { Vector as VectorLayer } from 'ol/layer';
 import { Vector as VectorSource } from 'ol/source';
-import indiaTopoJson from 'assets/map/india-boundary.topojson';
 import { TopoJSON } from 'ol/format';
 import { getVectorContext } from 'ol/render';
 import { Fill, Style, Stroke } from 'ol/style';
@@ -8,23 +7,21 @@ import { Fill, Style, Stroke } from 'ol/style';
 /**
  * @param {*} rasterLayer = Raster layer map instance generated from OL map init
  */
-export default function clipRasterLayer({ rasterLayer }) {
+export default function clipRasterLayer({ rasterLayer, shape }) {
   //Create cliping layer from topojson
+  const shapeSource = new VectorSource({
+    url: shape,
+    format: new TopoJSON(),
+    overlaps: false,
+  });
+
   const clipLayer = new VectorLayer({
-    source: new VectorSource({
-      url: indiaTopoJson,
-      format: new TopoJSON(),
-      overlaps: false,
-    }),
+    source: shapeSource,
     style: null,
   });
 
   const boundaryLayer = new VectorLayer({
-    source: new VectorSource({
-      url: indiaTopoJson,
-      format: new TopoJSON(),
-      overlaps: false,
-    }),
+    source: shapeSource,
     style: () =>
       new Style({
         fill: new Fill({
@@ -58,5 +55,5 @@ export default function clipRasterLayer({ rasterLayer }) {
     e.context.globalCompositeOperation = 'source-over';
   });
 
-  return { clipLayer, boundaryLayer };
+  return { clipLayer, boundaryLayer, shapeSource };
 }
