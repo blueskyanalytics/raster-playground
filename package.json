@@ -25,8 +25,8 @@
     "web-vitals": "^0.2.4"
   },
   "scripts": {
-    "check-pretty": "prettier --config .prettierrc --ignore-path .prettierignore --check \"src/**/*.{js,html,md,json}\"",
-    "prettify": " prettier --config .prettierrc --ignore-path .prettierignore --write \"src/**/*.{js,html,md,json}\"",
+    "check-pretty": "prettier --config .prettierrc --ignore-path .prettierignore --check \"src/**/*.{js,html,md,json,sass}\"",
+    "prettify": " prettier --config .prettierrc --ignore-path .prettierignore --write \"src/**/*.{js,html,md,json,sass}\"",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
