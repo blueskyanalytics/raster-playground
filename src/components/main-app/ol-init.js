@@ -17,12 +17,22 @@ export default function OlInit() {
   useEffect(() => {
     const olInstances = olMain({ shape, tiles, colors, opacity });
 
-    if (olInstances.rasterSource && shape && prevTiles !== tiles)
+    if (olInstances.rasterSource && shape && prevTiles !== tiles) {
       olInstances.rasterSource.setUrl(tiles);
+      olInstances.rasterSource.refresh();
+    }
 
     if (olInstances.shapeSource && shape && prevShape !== shape) {
       olInstances.shapeSource.setUrl(shape);
       olInstances.shapeSource.refresh();
+    }
+
+    if (olInstances.rasterLayer) {
+      olInstances.rasterLayer.setOpacity(parseFloat(opacity));
+    }
+
+    if (olInstances.rasterSource) {
+      olInstances.rasterSource.refresh();
     }
   }, [shape, tiles, colors, opacity, prevTiles, prevShape]);
   return (

@@ -7,6 +7,47 @@
     left: 0
     z-index: 1
     box-shadow: 4px 0px 15px #00000029
+    overflow-y: auto
+
+    .sidebar-wrapper
+        padding: 20px
+
+.input-text
+    width: -webkit-fill-available
+    border: 0
+    padding: 15px
+    background: #eee
+    margin-top: 5px
+
+.color-input
+    width: -webkit-fill-available
+    margin-top: 5px
+
+    .color-input-item
+        width: 27%
+        border: 5px solid #eee
+        margin: 5px
+        height: 40px
+        display: inline-block
+        cursor: pointer
+        position: relative
+
+        .color-input-item-overlay
+            width: 100%
+            height: 40px
+            background: transparent
+            position: absolute
+            top: 0
+            left: 0
+
+        .color-input-item-close
+            top: -5px
+            right: -5px
+            width: 15px
+            position: absolute
+            z-index: 2
+            
+
 
 @media only screen and (max-width: 1440px)
     .sidebar

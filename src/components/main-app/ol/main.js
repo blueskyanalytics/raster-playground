@@ -10,15 +10,16 @@ let shapeSource = null;
 export default function olMain({ shape, tiles, colors, opacity }) {
   const spectrumColor = getColorsArray(colors);
   const rgbColorsArray = getRgbColorsArray(
-    spectrumColor.length ? spectrumColor : ['#000000', '#ffffff']
+    spectrumColor.length >= 2 ? spectrumColor : ['#000000', '#ffffff']
   );
 
-  if (rasterColorSource)
+  if (rasterColorSource && spectrumColor.length >= 2)
     rasterColorSource.on('beforeoperations', function (event) {
       event.data.rgbColorsArr = rgbColorsArray;
     });
 
-  if (map) return { map, rasterSource, shapeSource };
+  if (map)
+    return { map, rasterLayer, rasterSource, shapeSource, rasterColorSource };
 
   const loadRaster = loadRasterLayer({
     rasterSource,
@@ -40,5 +41,5 @@ export default function olMain({ shape, tiles, colors, opacity }) {
 
   map = initMap({ rasterLayer, clipLayer, boundaryLayer });
   dragMap(map);
-  return { map, rasterSource, rasterLayer, shapeSource };
+  return { map, rasterSource, rasterLayer, shapeSource, rasterColorSource };
 }
