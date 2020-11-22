@@ -46,7 +46,16 @@ export default function ColorsInput() {
 
   return (
     <>
-      <p>Colors Palette</p>
+      <div className="color-row">
+        <p>Colors Palette</p>{' '}
+        <a
+          href="#add"
+          onClick={() => addColor()}
+          class="iconButton fa fa-lg fa-plus"
+        >
+          {' '}
+        </a>
+      </div>
       <div className="color-input">
         {colorsArray.map((color, key) => (
           <>
@@ -58,10 +67,12 @@ export default function ColorsInput() {
                   : { background: color }
               }
             >
-              <CloseSVG
+              <div
                 className="color-input-item-close"
                 onClick={e => deleteColor(key, colorsArray, onChangeColor)}
-              />
+              >
+                <CloseSVG />
+              </div>
               <div
                 className="color-input-item-overlay"
                 onClick={e => setItemColorStatus({ color, key })}
@@ -70,7 +81,6 @@ export default function ColorsInput() {
           </>
         ))}
       </div>
-      <button onClick={() => addColor()}>Add Color</button>
       {itemColorStatus ? (
         <div style={popover}>
           <div
