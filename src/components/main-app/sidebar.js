@@ -22,6 +22,10 @@ export default function Sidebar() {
   return (
     <div className="sidebar">
       <div className="sidebar-wrapper">
+        <h1 className="logo">
+          Raster<span>Playground</span>
+        </h1>
+        <hr />
         <ShapeInput />
         <br />
         <br />
@@ -29,7 +33,6 @@ export default function Sidebar() {
         <br />
         <br />
         <ColorsInput />
-        <br />
         <br />
         <AlphaInput />
         <br />
