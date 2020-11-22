@@ -7,7 +7,7 @@ export default function AlphaInput() {
 
   return (
     <>
-      <p>Alpha Input</p>
+      <p>Alpha Input (Topo JSON)</p>
       <input
         type="number"
         value={opacity}

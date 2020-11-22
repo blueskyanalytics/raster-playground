@@ -70,7 +70,7 @@ export default function ColorsInput() {
           </>
         ))}
       </div>
-      <button onClick={() => addColor()}>Add</button>
+      <button onClick={() => addColor()}>Add Color</button>
       {itemColorStatus ? (
         <div style={popover}>
           <div

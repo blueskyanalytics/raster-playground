@@ -7,7 +7,7 @@ export default function TilesInput() {
 
   return (
     <>
-      <p>Tiles URL (Topo JSON)</p>
+      <p>Tiles URL</p>
       <input
         type="text"
         value={tiles}
