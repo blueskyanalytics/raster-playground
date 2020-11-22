@@ -7,7 +7,7 @@ export default function AlphaInput() {
 
   return (
     <>
-      <p>Alpha Input</p>
+      <p>Alpha Value (0-1)</p>
       <input
         type="number"
         value={opacity}
