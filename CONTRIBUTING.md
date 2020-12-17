@@ -13,12 +13,13 @@ Pull requests are the best way to propose changes to the codebase. We actively w
 
 1. Fork the repo and create your branch from `master`.
 2. If you've taken an issue and resolved that issue, link the issue with PR.
-2. If you've resolved an issue or adding a feature, don't forget to create an issue and link it with PR.
-2. If you've completed a feature, update the [readme](README.md).
-4. Ensure all the required test pass.
-5. Make sure your code is run through prettier.
-6. Issue that pull request!
-7. Your PR must have an active netlify deploy preview link for our maintainers to review.
+3. If you've resolved an issue or adding a feature, don't forget to create an issue and link it with a PR.
+4. If you've completed a feature, update the [readme](README.md).
+5. Ensure all the required test pass.
+6. Make sure your code is run through prettier.
+7. There must be no `warnings` or `errors` on terminal and remove all `console.logs`
+8. Issue that pull request!
+9. Your PR must have an active netlify deploy preview link for our maintainers to review.
 
 ## Setup
 - We recommend VScode and some basic extensions like `prettier`
