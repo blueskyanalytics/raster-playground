@@ -1,6 +1,8 @@
 # Raster Playground
 > A color playground for raster maps.
 
+![](banner.png)
+
 ## Why we made raster playground?
 
 Raster manipulation (colorisation & clipping of tiles) is computationally heavy operation & not very feasible on the browser (frontend), thus we moved it to backend & then distributed by the CDN.
@@ -55,4 +57,4 @@ npm run build
 - If you get the desired visualisation, you can copy RGBA (JSON) and use it to generate colour tiles from the backend or send the link to your colleague/friends to verify.
 
 ## How to contribute
-Read contribution [here](https://github.com/blueskyanalytics/raster-playground/blob/master/CONTRIBUTING.md)
+Read contribution [here](CONTRIBUTING.md)
