@@ -8,7 +8,6 @@ We love your input! We want to make contributing to this project as easy and tra
 - Becoming a maintainer
 
 ## We Develop with Github
----
 We use github to host code, to track issues and feature requests, as well as accept pull requests.
 Pull requests are the best way to propose changes to the codebase. We actively welcome your pull requests:
 
@@ -22,7 +21,6 @@ Pull requests are the best way to propose changes to the codebase. We actively w
 7. Your PR must have an active netlify deploy preview link for our maintainers to review.
 
 ## Setup
----
 - We recommend VScode and some basic extensions like `prettier`
 - Always lint your code using `prettier` etc
 - Windows is not recommended for dev setup
@@ -31,7 +29,6 @@ Pull requests are the best way to propose changes to the codebase. We actively w
 - Use `ssh` when working with `github`. `https` is so old school.
 
 ## Follow these conventions for branches
----
 - `bug/bug-name` for fixing bugs
 - `feature/feature-name` for adding new features
 - `hotfix/small-fixes` for very minor fixes
@@ -39,7 +36,6 @@ Pull requests are the best way to propose changes to the codebase. We actively w
 - `api/new-api` for new apis added
 
 ## Basic coding tips
----
 - Always use proper variables, no shortcuts or abbreviation as name
 - Put a `TODO:` wherever you think is needed.
 - All files `kebab-cased` , never should a file or folder be in upper case
@@ -67,16 +63,14 @@ Pull requests are the best way to propose changes to the codebase. We actively w
 - Always use `CAPS_NAME` for Env variables and constants
 
 ## Some words to live by
----
 - Less code is the best code
 - Keep evolving. A code is never below 90% and never above 95% complete
 - Don't shy away from refactoring
 - If you don't look back at your code with disgust, you need to improve
 
 ## Maintainers
----
-- (Srijit S Madhavan)[https://github.com/srijitcoder]
-- (Sri Harsha Devulapalli)[https://github.com/sriharshadevulapalli]
+- [Srijit S Madhavan](https://github.com/srijitcoder)
+- [Sri Harsha Devulapalli](https://github.com/sriharshadevulapalli)
 
 ## License
 By contributing, you agree that your contributions will be licensed under its [GPL-3.0 License](https://github.com/blueskyanalytics/raster-playground/blob/master/LICENSE).
