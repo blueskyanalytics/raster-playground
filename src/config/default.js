@@ -18,3 +18,14 @@ export const COLORS_DEFAULT =
   'f1eef6-e4d2e7-d7b5d8-db8dc4-df65b0-de4094-dd1c77-bb0e5d-980043';
 
 export const OPACITY_DEFAULT = 1;
+
+export const BASE_LAYER_DEFAULT = 'basic';
+
+export const MAPBOX_ACCESS_TOKEN =
+  'pk.eyJ1Ijoic2FoaWwwMDQiLCJhIjoiY2tqMTgzbHdpMDQycDJycGltOW01YmxuNSJ9.7vGu_4hyrdbrxr8w1gATfA';
+
+export const BASE_MAP_STYLE = {
+  basic: 'sahil004/ckj69eml13rba19o5xde6w2tp',
+  satellite: 'sahil004/ckj187v769dqo1at4efeloch1',
+  mapbox: 'sahil004/ckj65nxct3nne19o5kqt0tljl',
+};
