@@ -41,7 +41,7 @@ export default function ColorDetails({ text }) {
         </button>
       </div>
       <br />
-      <div>{JSON.stringify(text)}</div>
+      <div className="break-overflow-word">{JSON.stringify(text)}</div>
     </div>
   );
 }
