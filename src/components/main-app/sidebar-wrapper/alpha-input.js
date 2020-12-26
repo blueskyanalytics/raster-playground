@@ -11,6 +11,9 @@ export default function AlphaInput() {
       <input
         type="number"
         value={opacity}
+        step={0.1}
+        max={1}
+        min={0}
         className="input-text"
         placeholder="Alpha Input"
         onChange={e => onChangeOpacity(e.target.value, URL_UPDATE_PUSH)}

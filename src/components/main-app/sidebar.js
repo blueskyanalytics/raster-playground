@@ -1,4 +1,4 @@
-import { URL_COLORS, URL_OPACITY } from 'config';
+import { URL_COLORS, URL_OPACITY, URL_COLOR_TYPE } from 'config';
 import React, { useEffect, useState } from 'react';
 import { StringParam, useQueryParam } from 'use-query-params';
 import { copyColor, getColorsArray } from 'utils';
@@ -7,17 +7,19 @@ import {
   ShapeInput,
   ColorsInput,
   AlphaInput,
+  ColorDetails,
 } from './sidebar-wrapper';
 
 export default function Sidebar() {
   const [colors] = useQueryParam(URL_COLORS, StringParam);
   const [opacity] = useQueryParam(URL_OPACITY, StringParam);
+  const [colorType] = useQueryParam(URL_COLOR_TYPE, StringParam);
   const [text, setText] = useState('');
 
   useEffect(() => {
     const colorArray = getColorsArray(colors);
-    setText(copyColor(colorArray, opacity));
-  }, [colors, opacity]);
+    setText(copyColor(colorArray, opacity, colorType));
+  }, [colors, opacity, colorType]);
 
   return (
     <div className="sidebar">
@@ -37,7 +39,7 @@ export default function Sidebar() {
         <AlphaInput />
         <br />
         <br />
-        <div>{JSON.stringify(text)}</div>
+        <ColorDetails text={text} />
       </div>
     </div>
   );

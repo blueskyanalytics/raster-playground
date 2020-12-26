@@ -5,6 +5,7 @@ export {
   URL_TILES,
   URL_COLORS,
   URL_OPACITY,
+  URL_COLOR_TYPE,
 } from './url';
 
 export {
