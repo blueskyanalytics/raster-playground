@@ -27,6 +27,7 @@ export default function ColorDetails({ text }) {
           onChange={e => {
             setColorType(e.target.value, URL_UPDATE_PUSH);
           }}
+          defaultValue="rgba"
         >
           <option value="hex">Hex</option>
           <option value="rgba">RGBA</option>
