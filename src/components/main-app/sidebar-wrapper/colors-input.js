@@ -51,14 +51,14 @@ export default function ColorsInput() {
         <a
           href="#add"
           onClick={() => addColor()}
-          class="iconButton fa fa-lg fa-plus"
+          className="iconButton fa fa-lg fa-plus"
         >
           {' '}
         </a>
       </div>
       <div className="color-input">
         {colorsArray.map((color, key) => (
-          <>
+          <div className="display-inline" key={key}>
             <div
               className="color-input-item"
               style={
@@ -78,7 +78,7 @@ export default function ColorsInput() {
                 onClick={e => setItemColorStatus({ color, key })}
               ></div>
             </div>
-          </>
+          </div>
         ))}
       </div>
       {itemColorStatus ? (
