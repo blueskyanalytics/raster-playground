@@ -2,10 +2,22 @@ import Map from 'ol/Map';
 import XYZ from 'ol/source/XYZ';
 import { Tile as TileLayer } from 'ol/layer';
 import View from 'ol/View';
+import { Control, defaults as defaultControls } from 'ol/control';
 
-export default function initMap({ rasterLayer, clipLayer, boundaryLayer }) {
+export default function initMap({
+  rasterLayer,
+  clipLayer,
+  boundaryLayer,
+  position,
+}) {
+  var element = document.createElement('div');
+  element.innerHTML = '<i class="fa fa-map-marker iconButton"></i>';
+  element.className = 'current-location-button';
+  element.addEventListener('click', position);
+
   return new Map({
     target: 'map',
+    controls: defaultControls().extend([new Control({ element })]),
     view: new View({ center: [0, 0], zoom: 0 }),
     layers: [
       new TileLayer({
