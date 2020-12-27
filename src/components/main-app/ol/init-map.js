@@ -3,8 +3,12 @@ import XYZ from 'ol/source/XYZ';
 import { Tile as TileLayer } from 'ol/layer';
 import View from 'ol/View';
 
+import { defaults as defaultControls } from 'ol/control';
+import CurrentLocationControl from './controls/current-location';
+
 export default function initMap({ rasterLayer, clipLayer, boundaryLayer }) {
   return new Map({
+    controls: defaultControls().extend([new CurrentLocationControl()]),
     target: 'map',
     view: new View({ center: [0, 0], zoom: 0 }),
     layers: [
