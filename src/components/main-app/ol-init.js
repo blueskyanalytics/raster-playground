@@ -23,6 +23,9 @@ export default function OlInit() {
     }
 
     if (olInstances.shapeSource && shape && prevShape !== shape) {
+      setTimeout(() => {
+        olInstances.map.getView().fit(olInstances.shapeSource.getExtent(), olInstances.map.getSize());
+      }, 1000);
       olInstances.shapeSource.setUrl(shape);
       olInstances.shapeSource.refresh();
     }
@@ -38,7 +41,7 @@ export default function OlInit() {
   return (
     <>
       <div>
-        <div id="map" className="main-map"></div>
+        <div style={{width: `${window.innerWidth-460}px`, position: 'absolute', top: 0, right: 0}} id="map" className="main-map"></div>
       </div>
     </>
   );
