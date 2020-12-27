@@ -26,17 +26,10 @@ export default function Sidebar() {
         <h1 className="logo">
           Raster<span>Playground</span>
         </h1>
-        <hr />
         <ShapeInput />
-        <br />
-        <br />
         <TilesInput />
-        <br />
-        <br />
         <ColorsInput />
-        <br />
         <AlphaInput />
-        <br />
         <ColorDataViewer data={text} />
       </div>
     </div>

@@ -6,8 +6,8 @@ export default function AlphaInput() {
   const [opacity, onChangeOpacity] = useQueryParam(URL_OPACITY, StringParam);
 
   return (
-    <div id="alpha-input">
-      <p>Alpha Value (0-1)</p>
+    <div id="alpha-input" className="sidebar-section-container">
+      <header>Alpha Value (0-1)</header>
       <input
         type="number"
         value={opacity}

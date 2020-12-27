@@ -46,7 +46,7 @@ export default function ColorsInput() {
   };
 
   return (
-    <>
+    <section className="sidebar-section-container">
       <div className="color-row">
         <p>Colors Palette</p>{' '}
         <a
@@ -54,7 +54,6 @@ export default function ColorsInput() {
           onClick={() => addColor()}
           class="iconButton fa fa-lg fa-plus"
         >
-          {' '}
         </a>
       </div>
       <div className="color-input">
@@ -96,6 +95,6 @@ export default function ColorsInput() {
           />
         </div>
       ) : null}
-    </>
+    </section>
   );
 }
