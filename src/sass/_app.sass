@@ -88,6 +88,8 @@
     font-size: 15px
     border-radius: 6px
 
+.display-inline
+    display: inline
 
 @media only screen and (max-width: 1440px)
     .sidebar
@@ -100,3 +102,16 @@
 @media only screen and (max-width: 1280px)
     .sidebar
         width: 360px
+
+@media only screen and (max-width: 769px)
+    .sidebar
+        width: 100%
+        height: auto
+
+        .sidebar-wrapper
+            .expand-sidebar-button
+                float: right
+                margin-top: 7px
+
+            h1
+                font-size: 30px
