@@ -7,20 +7,25 @@
     left: 0
     z-index: 1
     box-shadow: 4px 0px 15px #00000029
-    overflow-y: auto
+    overflow-y: scroll
+    scroll-behavior: smooth
 
     .sidebar-wrapper
         padding: 20px
 
-        hr 
+        hr
             margin-bottom: 30px
 
-        h1 
+        h1
             font-weight: 700
             margin-top: 0px
             margin-bottom: 10px
-            span 
+
+            span
                 font-weight: 300
+
+::-webkit-scrollbar
+    display: none
 
 .input-text
     width: -webkit-fill-available
@@ -30,7 +35,7 @@
     background: #eee
     margin-top: 5px
 
-.color-row 
+.color-row
     display: flex
     flex-direction: row
     flex-wrap: wrap
@@ -76,6 +81,40 @@
             svg
                 width: 10px
 
+#alpha-input
+    display: flex
+    align-items: center
+
+    p
+        flex-grow: 1
+
+    input
+        max-width: 130px
+
+#color-data-viewer
+
+    .viewer
+        background: #eeeeee
+        color: #000000df
+        height: 20px
+        padding: 20px 15px
+        width: 90%
+
+        display: inline-flex
+        align-items: center
+        justify-content: space-between
+
+        span
+            font-size: 12px
+            white-space: nowrap
+            max-width: 85%
+            overflow-x: scroll
+            box-sizing: content-box
+            scroll-behavior: smooth
+
+        ::-webkit-scrollbar
+            display: none
+
 .fa.iconButton
     width: 30px
     height: 18px
@@ -87,7 +126,6 @@
     justify-content: center
     font-size: 15px
     border-radius: 6px
-
 
 @media only screen and (max-width: 1440px)
     .sidebar

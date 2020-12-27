@@ -6,7 +6,7 @@ export default function AlphaInput() {
   const [opacity, onChangeOpacity] = useQueryParam(URL_OPACITY, StringParam);
 
   return (
-    <>
+    <div id="alpha-input">
       <p>Alpha Value (0-1)</p>
       <input
         type="number"
@@ -18,6 +18,6 @@ export default function AlphaInput() {
         max="1"
         onChange={e => onChangeOpacity(e.target.value, URL_UPDATE_PUSH)}
       />
-    </>
+    </div>
   );
 }

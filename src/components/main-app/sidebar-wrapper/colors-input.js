@@ -9,6 +9,7 @@ const popover = {
   position: 'absolute',
   zIndex: '3',
 };
+
 const cover = {
   position: 'fixed',
   top: '0px',

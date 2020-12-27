@@ -7,6 +7,7 @@ import {
   ShapeInput,
   ColorsInput,
   AlphaInput,
+  ColorDataViewer,
 } from './sidebar-wrapper';
 
 export default function Sidebar() {
@@ -36,8 +37,7 @@ export default function Sidebar() {
         <br />
         <AlphaInput />
         <br />
-        <br />
-        <div>{JSON.stringify(text)}</div>
+        <ColorDataViewer data={text} />
       </div>
     </div>
   );
