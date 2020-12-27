@@ -4,6 +4,7 @@ import 'ol/ol.css';
 import { URL_SHAPE, URL_TILES, URL_COLORS, URL_OPACITY } from 'config';
 import { useQueryParam, StringParam } from 'use-query-params';
 import { usePrevious } from 'react-use';
+import { unByKey } from 'ol/Observable';
 
 export default function OlInit() {
   const [shape] = useQueryParam(URL_SHAPE, StringParam);
@@ -25,6 +26,15 @@ export default function OlInit() {
     if (olInstances.shapeSource && shape && prevShape !== shape) {
       olInstances.shapeSource.setUrl(shape);
       olInstances.shapeSource.refresh();
+
+      let source = olInstances.shapeSource;
+      var listenerKey = source.on('change', function (e) {
+        if (source.getState() === 'ready') {
+          var extent = source.getExtent();
+          olInstances.map.getView().fit(extent, { padding: [20, 20, 20, 420] });
+          unByKey(listenerKey);
+        }
+      });
     }
 
     if (olInstances.rasterLayer) {
