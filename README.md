@@ -28,7 +28,7 @@ This utility helps simulate the color schemes quickly, along with clipping & map
     - [X] Alpha color (0 - transparent)
     - [ ] Copy color in different format - HEX, RGBA, HSLA (JSON)
     - [ ] Download color format for ASE, GIMP/Inscape color scheme
-- [ ] Mobile version 
+- [X] Mobile version 
 - [ ] Search bar to search places 
 - [ ] Go to current location
 
