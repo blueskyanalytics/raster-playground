@@ -1,7 +1,7 @@
 {
-    "compilerOptions": {
-      "baseUrl": "src"
-    },
-    "include": ["src"]
-  }
-  
+  "compilerOptions": {
+    "baseUrl": "src",
+    "sourceMap": true
+  },
+  "include": ["src"]
+}
