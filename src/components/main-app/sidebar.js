@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { StringParam, useQueryParam } from 'use-query-params';
 import { copyColor, getColorsArray } from 'utils';
 import { ReactComponent as MenuIconSVG } from 'assets/svg/menu-icon.svg';
-import appConstants from 'constants/app-constants';
+import { AppConstants } from 'constants/index';
 import {
   TilesInput,
   ShapeInput,
@@ -43,7 +43,7 @@ export default function Sidebar() {
 
   return (
     <div>
-      {window.innerWidth > appConstants.SCREEN_WIDTH_LIMIT ? (
+      {window.innerWidth > AppConstants.SCREEN_WIDTH_LIMIT ? (
         <div className="sidebar">
           <div className="sidebar-wrapper">
             <h1 className="logo">
