@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-import GenericContainer, {
-  GenericCopyTextContainer,
-} from './generic-container';
+import { GenericContainer, GenericCopyTextContainer } from './';
 
 const ColorDataViewer = ({ data }) => {
   const [text, setText] = useState(JSON.stringify(data));

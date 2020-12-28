@@ -8,20 +8,21 @@
     align-items: center
     justify-content: center
 
-    box-shadow: 0 0 10px -3px rgba(0,0,0, 0.35)
-
 #sidebar-open-button
     z-index: 1
     bottom: 30px
     left: 30px
     position: fixed
     background: #eee
+    box-shadow: 0 0 10px -3px rgba(0,0,0, 0.35)
 
 #sidebar-close-button
     background: #fff
+    box-shadow: 0 0 10px -3px #777777
     position: absolute
     right: 30px
     top: 18px
+    opacity: 0.75
 
 .sidebar
     width: 460px
@@ -46,11 +47,27 @@
             margin-top: 0px
             margin-bottom: 10px
 
+            user-select: none
+
             span
                 font-weight: 300
 
-::-webkit-scrollbar
-    display: none
+    .sidebar-section-container
+        color: #000000bf
+        margin: 14px 0
+        border-bottom: 1px solid #000000af
+
+        .close
+
+        header
+            cursor: default
+            padding: 7px 2px
+            margin-bottom: 2px
+
+            user-select: none
+
+    &::-webkit-scrollbar
+        display: none
 
 .input-text
     width: -webkit-fill-available
@@ -58,64 +75,26 @@
     border: 0
     outline: 0
 
-.color-row
+.color-picker-overlay
+    position: fixed
+    bottom: 10px
+    left: 3%
+    z-index: 5
+
     display: flex
-    flex-direction: row
-    flex-wrap: wrap
-    justify-content: space-between
-    align-items: baseline
+    align-items: flex-start
+    width: 100%
 
-.color-input
-    width: -webkit-fill-available
-    width: -moz-available
-    margin-top: 20px
+    .picker
+        top: 10px
 
-    .color-input-item
-        width: 27%
-        border: 5px solid #eee
-        margin: 5px
-        height: 40px
-        display: inline-block
-        cursor: pointer
-        position: relative
-
-        .color-input-item-overlay
-            width: 100%
-            height: 40px
-            background: transparent
-            position: absolute
-            top: 0
-            left: 0
-
-        .color-input-item-close
-            top: -15px
-            right: -10px
-            position: absolute
-            z-index: 2
-            background: white
-            border-radius: 50%
-            width: 18px
-            height: 18px
-            display: flex
-            align-items: center
-            justify-content: center
-            box-shadow: 0px 2px 4px #0000004f
-
-            svg
-                width: 10px
-
-#alpha-input
-    display: flex
-    align-items: center
-
-    header
-        flex-grow: 1
-
-    input
-        max-width: 40%
-        padding: 15px
-        margin-top: 5px
-        background: #eee
+    .picker-close
+        background: #fff
+        margin: 5px 10px
+        padding: 5px 10px
+        padding-top: 10px
+        border: 2px solid #0000009f
+        border-radius: 10px
 
 #color-data-viewer, #tiles-container, #shape-url-container
 
@@ -146,6 +125,71 @@
         ::-webkit-scrollbar
             display: none
 
+#colors-container
+
+    .colors-container-grid
+        display: grid
+        grid-template-rows: repeat(auto, 1fr)
+        grid-template-columns: repeat(3, 30%)
+
+        gap: 10px
+
+        align-items: center
+        justify-content: center
+
+        .grid-item
+
+            .color-input-item
+                padding: 5px 10px
+                color: rgba(0,0,0,0.75)
+                cursor: pointer
+
+            .add-new-color-button
+                padding: 0px 10px
+                padding-top: 5px
+                opacity: 75%
+                cursor: pointer
+                background: #ccc
+
+                text-align: center
+                vertical-align: middle
+
+        .color-control-unit
+            position: relative
+
+            .color-input-item
+
+            .color-control-remove
+                position: absolute
+                top: -9px
+                right: -7px
+                z-index: 5
+
+                background: #fff
+                color: #222222
+
+                padding: 1px 5px 
+                padding-top: 3px
+                border-radius: 5px
+
+                box-shadow: 0 0 5px -1px rgba(0,0,0,0.25)
+
+
+
+
+#alpha-input
+    display: flex
+    align-items: center
+
+    header
+        flex-grow: 1
+
+    input
+        max-width: 40%
+        padding: 15px
+        margin-top: 5px
+        background: #eee
+
 .fa.iconButton
     width: 30px
     height: 18px
@@ -157,20 +201,6 @@
     justify-content: center
     font-size: 15px
     border-radius: 6px
-
-.sidebar
-
-    .sidebar-section-container
-        color: #000000bf
-        margin: 14px 0
-        border-bottom: 1px solid #000000af
-
-        .close
-
-        header
-            cursor: default
-            padding: 7px 2px
-            margin-bottom: 2px
 
 @media only screen and (max-width: 1440px)
     .sidebar

@@ -2,7 +2,7 @@ import React from 'react';
 import { URL_SHAPE, URL_UPDATE_PUSH } from 'config';
 import { StringParam, useQueryParam } from 'use-query-params';
 
-import GenericContainer, {GenericCopyTextContainer} from "./generic-container";
+import { GenericContainer, GenericCopyTextContainer} from "./";
 
 export default function ShapeInput() {
   const [shape, onChangeShape] = useQueryParam(URL_SHAPE, StringParam);
