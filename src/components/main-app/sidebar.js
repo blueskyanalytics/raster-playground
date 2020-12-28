@@ -2,6 +2,7 @@ import { URL_COLORS, URL_OPACITY } from 'config';
 import React, { useEffect, useState } from 'react';
 import { StringParam, useQueryParam } from 'use-query-params';
 import { copyColor, getColorsArray } from 'utils';
+import JSONPretty from 'react-json-pretty';
 import {
   TilesInput,
   ShapeInput,
@@ -13,6 +14,8 @@ export default function Sidebar() {
   const [colors] = useQueryParam(URL_COLORS, StringParam);
   const [opacity] = useQueryParam(URL_OPACITY, StringParam);
   const [text, setText] = useState('');
+
+  const data = JSON.stringify(text);
 
   useEffect(() => {
     const colorArray = getColorsArray(colors);
@@ -37,7 +40,18 @@ export default function Sidebar() {
         <AlphaInput />
         <br />
         <br />
-        <div>{JSON.stringify(text)}</div>
+        <div>
+          <JSONPretty themeClassName="custom-json-pretty"  id="json-pretty" data={data}></JSONPretty>
+          <div style={{marginTop: '10px' }}>
+            <button
+              onClick={() => {
+                navigator.clipboard.writeText(data);
+              }}
+            >
+              Copy
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   );
