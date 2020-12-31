@@ -51,7 +51,7 @@ export default function ColorsInput() {
         <a
           href="#add"
           onClick={() => addColor()}
-          class="iconButton fa fa-lg fa-plus"
+          className="iconButton fa fa-lg fa-plus"
         >
           {' '}
         </a>

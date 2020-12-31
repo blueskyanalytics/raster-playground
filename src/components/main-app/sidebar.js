@@ -3,6 +3,8 @@ import React, { useEffect, useState } from 'react';
 import { StringParam, useQueryParam } from 'use-query-params';
 import { copyColor, getColorsArray } from 'utils';
 import {
+  SearchCountry,
+  LocationButton,
   TilesInput,
   ShapeInput,
   ColorsInput,
@@ -26,6 +28,12 @@ export default function Sidebar() {
           Raster<span>Playground</span>
         </h1>
         <hr />
+        <SearchCountry />
+        <br/>
+        <br/>
+        <LocationButton />
+        <br />
+        <br />
         <ShapeInput />
         <br />
         <br />

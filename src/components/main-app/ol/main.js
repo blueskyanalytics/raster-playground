@@ -1,5 +1,7 @@
 import { clipRasterLayer, dragMap, initMap, loadRasterLayer } from './';
 import { getColorsArray, getRgbColorsArray } from 'utils';
+import {setMapData} from 'api/update-map'
+import View from 'ol/View'
 
 let map = null;
 let rasterSource = null;
@@ -39,7 +41,9 @@ export default function olMain({ shape, tiles, colors, opacity }) {
   const boundaryLayer = clipRaster.boundaryLayer;
   shapeSource = clipRaster.shapeSource;
 
-  map = initMap({ rasterLayer, clipLayer, boundaryLayer });
+  let view = new View({ center: [0, 0], zoom: 0 });
+  map = initMap({ view, rasterLayer, clipLayer, boundaryLayer }); 
+  setMapData(map);
   dragMap(map);
   return { map, rasterSource, rasterLayer, shapeSource, rasterColorSource };
 }
