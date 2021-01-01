@@ -76,6 +76,35 @@
             svg
                 width: 10px
 
+#shape-file-upload-button
+
+    main 
+        display: flex
+        align-items: center
+        justify-items: space-between
+
+        background: #eeeeee
+        color: #222222
+        padding: 14px 20px
+        margin: 12px 0
+
+        .upload-text
+            flex-grow: 1
+
+        .upload-button
+            position: relative
+            
+            input[type="file"]
+                position: absolute
+                top: 0
+                left: 0
+
+                opacity: 0
+                height: 100%
+                width: 100%
+
+
+
 .fa.iconButton
     width: 30px
     height: 18px

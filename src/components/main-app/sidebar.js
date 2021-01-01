@@ -1,12 +1,13 @@
 import { URL_COLORS, URL_OPACITY } from 'config';
 import React, { useEffect, useState } from 'react';
 import { StringParam, useQueryParam } from 'use-query-params';
-import { copyColor, getColorsArray } from 'utils';
+import { copyColor, getColorsArray} from 'utils';
 import {
   TilesInput,
   ShapeInput,
   ColorsInput,
   AlphaInput,
+  ShapeFileUpload
 } from './sidebar-wrapper';
 
 export default function Sidebar() {
@@ -32,6 +33,9 @@ export default function Sidebar() {
         <TilesInput />
         <br />
         <br />
+        <ShapeFileUpload />
+        <br/>
+        <br/>
         <ColorsInput />
         <br />
         <AlphaInput />

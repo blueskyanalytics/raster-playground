@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
-import shapeData from './shape-data';
+import shapeReducer from './shape-reducer';
 
-const rootReducer = combineReducers({
-  shapeData: shapeData,
+const reducers = combineReducers({
+  shape: shapeReducer,
 });
 
-export default rootReducer;
+export default reducers;

@@ -1,0 +1,1 @@
+export const UPDATE_SHAPE_DATA = 'UPDATE_SHAPE_DATA';
