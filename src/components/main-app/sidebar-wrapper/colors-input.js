@@ -1,14 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import { StringParam, useQueryParam } from 'use-query-params';
 import { URL_COLORS, URL_UPDATE_PUSH } from 'config';
 import { ReactComponent as CloseSVG } from 'assets/svg/close.svg';
 import { getColorsArray, getColorsString } from 'utils';
 import { ChromePicker } from 'react-color';
+import {Collapse} from 'react-collapse';
 
 const popover = {
   position: 'absolute',
   zIndex: '3',
 };
+
 const cover = {
   position: 'fixed',
   top: '0px',
@@ -44,57 +46,78 @@ export default function ColorsInput() {
     onChangeColor(getColorsString(tempColorsArray), URL_UPDATE_PUSH);
   };
 
+  const [isButtonCollapseOpen, setIsButtonCollapseOpen] = useState(false);
+
+  const onClick = useCallback(
+    () => setIsButtonCollapseOpen(!isButtonCollapseOpen),
+    [isButtonCollapseOpen]
+  );
+
   return (
     <>
       <div className="color-row">
-        <p>Colors Palette</p>{' '}
-        <a
-          href="#add"
-          onClick={() => addColor()}
-          class="iconButton fa fa-lg fa-plus"
-        >
-          {' '}
-        </a>
+        <p>
+          <span>
+            <button
+              className="fa fa-compress"
+              onClick={onClick}
+              type="button">
+              
+            </button>
+          </span>
+          Colors Palette
+        </p>{' '}
+        <Collapse isOpened={isButtonCollapseOpen}>
+          <a
+            href="#add"
+            onClick={() => addColor()}
+            class="iconButton fa fa-lg fa-plus"
+          >
+            {' '}
+          </a>
+        </Collapse>
       </div>
-      <div className="color-input">
-        {colorsArray.map((color, key) => (
-          <>
-            <div
-              className="color-input-item"
-              style={
-                itemColorStatus && itemColorStatus.key === key
-                  ? { background: color, borderColor: 'black' }
-                  : { background: color }
-              }
-            >
+      <Collapse isOpened={isButtonCollapseOpen}>
+        <div className="color-input">
+          {colorsArray.map((color, key) => (
+            <>
               <div
-                className="color-input-item-close"
-                onClick={e => deleteColor(key, colorsArray, onChangeColor)}
+                className="color-input-item"
+                style={
+                  itemColorStatus && itemColorStatus.key === key
+                    ? { background: color, borderColor: 'black' }
+                    : { background: color }
+                }
               >
-                <CloseSVG />
+                <div
+                  className="color-input-item-close"
+                  onClick={e => deleteColor(key, colorsArray, onChangeColor)}
+                >
+                  <CloseSVG />
+                </div>
+                <div
+                  className="color-input-item-overlay"
+                  onClick={e => setItemColorStatus({ color, key })}
+                ></div>
               </div>
-              <div
-                className="color-input-item-overlay"
-                onClick={e => setItemColorStatus({ color, key })}
-              ></div>
-            </div>
-          </>
-        ))}
-      </div>
-      {itemColorStatus ? (
-        <div style={popover}>
-          <div
-            style={cover}
-            onClick={() => {
-              setItemColorStatus(false);
-            }}
-          />
-          <ChromePicker
-            color={itemColorStatus.color}
-            onChange={changeItemColor}
-          />
+            </>
+          ))}
         </div>
-      ) : null}
+        {itemColorStatus ? (
+          <div style={popover}>
+            <div
+              style={cover}
+              onClick={() => {
+                setItemColorStatus(false);
+              }}
+            />
+            <ChromePicker
+              color={itemColorStatus.color}
+              onChange={changeItemColor}
+            />
+          </div>
+        ) : null}
+      </Collapse>
     </>
   );
 }
