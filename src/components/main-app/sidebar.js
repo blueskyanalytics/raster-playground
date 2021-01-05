@@ -12,11 +12,12 @@ import {
 export default function Sidebar() {
   const [colors] = useQueryParam(URL_COLORS, StringParam);
   const [opacity] = useQueryParam(URL_OPACITY, StringParam);
-  const [text, setText] = useState('');
+  const [rgbaColors, setRgbaColors] = useState([]);
 
   useEffect(() => {
     const colorArray = getColorsArray(colors);
-    setText(copyColor(colorArray, opacity));
+    const rgbaColorList = copyColor(colorArray, opacity);
+    setRgbaColors(rgbaColorList);
   }, [colors, opacity]);
 
   return (
@@ -37,7 +38,7 @@ export default function Sidebar() {
         <AlphaInput />
         <br />
         <br />
-        <div>{JSON.stringify(text)}</div>
+        <div>{JSON.stringify(rgbaColors)}</div>
       </div>
     </div>
   );
