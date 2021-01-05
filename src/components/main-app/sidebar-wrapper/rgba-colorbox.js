@@ -1,8 +1,18 @@
 import PropTypes from 'prop-types';
+import { rgba } from 'polished';
 
 function RgbaColorBox({ color }) {
-  const bgColor = `rgba(${color.a}, ${color.g}, ${color.b}, ${color.a})`;
-  return <p style={{ width: 20, height: 20, backgroundColor: bgColor }}> </p>;
+  return (
+    <p
+      style={{
+        width: 20,
+        height: 20,
+        backgroundColor: rgba(color.r, color.g, color.b, color.a),
+      }}
+    >
+      {' '}
+    </p>
+  );
 }
 
 RgbaColorBox.propTypes = {
