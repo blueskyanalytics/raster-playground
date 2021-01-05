@@ -7,6 +7,7 @@ import {
   ShapeInput,
   ColorsInput,
   AlphaInput,
+  RgbaList,
 } from './sidebar-wrapper';
 
 export default function Sidebar() {
@@ -16,7 +17,7 @@ export default function Sidebar() {
 
   useEffect(() => {
     const colorArray = getColorsArray(colors);
-    const rgbaColorList = copyColor(colorArray, opacity);
+    const rgbaColorList = copyColor(colorArray, opacity) || [];
     setRgbaColors(rgbaColorList);
   }, [colors, opacity]);
 
@@ -38,7 +39,7 @@ export default function Sidebar() {
         <AlphaInput />
         <br />
         <br />
-        <div>{JSON.stringify(rgbaColors)}</div>
+        <RgbaList colors={rgbaColors} />
       </div>
     </div>
   );

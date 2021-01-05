@@ -12,14 +12,14 @@
     .sidebar-wrapper
         padding: 20px
 
-        hr 
+        hr
             margin-bottom: 30px
 
-        h1 
+        h1
             font-weight: 700
             margin-top: 0px
             margin-bottom: 10px
-            span 
+            span
                 font-weight: 300
 
 .input-text
@@ -30,7 +30,7 @@
     background: #eee
     margin-top: 5px
 
-.color-row 
+.color-row
     display: flex
     flex-direction: row
     flex-wrap: wrap
@@ -76,6 +76,28 @@
             svg
                 width: 10px
 
+/* Sidebar RGBA colors view */
+.sidebar-rgba
+    &-title
+        padding-bottom: 0.5rem
+        margin-bottom: 1rem
+        border-bottom: 1px solid lightgrey
+    &-colorlist
+        padding-left: 0
+        display: flex
+        justify-content: flex-start
+        align-items: center
+        list-style: none
+    &-colorlist-item
+        margin-right: 0.5rem
+        flex: 1
+        &:nth-child(1)
+            color: red
+        &:nth-child(2)
+            color: green
+        &:nth-child(3)
+            color: blue
+
 .fa.iconButton
     width: 30px
     height: 18px
@@ -87,7 +109,6 @@
     justify-content: center
     font-size: 15px
     border-radius: 6px
-
 
 @media only screen and (max-width: 1440px)
     .sidebar
