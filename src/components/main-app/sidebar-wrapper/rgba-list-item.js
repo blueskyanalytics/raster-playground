@@ -1,14 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { colorValidator } from 'utils';
 
 function RgbaListItem({ color }) {
   const renderColor = () => {
     const colorJsx = Object.keys(color).map(colorKey => (
-          <li className="sidebar-rgba-colorlist-item">
-            <p>
-              <strong>{colorKey.toUpperCase()}:</strong> {color[colorKey]}
-            </p>
-          </li>
+      <li className="sidebar-rgba-colorlist-item">
+        <p>
+          <strong>{colorKey.toUpperCase()}:</strong> {color[colorKey]}
+        </p>
+      </li>
     ));
     return colorJsx;
   };
@@ -17,7 +18,21 @@ function RgbaListItem({ color }) {
 }
 
 RgbaListItem.propTypes = {
-  color: PropTypes.object.isRequired,
+  color: PropTypes.shape({
+    r: colorValidator.validateRgb,
+    g: colorValidator.validateRgb,
+    b: colorValidator.validateRgb,
+    a: colorValidator.validateAlpha,
+  }).isRequired,
+};
+
+RgbaListItem.defaultProps = {
+  color: {
+    r: 0,
+    g: 0,
+    b: 0,
+    a: 0,
+  },
 };
 
 export default RgbaListItem;
