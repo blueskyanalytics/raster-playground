@@ -38,23 +38,24 @@ export default function olMain({
     tiles,
   });
 
-  const _rasterLayer = loadedRasterLayer.rasterLayer;
-  const _rasterSource = loadedRasterLayer.rasterSource;
-  const _rasterColorSource = loadedRasterLayer.rasterColorSource;
+  const curRasterLayer = loadedRasterLayer.rasterLayer;
+  const curRasterSource = loadedRasterLayer.rasterSource;
+  const curRasterColorSource = loadedRasterLayer.rasterColorSource;
 
   const clipRaster = clipRasterLayer({
-    rasterLayer: _rasterLayer,
+    rasterLayer: curRasterLayer,
     shape: shape,
   });
+
   const clipLayer = clipRaster.clipLayer;
   const boundaryLayer = clipRaster.boundaryLayer;
-  const _shapeSource = clipRaster.shapeSource;
+  const curShapeSource = clipRaster.shapeSource;
 
   const view = loadMapView();
   const geolocationLayer = loadGeolocation(view);
 
   const newMap = initMap({
-    rasterLayer: _rasterLayer,
+    rasterLayer: curRasterLayer,
     clipLayer: clipLayer,
     boundaryLayer: boundaryLayer,
     geolocationLayer: geolocationLayer,
@@ -64,9 +65,9 @@ export default function olMain({
   dragMap(newMap);
   return {
     map: newMap,
-    rasterSource: _rasterSource,
-    rasterLayer: _rasterLayer,
-    shapeSource: _shapeSource,
-    rasterColorSource: _rasterColorSource,
+    rasterSource: curRasterSource,
+    rasterLayer: curRasterLayer,
+    shapeSource: curShapeSource,
+    rasterColorSource: curRasterColorSource,
   };
 }
