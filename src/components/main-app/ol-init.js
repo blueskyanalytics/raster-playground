@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import olMain from './ol/main';
 import 'ol/ol.css';
 import { URL_SHAPE, URL_TILES, URL_COLORS, URL_OPACITY } from 'config';
@@ -6,6 +6,12 @@ import { useQueryParam, StringParam } from 'use-query-params';
 import { usePrevious } from 'react-use';
 
 export default function OlInit() {
+  const [map, updateMap] = useState(null);
+  const [rasterSource, setRasterSource] = useState(null);
+  const [rasterColorSource, setRasterColorSource] = useState(null);
+  const [rasterLayer, setRasterLayer] = useState(null);
+  let [shapeSource, setShapeSource] = useState(null);
+
   const [shape] = useQueryParam(URL_SHAPE, StringParam);
   const [tiles] = useQueryParam(URL_TILES, StringParam);
   const [colors] = useQueryParam(URL_COLORS, StringParam);
@@ -14,8 +20,28 @@ export default function OlInit() {
   const prevTiles = usePrevious(tiles);
   const prevShape = usePrevious(shape);
 
+  const updateState = newState => {
+    updateMap(newState.map);
+    setRasterSource(newState.rasterSource);
+    setRasterColorSource(newState.rasterColorSource);
+    setRasterLayer(newState.rasterLayer);
+    setShapeSource(newState.shapeSource);
+  };
+
   useEffect(() => {
-    const olInstances = olMain({ shape, tiles, colors, opacity });
+    const olInstances = olMain({
+      shape,
+      tiles,
+      colors,
+      opacity,
+      rasterSource,
+      rasterColorSource,
+      rasterLayer,
+      shapeSource,
+      map,
+    });
+
+    updateState(olInstances);
 
     if (olInstances.rasterSource && shape && prevTiles !== tiles) {
       olInstances.rasterSource.setUrl(tiles);
@@ -34,7 +60,20 @@ export default function OlInit() {
     if (olInstances.rasterSource) {
       olInstances.rasterSource.refresh();
     }
-  }, [shape, tiles, colors, opacity, prevTiles, prevShape]);
+  }, [
+    shape,
+    tiles,
+    colors,
+    opacity,
+    prevTiles,
+    prevShape,
+    map,
+    rasterLayer,
+    rasterSource,
+    rasterColorSource,
+    shapeSource,
+  ]);
+
   return (
     <>
       <div>

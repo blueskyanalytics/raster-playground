@@ -1,13 +1,17 @@
 import { clipRasterLayer, dragMap, initMap, loadRasterLayer } from './';
 import { getColorsArray, getRgbColorsArray } from 'utils';
 
-let map = null;
-let rasterSource = null;
-let rasterColorSource = null;
-let rasterLayer = null;
-let shapeSource = null;
-
-export default function olMain({ shape, tiles, colors, opacity }) {
+export default function olMain({
+  shape,
+  tiles,
+  colors,
+  opacity,
+  map,
+  rasterSource,
+  rasterColorSource,
+  rasterLayer,
+  shapeSource,
+}) {
   const spectrumColor = getColorsArray(colors);
   const rgbColorsArray = getRgbColorsArray(
     spectrumColor.length >= 2 ? spectrumColor : ['#000000', '#ffffff']
@@ -21,25 +25,35 @@ export default function olMain({ shape, tiles, colors, opacity }) {
   if (map)
     return { map, rasterLayer, rasterSource, shapeSource, rasterColorSource };
 
-  const loadRaster = loadRasterLayer({
-    rasterSource,
-    rasterColorSource,
+  const loadedRasterLayer = loadRasterLayer({
     rgbColorsArray,
-    rasterLayer,
     opacity,
     tiles,
   });
 
-  rasterLayer = loadRaster.rasterLayer;
-  rasterSource = loadRaster.rasterSource;
-  rasterColorSource = loadRaster.rasterColorSource;
+  const _rasterLayer = loadedRasterLayer.rasterLayer;
+  const _rasterSource = loadedRasterLayer.rasterSource;
+  const _rasterColorSource = loadedRasterLayer.rasterColorSource;
 
-  const clipRaster = clipRasterLayer({ rasterLayer, shape });
+  const clipRaster = clipRasterLayer({
+    rasterLayer: _rasterLayer,
+    shape: shape,
+  });
   const clipLayer = clipRaster.clipLayer;
   const boundaryLayer = clipRaster.boundaryLayer;
-  shapeSource = clipRaster.shapeSource;
+  const _shapeSource = clipRaster.shapeSource;
 
-  map = initMap({ rasterLayer, clipLayer, boundaryLayer });
-  dragMap(map);
-  return { map, rasterSource, rasterLayer, shapeSource, rasterColorSource };
+  const newMap = initMap({
+    rasterLayer: _rasterLayer,
+    clipLayer: clipLayer,
+    boundaryLayer: boundaryLayer,
+  });
+  dragMap(newMap);
+  return {
+    map: newMap,
+    rasterSource: _rasterSource,
+    rasterLayer: _rasterLayer,
+    shapeSource: _shapeSource,
+    rasterColorSource: _rasterColorSource,
+  };
 }

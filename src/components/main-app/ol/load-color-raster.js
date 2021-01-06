@@ -7,22 +7,15 @@ import XYZ from 'ol/source/XYZ';
  * @param {*} rasterColorSource = Raster Coloured source value before colorization
  * @param {*} rgbColorsArray = RGB colour scheme for a data attribute
  */
-export default function loadRasterLayer({
-  rasterSource,
-  rasterColorSource,
-  rgbColorsArray,
-  rasterLayer,
-  opacity,
-  tiles,
-}) {
+export default function loadRasterLayer({ rgbColorsArray, opacity, tiles }) {
   //Raster source initilization using XYZ tile type
-  rasterSource = new XYZ({
+  const rasterSource = new XYZ({
     url: tiles,
     crossOrigin: 'anonymous',
   });
 
   //Running colourization on raster source
-  rasterColorSource = new RasterSource({
+  const rasterColorSource = new RasterSource({
     sources: [rasterSource],
     operation: function (pixels, data) {
       const pixel = pixels[0];
@@ -44,7 +37,7 @@ export default function loadRasterLayer({
   });
 
   //Generating image out of coloured raster source
-  rasterLayer = new ImageLayer({
+  const rasterLayer = new ImageLayer({
     source: rasterColorSource,
     opacity: opacity ? parseFloat(opacity) : 1,
   });
