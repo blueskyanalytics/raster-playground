@@ -1,4 +1,10 @@
-import { clipRasterLayer, dragMap, initMap, loadRasterLayer } from './';
+import {
+  clipRasterLayer,
+  dragMap,
+  initMap,
+  loadRasterLayer,
+  loadMapView,
+} from './';
 import { getColorsArray, getRgbColorsArray } from 'utils';
 
 export default function olMain({
@@ -43,11 +49,15 @@ export default function olMain({
   const boundaryLayer = clipRaster.boundaryLayer;
   const _shapeSource = clipRaster.shapeSource;
 
+  const view = loadMapView();
+
   const newMap = initMap({
     rasterLayer: _rasterLayer,
     clipLayer: clipLayer,
     boundaryLayer: boundaryLayer,
+    view: view,
   });
+
   dragMap(newMap);
   return {
     map: newMap,

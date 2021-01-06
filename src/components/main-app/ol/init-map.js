@@ -1,12 +1,16 @@
 import Map from 'ol/Map';
 import XYZ from 'ol/source/XYZ';
 import { Tile as TileLayer } from 'ol/layer';
-import View from 'ol/View';
 
-export default function initMap({ rasterLayer, clipLayer, boundaryLayer }) {
+export default function initMap({
+  rasterLayer,
+  clipLayer,
+  boundaryLayer,
+  view,
+}) {
   return new Map({
     target: 'map',
-    view: new View({ center: [0, 0], zoom: 0 }),
+    view: view,
     layers: [
       new TileLayer({
         className: true,
