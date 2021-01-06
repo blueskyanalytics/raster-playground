@@ -4,6 +4,7 @@ import {
   initMap,
   loadRasterLayer,
   loadMapView,
+  loadGeolocation,
 } from './';
 import { getColorsArray, getRgbColorsArray } from 'utils';
 
@@ -50,11 +51,13 @@ export default function olMain({
   const _shapeSource = clipRaster.shapeSource;
 
   const view = loadMapView();
+  const geolocationLayer = loadGeolocation(view);
 
   const newMap = initMap({
     rasterLayer: _rasterLayer,
     clipLayer: clipLayer,
     boundaryLayer: boundaryLayer,
+    geolocationLayer: geolocationLayer,
     view: view,
   });
 

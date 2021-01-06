@@ -6,6 +6,7 @@ export default function initMap({
   rasterLayer,
   clipLayer,
   boundaryLayer,
+  geolocationLayer,
   view,
 }) {
   return new Map({
@@ -22,6 +23,7 @@ export default function initMap({
       clipLayer,
       rasterLayer,
       boundaryLayer,
+      geolocationLayer,
     ],
   });
 }
