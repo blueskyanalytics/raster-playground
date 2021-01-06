@@ -43,22 +43,22 @@ export default function OlInit() {
 
     updateState(olInstances);
 
-    if (olInstances.rasterSource && shape && prevTiles !== tiles) {
-      olInstances.rasterSource.setUrl(tiles);
-      olInstances.rasterSource.refresh();
+    if (rasterSource && shape && prevTiles !== tiles) {
+      rasterSource.setUrl(tiles);
+      rasterSource.refresh();
     }
 
-    if (olInstances.shapeSource && shape && prevShape !== shape) {
-      olInstances.shapeSource.setUrl(shape);
-      olInstances.shapeSource.refresh();
+    if (shapeSource && shape && prevShape !== shape) {
+      shapeSource.setUrl(shape);
+      shapeSource.refresh();
     }
 
-    if (olInstances.rasterLayer) {
-      olInstances.rasterLayer.setOpacity(parseFloat(opacity));
+    if (rasterLayer) {
+      rasterLayer.setOpacity(parseFloat(opacity));
     }
 
-    if (olInstances.rasterSource) {
-      olInstances.rasterSource.refresh();
+    if (rasterSource) {
+      rasterSource.refresh();
     }
   }, [
     shape,
