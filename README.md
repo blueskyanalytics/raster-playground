@@ -20,7 +20,7 @@ This utility helps simulate the color schemes quickly, along with clipping & map
     - [ ] Shape file through uploads (from local system)
     - [X] Format available - TopoJson
     - [ ] More formats required (Geojson etc)
-    - [ ] Auto fit to shape file location (on file load)
+    - [X] Auto fit to shape file location (on file load)
 - [ ] Color selector 
     - [X] Add colors
     - [X] Remove colors
