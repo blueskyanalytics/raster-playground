@@ -40,7 +40,7 @@ export default function olMain({ shape, tiles, colors, opacity }) {
   shapeSource = clipRaster.shapeSource;
 
   map = initMap({ rasterLayer, clipLayer, boundaryLayer });
-  var geocoderControl = new geocoder('nominatim', {
+  const geocoderControl = new geocoder('nominatim', {
   provider: 'mapquest',
   key: 'A4fno8k38K7azCA4OEkMuVYUNm6mdl4G',
   lang: 'en-US', //en-US, fr-FR
