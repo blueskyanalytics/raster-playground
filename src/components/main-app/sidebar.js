@@ -8,7 +8,7 @@ import {
   ColorsInput,
   AlphaInput,
 } from './sidebar-wrapper';
-import {ThemeProvider} from "styled-components";
+import { ThemeProvider } from "styled-components";
 import { GlobalStyles } from "./themes/global-styles";
 import { lightTheme, darkTheme } from "./themes/themes"
 import { getSource } from '../../api/map-data'
