@@ -1,5 +1,6 @@
 import { clipRasterLayer, dragMap, initMap, loadRasterLayer } from './';
 import { getColorsArray, getRgbColorsArray } from 'utils';
+import { setBaseLayer } from '../../../utils/map-data';
 
 let map = null;
 let rasterSource = null;
@@ -40,6 +41,7 @@ export default function olMain({ shape, tiles, colors, opacity }) {
   shapeSource = clipRaster.shapeSource;
 
   map = initMap({ rasterLayer, clipLayer, boundaryLayer });
+  setBaseLayer(map.getLayers().getArray()[0].values_);
   dragMap(map);
   return { map, rasterSource, rasterLayer, shapeSource, rasterColorSource };
 }

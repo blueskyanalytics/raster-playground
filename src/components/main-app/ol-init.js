@@ -7,6 +7,7 @@ import { usePrevious } from 'react-use';
 import { OSM } from 'ol/source';
 import XYZ from 'ol/source/XYZ';
 import '../../sass/index.sass';
+import { handleBaseMapChange } from '../../utils/map-data';
 
 export default function OlInit() {
   const [shape] = useQueryParam(URL_SHAPE, StringParam);
@@ -17,25 +18,19 @@ export default function OlInit() {
   const prevTiles = usePrevious(tiles);
   const prevShape = usePrevious(shape);
 
-  let baseLayer = {};
-
   const mapBoxSource = new XYZ({
     url: `https://api.mapbox.com/styles/v1/srijitcoder/ckhnsil6g15ud19qqo9leet6e/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1Ijoic3Jpaml0Y29kZXIiLCJhIjoiY2s3MzhnZGZyMDlrbDNvbW5mcXpwZnoxMyJ9.ILgPQHEJq6lFRt2fN0j2sQ`,
   });
+
   const satelliteSource = new XYZ({
     url:
       'https://services.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
   });
-  const osmSource = new OSM();
 
-  const handleBaseMapChange = source => {
-    baseLayer.source = source;
-    baseLayer.source.refresh();
-  };
+  const osmSource = new OSM();
 
   useEffect(() => {
     const olInstances = olMain({ shape, tiles, colors, opacity });
-    baseLayer = olInstances.map.getLayers().getArray()[0].values_;
 
     if (olInstances.rasterSource && shape && prevTiles !== tiles) {
       olInstances.rasterSource.setUrl(tiles);
