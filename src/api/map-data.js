@@ -1,9 +1,9 @@
-let source = {}
+let source = {};
 
-export const setSource = (mapSource) => {
-    source = mapSource
-}
+export const setSource = mapSource => {
+  source = mapSource;
+};
 
 export const getSource = () => {
-    return source
-}
+  return source;
+};

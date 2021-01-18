@@ -8,27 +8,30 @@ import {
   ColorsInput,
   AlphaInput,
 } from './sidebar-wrapper';
-import { ThemeProvider } from "styled-components";
-import { GlobalStyles } from "./themes/global-styles";
-import { lightTheme, darkTheme } from "./themes/themes"
-import { getSource } from '../../api/map-data'
+import { ThemeProvider } from 'styled-components';
+import { GlobalStyles } from './themes/global-styles';
+import { lightTheme, darkTheme } from './themes/themes';
+import { getSource } from '../../api/map-data';
+import '../../sass/index.sass';
 
 export default function Sidebar() {
-  const darkModeUrl = 'https://api.mapbox.com/styles/v1/srijitcoder/cke5v5nbb1uov19lj4n25qojl/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1Ijoic3Jpaml0Y29kZXIiLCJhIjoiY2s3MzhnZGZyMDlrbDNvbW5mcXpwZnoxMyJ9.ILgPQHEJq6lFRt2fN0j2sQ'
-  const lightModeUrl = 'https://api.mapbox.com/styles/v1/srijitcoder/ckhnsil6g15ud19qqo9leet6e/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1Ijoic3Jpaml0Y29kZXIiLCJhIjoiY2s3MzhnZGZyMDlrbDNvbW5mcXpwZnoxMyJ9.ILgPQHEJq6lFRt2fN0j2sQ'
+  const darkModeUrl =
+    'https://api.mapbox.com/styles/v1/srijitcoder/cke5v5nbb1uov19lj4n25qojl/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1Ijoic3Jpaml0Y29kZXIiLCJhIjoiY2s3MzhnZGZyMDlrbDNvbW5mcXpwZnoxMyJ9.ILgPQHEJq6lFRt2fN0j2sQ';
+  const lightModeUrl =
+    'https://api.mapbox.com/styles/v1/srijitcoder/ckhnsil6g15ud19qqo9leet6e/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1Ijoic3Jpaml0Y29kZXIiLCJhIjoiY2s3MzhnZGZyMDlrbDNvbW5mcXpwZnoxMyJ9.ILgPQHEJq6lFRt2fN0j2sQ';
   const [theme, setTheme] = useState('light');
-  
+
   const themeToggler = () => {
-    theme === 'light' ? setTheme('dark') : setTheme('light')
-    let source = getSource()
-    if (theme === 'dark'){
-      source.setUrl(lightModeUrl)
-      source.refresh()
-    } else if(theme === 'light'){
-      source.setUrl(darkModeUrl)
-      source.refresh()
+    theme === 'light' ? setTheme('dark') : setTheme('light');
+    let source = getSource();
+    if (theme === 'dark') {
+      source.setUrl(lightModeUrl);
+      source.refresh();
+    } else if (theme === 'light') {
+      source.setUrl(darkModeUrl);
+      source.refresh();
     }
-  }
+  };
 
   const [colors] = useQueryParam(URL_COLORS, StringParam);
   const [opacity] = useQueryParam(URL_OPACITY, StringParam);
@@ -47,7 +50,23 @@ export default function Sidebar() {
           <h1 className="logo">
             Raster<span>Playground</span>
           </h1>
-          <button onClick={themeToggler}>Switch Theme</button>
+          {/* <button 
+            style={{
+              // display:'inline',
+              // float:'right'
+              float: 'right',
+              marginTop: '3%',
+            }}
+            onClick={themeToggler}>
+              Switch Theme
+          </button> */}
+          <div class="theme-switch-wrapper">
+            <label class="theme-switch" for="checkbox">
+              <input type="checkbox" onChange={themeToggler} id="checkbox" />
+              <div class="slider round"></div>
+            </label>
+            {/* <em>Dark Mode</em> */}
+          </div>
           <hr />
           <ShapeInput />
           <br />

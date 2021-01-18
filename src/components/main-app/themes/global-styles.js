@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components"
+import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyles = createGlobalStyle`
   .sidebar {
@@ -6,4 +6,7 @@ export const GlobalStyles = createGlobalStyle`
     color: ${({ theme }) => theme.text};
     transition: all 0.5s linear;
   }
-  `
+  .input-text {
+    background-color: ${({ theme }) => theme.background};
+  }
+  `;

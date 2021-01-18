@@ -1,11 +1,11 @@
 export const lightTheme = {
-    body: '#FFF',
-    text: '#000',
-    background: '#000',
-}
+  body: '#FFF',
+  text: '#000',
+  background: '#FFF',
+};
 
 export const darkTheme = {
-    body: '#000',
-    text: '#FFF',
-    background: '#FFF',
-}
+  body: '#15202B',
+  text: '#FFF',
+  background: '#8899A6',
+};
