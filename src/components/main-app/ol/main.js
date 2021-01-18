@@ -1,5 +1,5 @@
 import { clipRasterLayer, dragMap, initMap, loadRasterLayer } from './';
-import { getColorsArray, getRgbColorsArray } from 'utils';
+import { getColorsArray, getRgbColorsArray, addSearchControl } from 'utils';
 
 let map = null;
 let rasterSource = null;
@@ -40,6 +40,7 @@ export default function olMain({ shape, tiles, colors, opacity }) {
   shapeSource = clipRaster.shapeSource;
 
   map = initMap({ rasterLayer, clipLayer, boundaryLayer });
+  addSearchControl(map)
   dragMap(map);
   return { map, rasterSource, rasterLayer, shapeSource, rasterColorSource };
 }
