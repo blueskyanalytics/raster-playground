@@ -40,7 +40,7 @@ export default function olMain({ shape, tiles, colors, opacity }) {
   shapeSource = clipRaster.shapeSource;
 
   map = initMap({ rasterLayer, clipLayer, boundaryLayer });
-  addSearchControl(map)
+  addSearchControl(map);
   dragMap(map);
   return { map, rasterSource, rasterLayer, shapeSource, rasterColorSource };
 }
