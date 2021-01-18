@@ -31,6 +31,7 @@ This utility helps simulate the color schemes quickly, along with clipping & map
 - [ ] Mobile version 
 - [ ] Search bar to search places 
 - [ ] Go to current location
+- [X] Dark Mode
 
 ## Installation
 clone repo and install using - 
