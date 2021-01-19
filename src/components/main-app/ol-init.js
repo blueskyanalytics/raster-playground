@@ -14,12 +14,6 @@ export default function OlInit() {
   const prevTiles = usePrevious(tiles);
   const prevShape = usePrevious(shape);
 
-  const autoZoom = (map, shapeSource) => {
-    setTimeout(() => {
-      map.getView().fit(shapeSource.getExtent())
-    }, 500)
-  }
-
   useEffect(() => {
     const olInstances = olMain({ shape, tiles, colors, opacity });
 
@@ -29,9 +23,16 @@ export default function OlInit() {
     }
 
     if (olInstances.shapeSource && shape && prevShape !== shape) {
-      autoZoom(olInstances.map, olInstances.shapeSource)
       olInstances.shapeSource.setUrl(shape);
       olInstances.shapeSource.refresh();
+
+      olInstances.shapeSource.on('change', () => {
+        olInstances.map
+          .getView()
+          .fit(olInstances.shapeSource.getExtent(), {
+            padding: [20, 20, 20, 420],
+          });
+      });
     }
 
     if (olInstances.rasterLayer) {
