@@ -4,6 +4,9 @@ import 'ol/ol.css';
 import { URL_SHAPE, URL_TILES, URL_COLORS, URL_OPACITY } from 'config';
 import { useQueryParam, StringParam } from 'use-query-params';
 import { usePrevious } from 'react-use';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCompass } from '@fortawesome/free-solid-svg-icons';
+import { handleLocationButton } from 'utils';
 
 export default function OlInit() {
   const [shape] = useQueryParam(URL_SHAPE, StringParam);
@@ -35,10 +38,17 @@ export default function OlInit() {
       olInstances.rasterSource.refresh();
     }
   }, [shape, tiles, colors, opacity, prevTiles, prevShape]);
+
   return (
     <>
       <div>
-        <div id="map" className="main-map"></div>
+        <div id="map" className="main-map">
+          <div className="ol-control location-btn">
+            <button onClick={() => handleLocationButton()}>
+              <FontAwesomeIcon icon={faCompass} />
+            </button>
+          </div>
+        </div>
       </div>
     </>
   );
