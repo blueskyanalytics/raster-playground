@@ -7,6 +7,7 @@ import { usePrevious } from 'react-use';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCompass } from '@fortawesome/free-solid-svg-icons';
 import { handleLocationButton } from 'utils';
+import { setSource } from '../../api/map-data';
 
 export default function OlInit() {
   const [shape] = useQueryParam(URL_SHAPE, StringParam);
@@ -19,6 +20,7 @@ export default function OlInit() {
 
   useEffect(() => {
     const olInstances = olMain({ shape, tiles, colors, opacity });
+    setSource(olInstances.map.getLayers().getArray()[0].values_.source);
 
     if (olInstances.rasterSource && shape && prevTiles !== tiles) {
       olInstances.rasterSource.setUrl(tiles);
@@ -28,6 +30,14 @@ export default function OlInit() {
     if (olInstances.shapeSource && shape && prevShape !== shape) {
       olInstances.shapeSource.setUrl(shape);
       olInstances.shapeSource.refresh();
+
+      olInstances.shapeSource.on('change', () => {
+        olInstances.map
+          .getView()
+          .fit(olInstances.shapeSource.getExtent(), {
+            padding: [20, 20, 20, 420],
+          });
+      });
     }
 
     if (olInstances.rasterLayer) {
