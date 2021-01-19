@@ -5,6 +5,7 @@ export {
   URL_TILES,
   URL_COLORS,
   URL_OPACITY,
+  URL_BASE_LAYER,
 } from './url';
 
 export {
@@ -12,4 +13,5 @@ export {
   TILES_URL_DEFAULT,
   COLORS_DEFAULT,
   OPACITY_DEFAULT,
+  BASE_LAYER_DEFAULT,
 } from './default';

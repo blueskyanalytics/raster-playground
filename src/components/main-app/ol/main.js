@@ -1,14 +1,18 @@
 import { clipRasterLayer, dragMap, initMap, loadRasterLayer } from './';
-import { getColorsArray, getRgbColorsArray } from 'utils';
+import { getColorsArray, getRgbColorsArray, getBaseMapUrl } from 'utils';
+import { baseMapLayerLoader } from './base-layer';
 
 let map = null;
 let rasterSource = null;
 let rasterColorSource = null;
 let rasterLayer = null;
 let shapeSource = null;
+let baseMapSource = null;
+let baseMapLayer = null;
 
-export default function olMain({ shape, tiles, colors, opacity }) {
+export default function olMain({ shape, tiles, colors, opacity, baseLayer }) {
   const spectrumColor = getColorsArray(colors);
+  const url = getBaseMapUrl(baseLayer);
   const rgbColorsArray = getRgbColorsArray(
     spectrumColor.length >= 2 ? spectrumColor : ['#000000', '#ffffff']
   );
@@ -19,7 +23,14 @@ export default function olMain({ shape, tiles, colors, opacity }) {
     });
 
   if (map)
-    return { map, rasterLayer, rasterSource, shapeSource, rasterColorSource };
+    return {
+      map,
+      rasterLayer,
+      rasterSource,
+      shapeSource,
+      rasterColorSource,
+      baseMapSource,
+    };
 
   const loadRaster = loadRasterLayer({
     rasterSource,
@@ -39,7 +50,19 @@ export default function olMain({ shape, tiles, colors, opacity }) {
   const boundaryLayer = clipRaster.boundaryLayer;
   shapeSource = clipRaster.shapeSource;
 
-  map = initMap({ rasterLayer, clipLayer, boundaryLayer });
+  const baseMapLayerLoaded = baseMapLayerLoader({ url });
+
+  baseMapLayer = baseMapLayerLoaded.baseMapLayer;
+  baseMapSource = baseMapLayerLoaded.baseMapSource;
+
+  map = initMap({ rasterLayer, clipLayer, boundaryLayer, baseMapLayer });
   dragMap(map);
-  return { map, rasterSource, rasterLayer, shapeSource, rasterColorSource };
+  return {
+    map,
+    rasterSource,
+    rasterLayer,
+    shapeSource,
+    rasterColorSource,
+    baseMapSource,
+  };
 }
