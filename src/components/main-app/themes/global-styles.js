@@ -8,5 +8,10 @@ export const GlobalStyles = createGlobalStyle`
   }
   .input-text {
     background-color: ${({ theme }) => theme.background};
+    color: ${({ theme }) => theme.text};
+  }
+  .fa.iconButton{
+    background-color: ${({ theme }) => theme.btnBgColor};
+    color: ${({ theme }) => theme.btnColor};
   }
   `;

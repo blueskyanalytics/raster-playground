@@ -50,22 +50,11 @@ export default function Sidebar() {
           <h1 className="logo">
             Raster<span>Playground</span>
           </h1>
-          {/* <button 
-            style={{
-              // display:'inline',
-              // float:'right'
-              float: 'right',
-              marginTop: '3%',
-            }}
-            onClick={themeToggler}>
-              Switch Theme
-          </button> */}
           <div class="theme-switch-wrapper">
             <label class="theme-switch" for="checkbox">
               <input type="checkbox" onChange={themeToggler} id="checkbox" />
               <div class="slider round"></div>
             </label>
-            {/* <em>Dark Mode</em> */}
           </div>
           <hr />
           <ShapeInput />
