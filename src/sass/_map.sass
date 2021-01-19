@@ -1,11 +1,14 @@
 .main-map
     height: 100vh
 
+.gcd-gl-control.ol-control
+    padding: 0
+    width: 20rem
+
 .ol-geocoder
     position: absolute
-    top: 3%
-    width: 30%
-    right: 23%  
+    top: 1.5%
+    left: 55%
 
 .ol-control
     display: flex
@@ -13,12 +16,20 @@
 .ol-zoom.ol-unselectable.ol-control
     display: block
 
+#gcd-input-query.gcd-gl-input
+    border: none
+    border-radius: 4px
+    font-size: 1.2rem
+    opacity: 0.6
+    padding: 0.5rem
+    width: 20rem
+
 #gcd-button-control.gcd-gl-btn
     display: none
 
 .gcd-gl-result
     list-style: none
-    margin-top: 12%
+    margin-top: 20%
     background-color: #eee
     opacity: 0.5
     font-weight: 800
@@ -26,12 +37,18 @@
     overflow: hidden 
     overflow-y: scroll
     height: 200px
+    width: 20rem
     
     li
-        margin: 15px
+        margin: 0
+        margin-bottom: 0.5rem
     
     .gcd-road
         color: black
+
+    li:hover
+        cursor: pointer
+        background: #ccc
 
 .hide-results
     display: none
