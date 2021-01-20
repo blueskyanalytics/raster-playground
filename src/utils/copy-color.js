@@ -36,11 +36,11 @@ function rgbaToHsla(hex, opacity) {
 
   // Calculate hue
   // No difference
-  if (delta == 0) h = 0;
+  if (delta === 0) h = 0;
   // Red is max
-  else if (cmax == r) h = ((g - b) / delta) % 6;
+  else if (cmax === r) h = ((g - b) / delta) % 6;
   // Green is max
-  else if (cmax == g) h = (b - r) / delta + 2;
+  else if (cmax === g) h = (b - r) / delta + 2;
   // Blue is max
   else h = (r - g) / delta + 4;
 
@@ -53,7 +53,7 @@ function rgbaToHsla(hex, opacity) {
   l = (cmax + cmin) / 2;
 
   // Calculate saturation
-  s = delta == 0 ? 0 : delta / (1 - Math.abs(2 * l - 1));
+  s = delta === 0 ? 0 : delta / (1 - Math.abs(2 * l - 1));
 
   // Multiply l and s by 100
   s = +(s * 100).toFixed(1);

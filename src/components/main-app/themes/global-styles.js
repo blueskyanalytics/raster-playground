@@ -10,7 +10,7 @@ export const GlobalStyles = createGlobalStyle`
     background-color: ${({ theme }) => theme.background};
     color: ${({ theme }) => theme.text};
   }
-  .fa.iconButton{
+  .fa.iconButton, #color-format, .copy-btn{
     background-color: ${({ theme }) => theme.btnBgColor};
     color: ${({ theme }) => theme.btnColor};
   }
