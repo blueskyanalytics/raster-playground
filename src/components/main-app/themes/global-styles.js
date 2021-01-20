@@ -6,7 +6,10 @@ export const GlobalStyles = createGlobalStyle`
     color: ${({ theme }) => theme.text};
     transition: all 0.5s linear;
   }
-  .input-text {
+  textarea::-webkit-scrollbar-thumb{
+    background-color: ${({ theme }) => theme.scroll};
+  }
+  .input-text, #text-box {
     background-color: ${({ theme }) => theme.background};
     color: ${({ theme }) => theme.text};
   }

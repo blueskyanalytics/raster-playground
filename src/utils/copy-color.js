@@ -71,12 +71,17 @@ export default function copyColor(colorsArray, opacity, text) {
   if (!colorsArray.length) return null;
 
   let tempColorsArray = [];
+  // let tempColorsArray = {}, index = 0;
 
-  if (text === 'hex') colorsArray.map(color => tempColorsArray.push(color));
+  if (text === 'hex') 
+    colorsArray.map(color => tempColorsArray.push(color));
+    // colorsArray.map(color => tempColorsArray[++index] = color);
   else if (text === 'rgba')
     colorsArray.map(color => tempColorsArray.push(hexToRgbA(color, opacity)));
+    // colorsArray.map(color => tempColorsArray[++index] = hexToRgbA(color, opacity));
   else if (text === 'hsla')
     colorsArray.map(color => tempColorsArray.push(rgbaToHsla(color, opacity)));
+    // colorsArray.map(color => tempColorsArray[++index] = rgbaToHsla(color, opacity));
 
   return tempColorsArray;
 }

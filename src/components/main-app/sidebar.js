@@ -41,7 +41,7 @@ export default function Sidebar() {
 
   useEffect(() => {
     const colorArray = getColorsArray(colors);
-    setText(copyColor(colorArray, opacity, colorFormat));
+    setText(JSON.stringify(copyColor(colorArray, opacity, colorFormat), undefined, 4));
   }, [colors, opacity, colorFormat]);
 
   const handleColorFormatChange = event => {
@@ -96,9 +96,10 @@ export default function Sidebar() {
           <textarea
             readOnly
             id="text-box"
-            value={JSON.stringify(text)}
+            value={text}
             ref={colorText}
-          ></textarea>
+          >
+          </textarea>
         </div>
       </div>
     </ThemeProvider>

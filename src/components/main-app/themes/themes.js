@@ -4,6 +4,7 @@ export const lightTheme = {
   background: '#D8D8D8',
   btnBgColor: '#000',
   btnColor: '#FFF',
+  scroll: '#000',
 };
 
 export const darkTheme = {
@@ -12,4 +13,5 @@ export const darkTheme = {
   background: '#223547',
   btnBgColor: '#223547',
   btnColor: '#FFF',
+  scroll: '#15202B',
 };
