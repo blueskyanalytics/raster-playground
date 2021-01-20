@@ -1,5 +1,10 @@
 import { clipRasterLayer, dragMap, initMap, loadRasterLayer } from './';
-import { getColorsArray, getRgbColorsArray, addSearchControl, setMap } from 'utils';
+import {
+  getColorsArray,
+  getRgbColorsArray,
+  addSearchControl,
+  setMap,
+} from 'utils';
 
 let map = null;
 let rasterSource = null;

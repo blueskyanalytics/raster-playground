@@ -12,4 +12,5 @@ export {
   TILES_URL_DEFAULT,
   COLORS_DEFAULT,
   OPACITY_DEFAULT,
+  THEME_DEFAULT,
 } from './default';

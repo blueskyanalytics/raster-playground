@@ -1,7 +1,7 @@
 export const lightTheme = {
   body: '#FFF',
   text: '#000',
-  background: '#D8D8D8',
+  background: '#ececec',
   btnBgColor: '#000',
   btnColor: '#FFF',
 };

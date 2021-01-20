@@ -14,4 +14,10 @@ export const GlobalStyles = createGlobalStyle`
     background-color: ${({ theme }) => theme.btnBgColor};
     color: ${({ theme }) => theme.btnColor};
   }
+
+  
+  
+  .theme-toggle input:checked + .slider {
+    background-color: ${({ theme }) => theme.btnBgColor};
+  }
   `;
