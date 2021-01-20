@@ -18,3 +18,5 @@ export const COLORS_DEFAULT =
   'f1eef6-e4d2e7-d7b5d8-db8dc4-df65b0-de4094-dd1c77-bb0e5d-980043';
 
 export const OPACITY_DEFAULT = 1;
+
+export const THEME_DEFAULT = 'dark';
