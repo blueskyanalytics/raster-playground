@@ -81,24 +81,24 @@ export default function Sidebar() {
           <br />
           <br />
           <select
-          id="color-format"
-          defaultValue="rgba"
-          onChange={event => handleColorFormatChange(event)}
-        >
-          <option value="hex">HEX</option>
-          <option value="rgba">RGBA</option>
-          <option value="hsla">HSLA</option>
-        </select>
-        <button className="copy-btn" onClick={copyColorFormat}>
-          Copy
-        </button>
-        <br />
-        <textarea
-          readOnly
-          id="text-box"
-          value={JSON.stringify(text)}
-          ref={colorText}
-        ></textarea>
+            id="color-format"
+            defaultValue="rgba"
+            onChange={event => handleColorFormatChange(event)}
+          >
+            <option value="hex">HEX</option>
+            <option value="rgba">RGBA</option>
+            <option value="hsla">HSLA</option>
+          </select>
+          <button className="copy-btn" onClick={copyColorFormat}>
+            Copy
+          </button>
+          <br />
+          <textarea
+            readOnly
+            id="text-box"
+            value={JSON.stringify(text)}
+            ref={colorText}
+          ></textarea>
         </div>
       </div>
     </ThemeProvider>
