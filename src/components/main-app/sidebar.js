@@ -8,29 +8,29 @@ import {
   ColorsInput,
   AlphaInput,
 } from './sidebar-wrapper';
-import '../../sass/index.sass'
+import '../../sass/index.sass';
 
 export default function Sidebar() {
   const [colors] = useQueryParam(URL_COLORS, StringParam);
   const [opacity] = useQueryParam(URL_OPACITY, StringParam);
   const [text, setText] = useState('');
-  const [colorFormat, setColorFormat] = useState('rgba')
-  const colorText = useRef(null)
-  
+  const [colorFormat, setColorFormat] = useState('rgba');
+  const colorText = useRef(null);
+
   useEffect(() => {
     const colorArray = getColorsArray(colors);
     setText(copyColor(colorArray, opacity, colorFormat));
   }, [colors, opacity, colorFormat]);
 
   const handleColorFormatChange = event => {
-    setColorFormat(event.target.value)
-  }
+    setColorFormat(event.target.value);
+  };
 
   const copyColorFormat = () => {
-    const colorValues = colorText.current
-    colorValues.select()
-    document.execCommand('copy')
-  }
+    const colorValues = colorText.current;
+    colorValues.select();
+    document.execCommand('copy');
+  };
 
   return (
     <div className="sidebar">
@@ -50,14 +50,25 @@ export default function Sidebar() {
         <AlphaInput />
         <br />
         <br />
-        <select id="color-format" defaultValue='rgba' onChange={event => handleColorFormatChange(event)}>
-          <option value='hex'>HEX</option>
-          <option value='rgba'>RGBA</option>
-          <option value='hsla'>HSLA</option>
+        <select
+          id="color-format"
+          defaultValue="rgba"
+          onChange={event => handleColorFormatChange(event)}
+        >
+          <option value="hex">HEX</option>
+          <option value="rgba">RGBA</option>
+          <option value="hsla">HSLA</option>
         </select>
-        <button className="copy-btn"onClick={copyColorFormat}>Copy</button>
+        <button className="copy-btn" onClick={copyColorFormat}>
+          Copy
+        </button>
         <br />
-        <textarea id="text-box" value={JSON.stringify(text)} ref={colorText}></textarea>
+        <textarea
+          readOnly
+          id="text-box"
+          value={JSON.stringify(text)}
+          ref={colorText}
+        ></textarea>
       </div>
     </div>
   );

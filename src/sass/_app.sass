@@ -90,13 +90,33 @@
 
 #text-box
     resize: none
-    width: 15rem
+    width: -webkit-fill-available
     height: 10rem
     margin-top: 20px
     margin-bottom: 20px
+    border: none
+
+textarea::-webkit-scrollbar 
+  width: 9px
+  background-color: #F5F5F5
+
+textarea::-webkit-scrollbar-thumb 
+  border-radius: 10px
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1)
+  background-color: #000
+
+#color-format
+    background-color: #000
+    color: #fff
 
 .copy-btn
+    background-color: #000
+    color: #fff
+    border-radius: 4px
     float: right
+
+.copy-btn:active
+    opacity: 0.5    
 
 @media only screen and (max-width: 1440px)
     .sidebar
