@@ -1,3 +1,5 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/3a359879-ec8d-4b60-afe1-04b9f688bb90/deploy-status)](https://app.netlify.com/sites/raster-playground/deploys)
+
 # Raster Playground
 > A color playground for raster maps.
 
@@ -20,7 +22,7 @@ This utility helps simulate the color schemes quickly, along with clipping & map
     - [ ] Shape file through uploads (from local system)
     - [X] Format available - TopoJson
     - [ ] More formats required (Geojson etc)
-    - [ ] Auto fit to shape file location (on file load)
+    - [X] Auto fit to shape file location (on file load)
 - [ ] Color selector 
     - [X] Add colors
     - [X] Remove colors
@@ -29,8 +31,9 @@ This utility helps simulate the color schemes quickly, along with clipping & map
     - [X] Copy color in different format - HEX, RGBA, HSLA (JSON)
     - [ ] Download color format for ASE, GIMP/Inscape color scheme
 - [ ] Mobile version 
-- [ ] Search bar to search places 
+- [X] Search bar to search places 
 - [ ] Go to current location
+- [X] Dark Mode
 
 ## Installation
 clone repo and install using - 

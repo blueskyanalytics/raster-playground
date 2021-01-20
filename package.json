@@ -6,11 +6,12 @@
     "@testing-library/jest-dom": "^5.11.6",
     "@testing-library/react": "^11.2.0",
     "@testing-library/user-event": "^12.2.2",
-    "axios": "^0.21.0",
+    "axios": "^0.21.1",
     "history": "^5.0.0",
     "loadash": "^1.0.0",
     "node-sass": "^4.14.1",
     "ol": "^6.4.3",
+    "ol-geocoder": "^4.1.1",
     "query-string": "^6.13.7",
     "rainbowvis.js": "^1.0.1",
     "react": "^17.0.1",
@@ -22,6 +23,7 @@
     "react-scripts": "4.0.0",
     "react-use": "^15.3.4",
     "redux": "^4.0.5",
+    "styled-components": "^5.2.1",
     "use-query-params": "^1.1.9",
     "web-vitals": "^0.2.4"
   },
@@ -52,6 +54,6 @@
     ]
   },
   "devDependencies": {
-    "prettier": "^2.1.2"
+    "prettier": "^2.2.1"
   }
 }

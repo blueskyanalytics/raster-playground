@@ -4,6 +4,7 @@ import 'ol/ol.css';
 import { URL_SHAPE, URL_TILES, URL_COLORS, URL_OPACITY } from 'config';
 import { useQueryParam, StringParam } from 'use-query-params';
 import { usePrevious } from 'react-use';
+import { setSource } from '../../api/map-data';
 
 export default function OlInit() {
   const [shape] = useQueryParam(URL_SHAPE, StringParam);
@@ -16,6 +17,7 @@ export default function OlInit() {
 
   useEffect(() => {
     const olInstances = olMain({ shape, tiles, colors, opacity });
+    setSource(olInstances.map.getLayers().getArray()[0].values_.source);
 
     if (olInstances.rasterSource && shape && prevTiles !== tiles) {
       olInstances.rasterSource.setUrl(tiles);
@@ -25,6 +27,14 @@ export default function OlInit() {
     if (olInstances.shapeSource && shape && prevShape !== shape) {
       olInstances.shapeSource.setUrl(shape);
       olInstances.shapeSource.refresh();
+
+      olInstances.shapeSource.on('change', () => {
+        olInstances.map
+          .getView()
+          .fit(olInstances.shapeSource.getExtent(), {
+            padding: [20, 20, 20, 420],
+          });
+      });
     }
 
     if (olInstances.rasterLayer) {
@@ -35,6 +45,7 @@ export default function OlInit() {
       olInstances.rasterSource.refresh();
     }
   }, [shape, tiles, colors, opacity, prevTiles, prevShape]);
+
   return (
     <>
       <div>
