@@ -19,8 +19,8 @@ export function handleLocationButton() {
     let view = new View({ center: fromLonLat(currentLocation), zoom: 12 });
 
     const accuracy = circular(currentLocation, position.coords.accuracy);
-    var accuracyFeature = new Feature(accuracy);
-    var positionFeature = new Feature(new Point(fromLonLat(currentLocation)));
+    let accuracyFeature = new Feature(accuracy);
+    let positionFeature = new Feature(new Point(fromLonLat(currentLocation)));
 
     positionFeature.setStyle(
       new Style({
