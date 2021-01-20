@@ -32,7 +32,7 @@ This utility helps simulate the color schemes quickly, along with clipping & map
     - [ ] Download color format for ASE, GIMP/Inscape color scheme
 - [ ] Mobile version 
 - [X] Search bar to search places 
-- [ ] Go to current location
+- [X] Go to current location
 - [X] Dark Mode
 
 ## Installation
