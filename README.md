@@ -1,3 +1,5 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/3a359879-ec8d-4b60-afe1-04b9f688bb90/deploy-status)](https://app.netlify.com/sites/raster-playground/deploys)
+
 # Raster Playground
 > A color playground for raster maps.
 
