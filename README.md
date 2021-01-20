@@ -3,7 +3,7 @@
 # Raster Playground
 > A color playground for raster maps.
 
-![](banner.png)
+![](public/rp-banner.png)
 
 ## Why we made raster playground?
 
