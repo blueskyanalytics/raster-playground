@@ -3,7 +3,7 @@
 # Raster Playground
 > A color playground for raster maps.
 
-![](banner.png)
+![](public/rp-banner.png)
 
 ## Why we made raster playground?
 
@@ -50,8 +50,6 @@ npm run start
 ```sh
 npm run build
 ```
-
-![](rp-banner.png)
 
 ## How to use
 - Use chrome for better usability (Because initial stage of development)
