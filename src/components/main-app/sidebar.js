@@ -13,7 +13,7 @@ import { GlobalStyles } from './themes/global-styles';
 import { lightTheme, darkTheme } from './themes/themes';
 import '../../sass/index.sass';
 
-export default function Sidebar({ setTheme, theme }) {
+export default function Sidebar({ setShowSidebar, setTheme, theme }) {
   const [colors] = useQueryParam(URL_COLORS, StringParam);
   const [opacity] = useQueryParam(URL_OPACITY, StringParam);
   const [text, setText] = useState('');
@@ -28,6 +28,7 @@ export default function Sidebar({ setTheme, theme }) {
       <GlobalStyles />
       <div className="sidebar">
         <div className="sidebar-wrapper">
+          <button onClick={() => setShowSidebar(false)}>X</button>
           <h1 className="logo">
             Raster<span>Playground</span>
           </h1>

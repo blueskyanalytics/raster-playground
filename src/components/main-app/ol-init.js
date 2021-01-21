@@ -9,7 +9,7 @@ import { faCompass } from '@fortawesome/free-solid-svg-icons';
 import { handleLocationButton } from 'utils';
 import { setSource } from '../../api/map-data';
 
-export default function OlInit() {
+export default function OlInit({ setShowSidebar }) {
   const [shape] = useQueryParam(URL_SHAPE, StringParam);
   const [tiles] = useQueryParam(URL_TILES, StringParam);
   const [colors] = useQueryParam(URL_COLORS, StringParam);
@@ -54,6 +54,11 @@ export default function OlInit() {
           <div className="ol-control location-btn">
             <button onClick={() => handleLocationButton()}>
               <FontAwesomeIcon icon={faCompass} />
+            </button>
+          </div>
+          <div style={{zIndex: 1, position: 'absolute'}}>
+            <button onClick={() => setShowSidebar(true)}>
+              Sidebar
             </button>
           </div>
         </div>
