@@ -1,7 +1,7 @@
 import { URL_COLORS, URL_OPACITY } from 'config';
 import React, { useEffect, useState } from 'react';
 import { StringParam, useQueryParam } from 'use-query-params';
-import { copyColor, getColorsArray } from 'utils';
+import { copyColor, getColorsArray, themeToggler } from 'utils';
 import {
   TilesInput,
   ShapeInput,
@@ -11,31 +11,12 @@ import {
 import { ThemeProvider } from 'styled-components';
 import { GlobalStyles } from './themes/global-styles';
 import { lightTheme, darkTheme } from './themes/themes';
-import { getSource } from '../../api/map-data';
 import '../../sass/index.sass';
 import JSONPretty from 'react-json-pretty';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
+import * as JSONPrettyMon from 'react-json-pretty/dist/acai';
 
-export default function Sidebar() {
-  const darkModeUrl =
-    'https://api.mapbox.com/styles/v1/srijitcoder/cke5v5nbb1uov19lj4n25qojl/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1Ijoic3Jpaml0Y29kZXIiLCJhIjoiY2s3MzhnZGZyMDlrbDNvbW5mcXpwZnoxMyJ9.ILgPQHEJq6lFRt2fN0j2sQ';
-  const lightModeUrl =
-    'https://api.mapbox.com/styles/v1/srijitcoder/ckhnsil6g15ud19qqo9leet6e/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1Ijoic3Jpaml0Y29kZXIiLCJhIjoiY2s3MzhnZGZyMDlrbDNvbW5mcXpwZnoxMyJ9.ILgPQHEJq6lFRt2fN0j2sQ';
-  const [theme, setTheme] = useState('light');
-  let JSONPrettyMon = require('react-json-pretty/dist/acai');
-
-  const themeToggler = () => {
-    theme === 'light' ? setTheme('dark') : setTheme('light');
-    let source = getSource();
-    if (theme === 'dark') {
-      source.setUrl(lightModeUrl);
-      source.refresh();
-    } else if (theme === 'light') {
-      source.setUrl(darkModeUrl);
-      source.refresh();
-    }
-  };
-
+export default function Sidebar({ setTheme, theme }) {
   const [colors] = useQueryParam(URL_COLORS, StringParam);
   const [opacity] = useQueryParam(URL_OPACITY, StringParam);
   const [text, setText] = useState('');
@@ -60,10 +41,19 @@ export default function Sidebar() {
           <h1 className="logo">
             Raster<span>Playground</span>
           </h1>
-          <div class="theme-switch-wrapper">
-            <label class="theme-switch" for="checkbox">
-              <input type="checkbox" onChange={themeToggler} id="checkbox" />
+          <div class="theme-switch-wrapper theme-toggle">
+            <label class="switch" for="checkbox" title="Change color scheme">
+              <input
+                type="checkbox"
+                id="checkbox"
+                onChange={() =>
+                  themeToggler(theme === 'light' ? 'dark' : 'light', setTheme)
+                }
+                checked={theme === 'light' ? '' : 'checked'}
+              />
               <div class="slider round"></div>
+              <div class="toggle-sun">☀️</div>
+              <div class="toggle-moon">🌙</div>
             </label>
           </div>
           <hr />
