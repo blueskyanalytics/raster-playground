@@ -1,5 +1,5 @@
 import { URL_COLORS, URL_OPACITY } from 'config';
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState } from 'react';
 import { StringParam, useQueryParam } from 'use-query-params';
 import { copyColor, getColorsArray } from 'utils';
 import {
@@ -13,6 +13,8 @@ import { GlobalStyles } from './themes/global-styles';
 import { lightTheme, darkTheme } from './themes/themes';
 import { getSource } from '../../api/map-data';
 import '../../sass/index.sass';
+import JSONPretty from 'react-json-pretty';
+import { CopyToClipboard } from 'react-copy-to-clipboard';
 
 export default function Sidebar() {
   const darkModeUrl =
@@ -37,22 +39,19 @@ export default function Sidebar() {
   const [opacity] = useQueryParam(URL_OPACITY, StringParam);
   const [text, setText] = useState('');
   const [colorFormat, setColorFormat] = useState('rgba');
-  const colorText = useRef(null);
 
   useEffect(() => {
     const colorArray = getColorsArray(colors);
-    setText(JSON.stringify(copyColor(colorArray, opacity, colorFormat), undefined, 4));
+    setText(
+      JSON.stringify(copyColor(colorArray, opacity, colorFormat), undefined, 4)
+    );
   }, [colors, opacity, colorFormat]);
 
   const handleColorFormatChange = event => {
     setColorFormat(event.target.value);
   };
 
-  const copyColorFormat = () => {
-    const colorValues = colorText.current;
-    colorValues.select();
-    document.execCommand('copy');
-  };
+  let JSONPrettyMon = require('react-json-pretty/dist/acai');
 
   return (
     <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
@@ -89,17 +88,15 @@ export default function Sidebar() {
             <option value="rgba">RGBA</option>
             <option value="hsla">HSLA</option>
           </select>
-          <button className="copy-btn" onClick={copyColorFormat}>
-            Copy
-          </button>
+          <CopyToClipboard text={text}>
+            <button className="copy-btn">Copy</button>
+          </CopyToClipboard>
           <br />
-          <textarea
-            readOnly
-            id="text-box"
-            value={text}
-            ref={colorText}
-          >
-          </textarea>
+          <JSONPretty
+            id="json-pretty"
+            data={text}
+            theme={JSONPrettyMon}
+          ></JSONPretty>
         </div>
       </div>
     </ThemeProvider>

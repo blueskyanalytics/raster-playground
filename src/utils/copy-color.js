@@ -34,28 +34,17 @@ function rgbaToHsla(hex, opacity) {
     s = 0,
     l = 0;
 
-  // Calculate hue
-  // No difference
   if (delta === 0) h = 0;
-  // Red is max
   else if (cmax === r) h = ((g - b) / delta) % 6;
-  // Green is max
   else if (cmax === g) h = (b - r) / delta + 2;
-  // Blue is max
   else h = (r - g) / delta + 4;
 
   h = Math.round(h * 60);
 
-  // Make negative hues positive behind 360°
   if (h < 0) h += 360;
-
-  // Calculate lightness
   l = (cmax + cmin) / 2;
-
-  // Calculate saturation
   s = delta === 0 ? 0 : delta / (1 - Math.abs(2 * l - 1));
 
-  // Multiply l and s by 100
   s = +(s * 100).toFixed(1);
   l = +(l * 100).toFixed(1);
 
@@ -71,17 +60,12 @@ export default function copyColor(colorsArray, opacity, text) {
   if (!colorsArray.length) return null;
 
   let tempColorsArray = [];
-  // let tempColorsArray = {}, index = 0;
 
-  if (text === 'hex') 
-    colorsArray.map(color => tempColorsArray.push(color));
-    // colorsArray.map(color => tempColorsArray[++index] = color);
+  if (text === 'hex') colorsArray.map(color => tempColorsArray.push(color));
   else if (text === 'rgba')
     colorsArray.map(color => tempColorsArray.push(hexToRgbA(color, opacity)));
-    // colorsArray.map(color => tempColorsArray[++index] = hexToRgbA(color, opacity));
   else if (text === 'hsla')
     colorsArray.map(color => tempColorsArray.push(rgbaToHsla(color, opacity)));
-    // colorsArray.map(color => tempColorsArray[++index] = rgbaToHsla(color, opacity));
 
   return tempColorsArray;
 }

@@ -89,21 +89,22 @@
     font-size: 15px
     border-radius: 6px
 
-#text-box
-    resize: none
-    width: -webkit-fill-available
-    height: 10rem
-    margin-top: 20px
-    margin-bottom: 20px
-    border: none
-    font-variant-ligatures: common-ligatures;
-    background-color: #eee;
-    border-radius: 3px;
+#json-pretty > pre
+    height: 13rem
+    background-color: #d8d8d8 !important
+    color: darkBlue !important
+    padding: 0.5rem
+    
+    .__json-value__
+        color: #1e1e1e !important
+    
+    .__json-string__
+        color: #b553bf !important
 
-textarea::-webkit-scrollbar 
+#json-pretty > pre::-webkit-scrollbar
   width: 9px
 
-textarea::-webkit-scrollbar-thumb 
+#json-pretty > pre::-webkit-scrollbar-thumb
   border-radius: 10px
   -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1)
   background-color: #000
@@ -122,6 +123,7 @@ textarea::-webkit-scrollbar-thumb
   border-radius: 6px
   float: right
   padding: 5px
+  width: 4rem
 
 .copy-btn:active
     opacity: 0.5    
