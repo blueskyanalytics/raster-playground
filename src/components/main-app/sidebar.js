@@ -15,6 +15,8 @@ import '../../sass/index.sass';
 import JSONPretty from 'react-json-pretty';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import * as JSONPrettyMon from 'react-json-pretty/dist/acai';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faWindowMinimize } from '@fortawesome/free-solid-svg-icons';
 
 export default function Sidebar({ setShowSidebar, setTheme, theme }) {
   const [colors] = useQueryParam(URL_COLORS, StringParam);
@@ -38,7 +40,9 @@ export default function Sidebar({ setShowSidebar, setTheme, theme }) {
       <GlobalStyles />
       <div className="sidebar">
         <div className="sidebar-wrapper">
-          <button onClick={() => setShowSidebar(false)}>X</button>
+          <button onClick={() => setShowSidebar(false)}>
+            <FontAwesomeIcon icon={faWindowMinimize} />
+          </button>
           <h1 className="logo">
             Raster<span>Playground</span>
           </h1>
