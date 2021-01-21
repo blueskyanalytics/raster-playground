@@ -4,6 +4,11 @@ export const lightTheme = {
   background: '#ececec',
   btnBgColor: '#000',
   btnColor: '#FFF',
+  scroll: '#000',
+  jsonKey: '#b553bf',
+  jsonValue: '#1e1e1e',
+  jsonString: '#b553bf',
+  jsonColor: 'darkBlue',
 };
 
 export const darkTheme = {
@@ -12,4 +17,9 @@ export const darkTheme = {
   background: '#223547',
   btnBgColor: '#223547',
   btnColor: '#FFF',
+  scroll: '#15202B',
+  jsonKey: 'red',
+  jsonValue: 'orange',
+  jsonString: '#b553bf',
+  jsonColor: '#F8F8FF',
 };
