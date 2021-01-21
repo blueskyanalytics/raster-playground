@@ -22,6 +22,7 @@ export default function Sidebar() {
   const lightModeUrl =
     'https://api.mapbox.com/styles/v1/srijitcoder/ckhnsil6g15ud19qqo9leet6e/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1Ijoic3Jpaml0Y29kZXIiLCJhIjoiY2s3MzhnZGZyMDlrbDNvbW5mcXpwZnoxMyJ9.ILgPQHEJq6lFRt2fN0j2sQ';
   const [theme, setTheme] = useState('light');
+  let JSONPrettyMon = require('react-json-pretty/dist/acai');
 
   const themeToggler = () => {
     theme === 'light' ? setTheme('dark') : setTheme('light');
@@ -50,8 +51,6 @@ export default function Sidebar() {
   const handleColorFormatChange = event => {
     setColorFormat(event.target.value);
   };
-
-  let JSONPrettyMon = require('react-json-pretty/dist/acai');
 
   return (
     <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>

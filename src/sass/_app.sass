@@ -91,15 +91,8 @@
 
 #json-pretty > pre
     height: 13rem
-    background-color: #d8d8d8 !important
-    color: darkBlue !important
     padding: 0.5rem
-    
-    .__json-value__
-        color: #1e1e1e !important
-    
-    .__json-string__
-        color: #b553bf !important
+    overflow: auto
 
 #json-pretty > pre::-webkit-scrollbar
   width: 9px
@@ -107,7 +100,6 @@
 #json-pretty > pre::-webkit-scrollbar-thumb
   border-radius: 10px
   -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1)
-  background-color: #000
 
 #color-format
   border: none
@@ -115,6 +107,9 @@
   background-color: #000
   color: #fff
   padding: 4px
+
+#color-format:hover
+  cursor: pointer
 
 .copy-btn
   border: none
@@ -127,6 +122,9 @@
 
 .copy-btn:active
     opacity: 0.5    
+
+.copy-btn:hover
+    cursor: pointer  
 
 .theme-switch-wrapper 
   display: inline
