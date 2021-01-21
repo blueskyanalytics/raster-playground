@@ -56,8 +56,11 @@ export default function OlInit({ setShowSidebar }) {
               <FontAwesomeIcon icon={faCompass} />
             </button>
           </div>
-          <div style={{zIndex: 1, position: 'absolute'}}>
-            <button onClick={() => setShowSidebar(true)}>
+          <div className="ol-control max-btn-container">
+            <button
+              className="maximize-btn"
+              onClick={() => setShowSidebar(true)}
+            >
               <FontAwesomeIcon icon={faBars} />
             </button>
           </div>

@@ -6,15 +6,12 @@ import {
   TilesInput,
   ShapeInput,
   ColorsInput,
+  ColorsOutput,
   AlphaInput,
 } from './sidebar-wrapper';
 import { ThemeProvider } from 'styled-components';
 import { GlobalStyles } from './themes/global-styles';
 import { lightTheme, darkTheme } from './themes/themes';
-import '../../sass/index.sass';
-import JSONPretty from 'react-json-pretty';
-import { CopyToClipboard } from 'react-copy-to-clipboard';
-import * as JSONPrettyMon from 'react-json-pretty/dist/acai';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faWindowMinimize } from '@fortawesome/free-solid-svg-icons';
 
@@ -31,17 +28,16 @@ export default function Sidebar({ setShowSidebar, setTheme, theme }) {
     );
   }, [colors, opacity, colorFormat]);
 
-  const handleColorFormatChange = event => {
-    setColorFormat(event.target.value);
-  };
-
   return (
     <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
       <GlobalStyles />
       <div className="sidebar">
         <div className="sidebar-wrapper">
-          <button onClick={() => setShowSidebar(false)}>
-            <FontAwesomeIcon icon={faWindowMinimize} />
+          <button
+            className="minimize-btn"
+            onClick={() => setShowSidebar(false)}
+          >
+            <FontAwesomeIcon size="xs" icon={faWindowMinimize} />
           </button>
           <h1 className="logo">
             Raster<span>Playground</span>
@@ -70,27 +66,11 @@ export default function Sidebar({ setShowSidebar, setTheme, theme }) {
           <br />
           <ColorsInput />
           <br />
+          <br />
           <AlphaInput />
           <br />
           <br />
-          <select
-            id="color-format"
-            defaultValue="rgba"
-            onChange={event => handleColorFormatChange(event)}
-          >
-            <option value="hex">HEX</option>
-            <option value="rgba">RGBA</option>
-            <option value="hsla">HSLA</option>
-          </select>
-          <CopyToClipboard text={text}>
-            <button className="copy-btn">Copy</button>
-          </CopyToClipboard>
-          <br />
-          <JSONPretty
-            id="json-pretty"
-            data={text}
-            theme={JSONPrettyMon}
-          ></JSONPretty>
+          <ColorsOutput text={text} setColorFormat={setColorFormat} />
         </div>
       </div>
     </ThemeProvider>
