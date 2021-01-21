@@ -9,7 +9,7 @@ import { faCompass, faBars } from '@fortawesome/free-solid-svg-icons';
 import { handleLocationButton } from 'utils';
 import { setSource } from '../../api/map-data';
 
-export default function OlInit({ setShowSidebar }) {
+export default function OlInit() {
   const [shape] = useQueryParam(URL_SHAPE, StringParam);
   const [tiles] = useQueryParam(URL_TILES, StringParam);
   const [colors] = useQueryParam(URL_COLORS, StringParam);
@@ -59,7 +59,9 @@ export default function OlInit({ setShowSidebar }) {
           <div className="ol-control max-btn-container">
             <button
               className="maximize-btn"
-              onClick={() => setShowSidebar(true)}
+              onClick={() => {
+                document.querySelector('.sidebar').style.display = 'block';
+              }}
             >
               <FontAwesomeIcon icon={faBars} />
             </button>

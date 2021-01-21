@@ -15,7 +15,7 @@ import { lightTheme, darkTheme } from './themes/themes';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faWindowMinimize } from '@fortawesome/free-solid-svg-icons';
 
-export default function Sidebar({ setShowSidebar, setTheme, theme }) {
+export default function Sidebar({ setTheme, theme }) {
   const [colors] = useQueryParam(URL_COLORS, StringParam);
   const [opacity] = useQueryParam(URL_OPACITY, StringParam);
   const [text, setText] = useState('');
@@ -35,7 +35,9 @@ export default function Sidebar({ setShowSidebar, setTheme, theme }) {
         <div className="sidebar-wrapper">
           <button
             className="minimize-btn"
-            onClick={() => setShowSidebar(false)}
+            onClick={() => {
+              document.querySelector('.sidebar').style.display = 'none';
+            }}
           >
             <FontAwesomeIcon size="xs" icon={faWindowMinimize} />
           </button>
