@@ -5,7 +5,7 @@ import { URL_SHAPE, URL_TILES, URL_COLORS, URL_OPACITY } from 'config';
 import { useQueryParam, StringParam } from 'use-query-params';
 import { usePrevious } from 'react-use';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCompass } from '@fortawesome/free-solid-svg-icons';
+import { faCompass, faBars } from '@fortawesome/free-solid-svg-icons';
 import { handleLocationButton } from 'utils';
 import { setSource } from '../../api/map-data';
 
@@ -54,6 +54,16 @@ export default function OlInit() {
           <div className="ol-control location-btn">
             <button onClick={() => handleLocationButton()}>
               <FontAwesomeIcon icon={faCompass} />
+            </button>
+          </div>
+          <div className="ol-control max-btn-container">
+            <button
+              className="maximize-btn"
+              onClick={() => {
+                document.querySelector('.sidebar').style.display = 'block';
+              }}
+            >
+              <FontAwesomeIcon icon={faBars} />
             </button>
           </div>
         </div>

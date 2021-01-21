@@ -7,9 +7,13 @@ export const GlobalStyles = createGlobalStyle`
     transition: all 0.5s linear;
   }
 
+  .sidebar::-webkit-scrollbar-thumb{
+    background-color: ${({ theme }) => theme.btnBgColor};
+  }
+
   #json-pretty > pre::-webkit-scrollbar-thumb{
     background-color: ${({ theme }) => theme.scroll};
-  }
+  }  
 
   #json-pretty > pre{
     background-color: ${({ theme }) => theme.background} !important;
@@ -33,7 +37,7 @@ export const GlobalStyles = createGlobalStyle`
     color: ${({ theme }) => theme.text};
   }
 
-  .fa.iconButton, #color-format, .copy-btn{
+  .fa.iconButton, #color-format, .copy-btn, .minimize-btn{
     background-color: ${({ theme }) => theme.btnBgColor};
     color: ${({ theme }) => theme.btnColor};
   }  
