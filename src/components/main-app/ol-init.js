@@ -12,7 +12,6 @@ import { useSelector } from 'react-redux';
 import VectorLayer from 'ol/layer/Vector';
 import VectorSource from 'ol/source/Vector';
 import { GeoJSON, TopoJSON } from 'ol/format';
-import { URL_UPDATE_PUSH } from 'config';
 
 const addNewVectorLayer = (title, type, jsonObj, featureProjection) => {
   let source, features;
