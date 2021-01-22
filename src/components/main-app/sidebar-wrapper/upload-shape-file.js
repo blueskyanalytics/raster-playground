@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { updateShapeData } from 'redux/actions/shape-data-actions'
 
 export default function UploadShapeFile() {
@@ -7,34 +7,27 @@ export default function UploadShapeFile() {
     const fileTypes = '.geojson, .topojson'
     const dispatch = useDispatch()
 
-    const shape = useSelector(state => state)
-
     const handleShapeFileUpload = () => {
         if (file == null){
             alert('No file chosen or file does not exist.')
-        }
+        } else{
+            let fileReader = new FileReader()
 
-        let fileReader = new FileReader()
+            fileReader.onload = evt => {
+                const type = file.name.split('.').pop()
+                const data = evt.target.result
 
-        fileReader.onload = evt => {
-            const data = evt.target.result
-            console.log('entered')
-            if(JSON.parse(data)){
-                console.log('parsed')
-                const shape = {
-                    type: file.type,
-                    data                
+                if(JSON.parse(data)){
+                    const shapeData = {
+                        type,
+                        data                
+                    }
+                    dispatch(updateShapeData(shapeData))
                 }
-                console.log(shape)
-                dispatch(updateShapeData(shape))
             }
+
+            fileReader.readAsText(file)
         }
-
-        let type = file.name.split('.').pop();
-
-        console.log(shape)
-
-        // fileReader.removeEventListener('load', loadHandler)
     }
 
     return (
