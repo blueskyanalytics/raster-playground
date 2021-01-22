@@ -58,9 +58,9 @@ export default function Sidebar({ setTheme, theme }) {
             </label>
           </div>
           <hr />
-          <UploadShapeFile/>
-          <br/>
-          <br/>
+          <UploadShapeFile />
+          <br />
+          <br />
           <ShapeInput />
           <br />
           <br />

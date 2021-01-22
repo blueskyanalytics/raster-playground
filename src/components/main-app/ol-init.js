@@ -14,32 +14,30 @@ import VectorSource from 'ol/source/Vector';
 import { GeoJSON, TopoJSON } from 'ol/format';
 import { URL_UPDATE_PUSH } from 'config';
 
-const addNewVectorLayer = ( title, type, jsonObj, featureProjection ) => {
+const addNewVectorLayer = (title, type, jsonObj, featureProjection) => {
   let source, features;
 
-  if (type === 'geojson'){
-    features = new GeoJSON().readFeatures(jsonObj, { featureProjection })
+  if (type === 'geojson') {
+    features = new GeoJSON().readFeatures(jsonObj, { featureProjection });
     source = new VectorSource({
       features,
       format: new GeoJSON(),
-      overlaps: false
-    })
-  }
-
-  else if(type === 'topojson'){
-    features = new TopoJSON().readFeatures(jsonObj, { featureProjection })
+      overlaps: false,
+    });
+  } else if (type === 'topojson') {
+    features = new TopoJSON().readFeatures(jsonObj, { featureProjection });
     source = new VectorSource({
       features,
       format: new TopoJSON(),
-      overlaps: false
-    })
+      overlaps: false,
+    });
   }
 
   return new VectorLayer({
     source,
     title,
-  })
-}
+  });
+};
 
 export default function OlInit() {
   const [shape] = useQueryParam(URL_SHAPE, StringParam);
@@ -47,11 +45,11 @@ export default function OlInit() {
   const [colors] = useQueryParam(URL_COLORS, StringParam);
   const [opacity] = useQueryParam(URL_OPACITY, StringParam);
 
-  const shapeData = useSelector(state => state.shapeData)
+  const shapeData = useSelector(state => state.shapeData);
 
   const prevTiles = usePrevious(tiles);
   const prevShape = usePrevious(shape);
-  const prevShapeData = usePrevious(shapeData)
+  const prevShapeData = usePrevious(shapeData);
 
   useEffect(() => {
     const olInstances = olMain({ shape, tiles, colors, opacity });
@@ -81,21 +79,39 @@ export default function OlInit() {
       olInstances.rasterSource.refresh();
     }
 
-    if (shapeData && shapeData.type && shapeData.data && prevShapeData !== shapeData) {
-      let jsonObj = JSON.parse(shapeData.data)
-      let featureProjection = olInstances.map.getView().getProjection()
-      let title = 'upload-file-layer'
-      
+    if (
+      shapeData &&
+      shapeData.type &&
+      shapeData.data &&
+      prevShapeData !== shapeData
+    ) {
+      let jsonObj = JSON.parse(shapeData.data);
+      let featureProjection = olInstances.map.getView().getProjection();
+      let title = 'upload-file-layer';
+
       olInstances.map.getLayers().forEach(vectorLayer => {
-        if (vectorLayer.get('title') === 'upload-file-layer') 
+        if (vectorLayer.get('title') === 'upload-file-layer')
           olInstances.map.removeLayer(vectorLayer);
       });
 
-      const newShape = addNewVectorLayer(title, shapeData.type, jsonObj, featureProjection)
+      const newShape = addNewVectorLayer(
+        title,
+        shapeData.type,
+        jsonObj,
+        featureProjection
+      );
       olInstances.map.addLayer(newShape);
     }
-
-  }, [shape, tiles, colors, opacity, prevTiles, prevShape, shapeData, prevShapeData]);
+  }, [
+    shape,
+    tiles,
+    colors,
+    opacity,
+    prevTiles,
+    prevShape,
+    shapeData,
+    prevShapeData,
+  ]);
 
   return (
     <>
