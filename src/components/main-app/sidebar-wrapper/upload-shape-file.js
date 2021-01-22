@@ -43,6 +43,8 @@ export default function UploadShapeFile() {
             />
             <button
                 onClick={() => handleShapeFileUpload()}
+                className="copy-btn"
+                id="upload-btn"
             >
                 Upload
             </button>

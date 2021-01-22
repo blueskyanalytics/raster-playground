@@ -85,15 +85,14 @@ export default function OlInit() {
       let jsonObj = JSON.parse(shapeData.data)
       let featureProjection = olInstances.map.getView().getProjection()
       let title = 'upload-file-layer'
-
-      const layer = addNewVectorLayer(title, shapeData.type, jsonObj, featureProjection)
       
-      olInstances.map.getLayers().forEach(layer => {
-        if (layer.get('title') === 'upload-file-layer') 
-          olInstances.map.removeLayer(layer);
+      olInstances.map.getLayers().forEach(vectorLayer => {
+        if (vectorLayer.get('title') === 'upload-file-layer') 
+          olInstances.map.removeLayer(vectorLayer);
       });
 
-      olInstances.map.addLayer(layer);
+      const newShape = addNewVectorLayer(title, shapeData.type, jsonObj, featureProjection)
+      olInstances.map.addLayer(newShape);
     }
 
   }, [shape, tiles, colors, opacity, prevTiles, prevShape, shapeData, prevShapeData]);

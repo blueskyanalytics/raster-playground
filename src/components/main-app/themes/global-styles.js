@@ -7,6 +7,11 @@ export const GlobalStyles = createGlobalStyle`
     transition: all 0.5s linear;
   }
 
+  #upload-btn {
+    background-color: ${({ theme }) => theme.altBtnBgColor};
+    color: ${({ theme }) => theme.altBtnColor};
+  }
+
   #json-pretty > pre::-webkit-scrollbar-thumb{
     background-color: ${({ theme }) => theme.scroll};
   }
