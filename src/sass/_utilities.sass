@@ -1,0 +1,52 @@
+
+.mb-bg
+    margin-bottom: 3rem
+.mb-med
+    margin-bottom: 2rem
+.mb-sm
+    margin-bottom: 1rem
+.btn
+    font-family: 'Jost', sans-serif
+    font-weight: 600
+    border-radius: 5px
+    border: 2px solid #333
+    padding: 1rem 0rem
+    text-decoration: none
+    color: #333
+    font-size: 1.2rem
+    width: 15rem
+    display: block
+    text-align: center
+    @include respond(phone)
+        padding: 1.3rem 0
+
+.btn-filled
+    background: #000
+    border: 2px solid #000
+    color: #fff
+    @include common-box-shadow
+
+.btn-white
+    border: 2px solid #fff
+    background: #fff
+
+.btn-sm
+    @include respond(tab-land)
+        font-size: 12px
+        padding: 10px 0
+        width: 10rem
+
+.container
+    max-width: 75rem
+    width: 95%
+    margin: auto
+
+.text-lt
+    color: #fff
+.text-bl
+    color: #333 !important
+.text-gr
+    color: grey
+
+.m-auto
+    margin: auto

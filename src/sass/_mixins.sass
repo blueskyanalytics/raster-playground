@@ -1,0 +1,27 @@
+
+// Mixin to write Media Queries
+    // Using em because of poor browser support for rem
+@mixin respond($breakpoint)
+    @if $breakpoint == phone
+        @media (max-width: 40em)
+            // i.e 640px 
+            @content
+
+    @if $breakpoint == tab-port
+        @media (max-width: 55em)
+            // i.e 880px 
+            @content
+
+    @if $breakpoint == tab-land
+        @media (max-width: 75em)
+            // i.e 1200px
+            @content
+
+    @if $breakpoint == big-desk
+        @media (min-width: 100em)
+            // i.e 1600px 
+            @content
+
+// Mixin for Box Shadow
+@mixin common-box-shadow
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px
