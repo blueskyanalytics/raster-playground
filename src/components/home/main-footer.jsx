@@ -59,7 +59,7 @@ const MainFooter = () => {
           </div>
         </div>
 
-        <div className="lower">Copyright 2020. Made in India</div>
+        <div className="lower">&copy; Copyright 2021. Made in India</div>
       </div>
     </footer>
   );

@@ -13,10 +13,10 @@ const Team = () => {
           that made this product happen for you
         </p>
         <div className="team-members">
-          <Member name="Srijit" role="Developer" />
-          <Member name="Hanumanth" role="Developer" />
-          <Member name="Kshitij" role="Developer" />
-          <Member name="Harsha" role="Developer" />
+          <Member name="Srijit" role="Developer" picName={'person.jpg'} />
+          <Member name="Hanumanth" role="Developer" picName={'person.jpg'} />
+          <Member name="Kshitij" role="Developer" picName={'person.jpg'} />
+          <Member name="Harsha" role="Developer" picName={'person.jpg'} />
         </div>
       </div>
     </section>
