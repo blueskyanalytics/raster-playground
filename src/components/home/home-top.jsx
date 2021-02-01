@@ -18,9 +18,14 @@ const HomeTop = () => {
               <Link to="/main" className="btn btn-filled">
                 See In Action
               </Link>
-              <Link to="/" className="btn btn-white">
+              <a
+                href="https://youtube.com"
+                target="_blank"
+                rel="noreferrer"
+                className="btn btn-white"
+              >
                 Demo
-              </Link>
+              </a>
             </div>
           </div>
           <div className="visual">

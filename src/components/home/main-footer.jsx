@@ -1,5 +1,27 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+
+const socials = [
+  {
+    url: 'https://github.com',
+    iconName: 'github-ico.png',
+  },
+  {
+    url: 'https://linkedin.com',
+    iconName: 'linkedin-ico.png',
+  },
+  {
+    url: 'https://twitter.com',
+    iconName: 'twitter-ico.png',
+  },
+  {
+    url: 'https://instagram.com',
+    iconName: 'insta-ico.png',
+  },
+  {
+    url: 'https://youtube.com',
+    iconName: 'yt-ico.png',
+  },
+];
 
 const MainFooter = () => {
   return (
@@ -11,41 +33,15 @@ const MainFooter = () => {
               <span className="heading-bold">Find</span>Us
             </h2>
             <div className="social-cont">
-              <Link to="/">
-                <img
-                  className="icon"
-                  src={require('../../assets/png/github-ico.png').default}
-                  alt=""
-                />
-              </Link>
-              <Link to="/">
-                <img
-                  className="icon"
-                  src={require('../../assets/png/linkedin-ico.png').default}
-                  alt=""
-                />
-              </Link>
-              <Link to="/">
-                <img
-                  className="icon"
-                  src={require('../../assets/png/insta-ico.png').default}
-                  alt=""
-                />
-              </Link>
-              <Link to="/">
-                <img
-                  className="icon"
-                  src={require('../../assets/png/twitter-ico.png').default}
-                  alt=""
-                />
-              </Link>
-              <Link to="/">
-                <img
-                  className="icon"
-                  src={require('../../assets/png/yt-ico.png').default}
-                  alt=""
-                />
-              </Link>
+              {socials.map((item, idx) => (
+                <a key={idx} target="_blank" rel="noreferrer" href={item.url}>
+                  <img
+                    className="icon"
+                    src={require(`../../assets/png/${item.iconName}`).default}
+                    alt=""
+                  />
+                </a>
+              ))}
             </div>
           </div>
           <div className="row row-2">
