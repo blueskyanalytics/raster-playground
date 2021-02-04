@@ -5,7 +5,7 @@ import { URL_SHAPE, URL_TILES, URL_COLORS, URL_OPACITY } from 'config';
 import { useQueryParam, StringParam } from 'use-query-params';
 import { usePrevious } from 'react-use';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCompass } from '@fortawesome/free-solid-svg-icons';
+import { faCompass, faSearch } from '@fortawesome/free-solid-svg-icons';
 import { handleLocationButton } from 'utils';
 import { setSource } from '../../api/map-data';
 
@@ -47,6 +47,14 @@ export default function OlInit() {
     }
   }, [shape, tiles, colors, opacity, prevTiles, prevShape]);
 
+  //Display the search bar after click on the search icon for small screens only
+  const displaysearchbar=(e)=>
+  {
+    let div=document.getElementsByClassName('gcd-gl-control')[0];
+    div.classList.add('show-results');
+
+  }
+
   return (
     <>
       <div>
@@ -54,6 +62,13 @@ export default function OlInit() {
           <div className="ol-control location-btn">
             <button onClick={() => handleLocationButton()}>
               <FontAwesomeIcon icon={faCompass} />
+            </button>
+          </div>
+          
+          {/* //Search bar icon */}
+          <div className="ol-control search">
+            <button onClick={displaysearchbar}>
+              <FontAwesomeIcon icon={faSearch} />
             </button>
           </div>
         </div>
