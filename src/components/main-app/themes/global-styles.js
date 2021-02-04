@@ -33,7 +33,7 @@ export const GlobalStyles = createGlobalStyle`
     color: ${({ theme }) => theme.text};
   }
 
-  .fa.iconButton, #color-format, .copy-btn{
+  .fa.iconButton, #color-format, .copy-btn, .hide-show{
     background-color: ${({ theme }) => theme.btnBgColor};
     color: ${({ theme }) => theme.btnColor};
   }  

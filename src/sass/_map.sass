@@ -8,9 +8,18 @@
     z-index: 1
     margin-top: 0.5rem
 
+//For search-icon
+.search
+    position: fixed
+    top: 6.4rem
+    right: 0.5rem
+    z-index: 1
+    margin-top: 0.5rem
+    display: none !important
+
 .gcd-gl-control.ol-control
     padding: 0
-    width: 20rem
+    width: inherit
 
 .ol-geocoder
     position: absolute
@@ -58,4 +67,22 @@
         background: #ccc
 
 .hide-results
-    display: none
+    display: none !important
+
+
+//Show block used to display search bar
+.show-results
+    display: block !important
+
+//To display search icon and hide search bar
+@media only screen and (max-width: 1000px)
+    .search
+        display: block !important
+    
+    .gcd-gl-control
+        display: none
+
+    
+
+    
+    
