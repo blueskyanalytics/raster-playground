@@ -1,0 +1,248 @@
+body
+    overflow-x: hidden
+
+body::-webkit-scrollbar-track
+    -webkit-box-shadow: inset 0 0 10px rgba(0,0,0,0.6)
+    background-color: #082d4e
+
+body::-webkit-scrollbar
+    width: 10px
+    background-color: #F5F5F5
+
+body::-webkit-scrollbar-thumb
+    border-radius: 5px
+    background-color: #009efb
+
+nav
+    background-color: #082d4e
+    padding: 10px 0
+    width: 100%
+    position: fixed
+    z-index: 99
+
+    .navbar-wrapper
+        max-width: 940px
+        margin: 0 auto
+        display: flex
+        align-items: center
+        justify-content: space-between
+
+        .navbar-company
+            color: #EC297B
+            display: flex
+            align-items: center
+
+        .play
+            width: 100%
+            max-width: 200px
+            margin: 0 auto
+            height: 50px
+            font-size: 1.2rem
+            font-weight: 700
+            color: #EC297B
+            text-align: center
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px
+        
+        .play p 
+            margin: 0
+            height: 100%
+            line-height: 50px
+            z-index: 1
+            position: relative
+            overflow: hidden
+            
+        .play p span.base 
+            box-sizing: border-box
+            position: absolute
+            z-index: 2
+            width: 100%
+            height: 100%
+            left: 0
+            border: 1px solid #EC297B
+            
+        .play p .background 
+            left: -5%
+            position: absolute
+            background: #009efb
+            width: 0
+            height: 100%
+            z-index: 3
+            transition: 0.3s ease-out all
+            transform: skewX(-10deg)
+            
+        .play p span.text 
+            z-index: 4
+            width: 100%
+            height: 100%
+            position: absolute
+            left: 0
+            top: 0
+            
+        .play:hover 
+            color: #ffffff
+
+        .play:hover .background 
+            width: 110%
+
+
+        .navbar-nav
+            display: flex
+            justify-content: space-between
+
+            .nav-item
+                margin: 0 15px
+                list-style-type: none
+
+                a
+                    color: #ffffff
+                a:hover
+                    color: #EC297B
+
+                .active
+                    color: #EC297B
+
+.home-main
+    min-height: 80vh
+    background-color: #0b3458
+    background-repeat: no-repeat
+    background-position: center
+    background-size: cover
+    background-attachment: fixed
+
+    .title-wrapper
+        margin: 0 auto
+        padding-top: 85px
+
+        .title
+            height: 80vh
+            display: flex
+            flex-direction: column
+            justify-content: center
+            text-align: center
+
+            h1
+                margin: 0
+                font-size: large
+                color: #009efb
+
+            h2
+                margin: 0
+                font-size: 4rem
+                color: #EC297B
+
+    .horizontal-section
+        position: relative
+        padding-top: 100px
+        width: 100%
+        min-height: 100vh
+
+        div h2
+            position: absolute
+            left: 15%
+            color: #04abf9
+            font-size: 3rem
+
+        .image-container
+            position: relative
+            margin-top: 85px
+            height: 80%
+            display: flex
+            flex-flow: row nowrap
+            justify-content: flex-start
+            align-items: center
+
+            img
+                position: relative
+                height: 300px
+                width: 60%
+                margin: 0 15%
+                flex-shrink: 0
+                border-radius: 5px
+
+            img:nth-of-type(1)
+                box-shadow: rgba(77, 79,88, 0.5) 5px 5px, rgba(77, 79,88, 0.3) 10px 10px, rgba(77, 79,88, 0.2) 15px 15px, rgba(77, 79,88, 0.1) 20px 20px, rgba(77, 79,88, 0.05) 25px 25px
+
+            img:nth-of-type(2)
+                box-shadow: rgba(236, 227, 194, 0.5) 5px 5px, rgba(236, 227, 194, 0.3) 10px 10px, rgba(236, 227, 194, 0.2) 15px 15px, rgba(236, 227, 194, 0.1) 20px 20px, rgba(236, 227, 194, 0.05) 25px 25px
+
+            img:nth-of-type(3)
+                box-shadow: rgba(240, 46, 170, 0.4) 5px 5px, rgba(240, 46, 170, 0.3) 10px 10px, rgba(240, 46, 170, 0.2) 15px 15px, rgba(240, 46, 170, 0.1) 20px 20px, rgba(240, 46, 170, 0.05) 25px 25px
+
+    div
+        display: flex
+        justify-content: center
+
+        ul
+            font-size: 2rem
+            color: #ffffff
+            counter-reset: index
+            padding: 0
+            max-width: 50%
+
+            li
+                counter-increment: index
+                display: flex
+                align-items: center
+                padding: 12px 0
+
+            /* Element counter */
+            li::before
+                content: counters(index, ".", decimal-leading-zero)
+                font-size: 3rem
+                font-weight: 700
+                padding-right: 30px
+                background: linear-gradient(to bottom, #04abf9, #EC297B)
+                background-attachment: fixed
+                /* Fill colour in the counter */
+                -webkit-background-clip: text
+                -webkit-text-fill-color: transparent
+
+            /* Element separation */
+            li + li
+                border-top: 1px solid #EC297B
+
+.footer
+    background-color: #082d4e
+    padding-top: 100px
+
+    .brand-container
+        max-width: 940px
+        margin: 20px auto
+
+    a
+        color: #ffffff
+
+    a:hover
+        color: #EC297B
+
+    .container
+        font-size: 14px
+        margin-left: auto
+        margin-right: auto
+        max-width: 940px
+        display: grid
+        grid-row-gap: 20px
+        grid-template-columns: 1fr 1fr 1fr 1fr
+        grid-template-rows: auto auto
+        color: #fff
+
+        .footer-column
+            font-size: 14px
+            line-height: 25px
+            color: #fff
+            box-sizing: border-box
+            display: flex
+            justify-self: center
+            padding: 0px 16px
+            flex-direction: column
+            align-items: flex-start
+
+            h5
+                margin: 0
+                color: #04abf9
+                font-size: 1rem
+
+            .social-links
+                padding: 0 5px
+                width: 20px
+                height: 20px
