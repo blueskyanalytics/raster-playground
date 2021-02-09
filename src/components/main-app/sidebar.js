@@ -21,7 +21,7 @@ export default function Sidebar({ setTheme, theme }) {
   const [opacity] = useQueryParam(URL_OPACITY, StringParam);
   const [text, setText] = useState('');
   const [colorFormat, setColorFormat] = useState('rgba');
-let i=1;
+   let i=1;
   useEffect(() => {
     const colorArray = getColorsArray(colors);
     const sidebar=document.querySelector(".sidebar");
