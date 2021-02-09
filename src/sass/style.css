@@ -1,0 +1,23 @@
+#open,#close
+{
+    position: absolute;
+    color:#091B29;
+    padding:4px 10px;
+    background-color:white ;
+    font-size: 24px;
+    border-radius:50% ;
+    cursor: pointer;
+}
+.hide{
+    transform: translateX(-110%);
+    transition: all 8s ease-in-out;
+}
+#close{
+    top:25px;
+    left:280px;
+}
+#open
+{
+top:25px;
+left:25px;
+}
