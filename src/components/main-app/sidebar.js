@@ -42,7 +42,6 @@ let i=1;
       if(i>10&&!sidebar.classList.contains("hide"))
       { 
         sidebar.classList.add("hide");
-        console.log('timer');
         i=0;
       }
     },1000);
@@ -50,8 +49,6 @@ let i=1;
     setText(
       JSON.stringify(copyColor(colorArray, opacity, colorFormat), undefined, 4)
     );
-    i++;
-    console.log(i);
   }, [colors, opacity, colorFormat,i]);
 
   const handleColorFormatChange = event => {
