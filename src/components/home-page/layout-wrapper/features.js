@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useContext } from 'react';
+import React, { useEffect, useRef, useContext, useCallback } from 'react';
 import banner1 from '../../../assets/png/feature1.jpg';
 import banner2 from '../../../assets/png/feature2.jpg';
 import banner3 from '../../../assets/png/feature3.jpg';
@@ -8,14 +8,10 @@ import { ScrollSpyContext } from './scrollspyContext';
 
 export default function Features() {
   const ref = useRef();
-  const [isFeaturesVisible, setFeaturesVisible] = useContext(ScrollSpyContext);
-
-  useEffect(() => {
-    document.addEventListener('scroll', isInViewport, true);
-  }, []);
+  const [isFeatureVisible, setFeaturesVisible] = useContext(ScrollSpyContext);
 
   /* if feature is in viewport setFeaturesVisible is set to true which highlights the tab on the navbar*/
-  const isInViewport = () => {
+  const isInViewport = useCallback (() => {
     if (!ref.current) {
       setFeaturesVisible(false);
       return;
@@ -26,7 +22,11 @@ export default function Features() {
     } else {
       setFeaturesVisible(false);
     }
-  };
+  },[isFeatureVisible]);
+
+  useEffect(() => {
+    document.addEventListener('scroll', isInViewport, true);
+  }, [isInViewport]);
 
   return (
     <>

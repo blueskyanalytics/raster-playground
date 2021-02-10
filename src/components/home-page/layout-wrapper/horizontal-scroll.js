@@ -60,7 +60,7 @@ export default function HorizontalScroll ({ children }) {
     handleDynamicHeight(object, setDynamicHeight);
     window.addEventListener("resize", resizeHandler);
     applyScrollListener(container, setTranslateX);
-  });
+  }, [dynamicHeight, translateX]);
 
   return (
     <TallOuterContainer dynamicHeight={dynamicHeight}>

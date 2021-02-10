@@ -76,7 +76,7 @@ export default function Footer() {
                   className="social-links"
                 ></img>
               </a>
-              <a href="#" target="_blank" rel="noreferrer">
+              <a href="https://facebook.com/" target="_blank" rel="noreferrer">
                 <img
                   src="https://uploads-ssl.webflow.com/5ef9c794e576e5418161f611/5f00c6bfcfab3cdc5fbca54e_facebook.svg"
                   alt="Bluesky Facebook"
