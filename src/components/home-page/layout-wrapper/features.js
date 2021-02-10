@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useContext, useCallback } from 'react';
+import React, { useEffect, useRef, useContext } from 'react';
 import banner1 from '../../../assets/png/feature1.jpg';
 import banner2 from '../../../assets/png/feature2.jpg';
 import banner3 from '../../../assets/png/feature3.jpg';
@@ -8,25 +8,25 @@ import { ScrollSpyContext } from './scrollspyContext';
 
 export default function Features() {
   const ref = useRef();
-  const [isFeatureVisible, setFeaturesVisible] = useContext(ScrollSpyContext);
-
-  /* if feature is in viewport setFeaturesVisible is set to true which highlights the tab on the navbar*/
-  const isInViewport = useCallback (() => {
-    if (!ref.current) {
-      setFeaturesVisible(false);
-      return;
-    }
-    const rect = ref.current.getBoundingClientRect();
-    if (rect.top - 600 <= 0) {
-      setFeaturesVisible(true);
-    } else {
-      setFeaturesVisible(false);
-    }
-  },[isFeatureVisible]);
-
+  const [, setFeaturesVisible] = useContext(ScrollSpyContext);
+ 
   useEffect(() => {
-    document.addEventListener('scroll', isInViewport, true);
-  }, [isInViewport]);
+    document.addEventListener('scroll', 
+     /* if feature is in viewport setFeaturesVisible is set to true which highlights the tab on the navbar*/
+     (isFeaturesVisible) => {
+      if (!ref.current) {
+        setFeaturesVisible(false);
+        return;
+      }
+      const rect = ref.current.getBoundingClientRect();
+      if (rect.top - 600 <= 0) {
+        setFeaturesVisible(true);
+      } else {
+        setFeaturesVisible(false);
+      }
+    }, true);
+  });
+
 
   return (
     <>
