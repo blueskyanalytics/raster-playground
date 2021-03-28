@@ -4,9 +4,10 @@ import { StringParam, useQueryParam } from 'use-query-params';
 import { copyColor, getColorsArray, themeToggler } from 'utils';
 import {
   TilesInput,
-  ShapeInput,
   ColorsInput,
   AlphaInput,
+  ShapeInput,
+  ShapeUpload,
 } from './sidebar-wrapper';
 import { ThemeProvider } from 'styled-components';
 import { GlobalStyles } from './themes/global-styles';
@@ -58,6 +59,9 @@ export default function Sidebar({ setTheme, theme }) {
           </div>
           <hr />
           <ShapeInput />
+          <br />
+          <br />
+          <ShapeUpload />
           <br />
           <br />
           <TilesInput />

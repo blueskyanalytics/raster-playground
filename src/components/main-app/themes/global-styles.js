@@ -32,7 +32,11 @@ export const GlobalStyles = createGlobalStyle`
     background-color: ${({ theme }) => theme.background};
     color: ${({ theme }) => theme.text};
   }
-
+  .upload-button {
+    background-color: ${({ theme }) => theme.background};
+    color: ${({ theme }) => theme.text};
+  }
+  
   .fa.iconButton, #color-format, .copy-btn{
     background-color: ${({ theme }) => theme.btnBgColor};
     color: ${({ theme }) => theme.btnColor};
