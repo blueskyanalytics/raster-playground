@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, Fragment } from 'react';
 import { StringParam, useQueryParam } from 'use-query-params';
 import { URL_COLORS, URL_UPDATE_PUSH } from 'config';
 import { ReactComponent as CloseSVG } from 'assets/svg/close.svg';
@@ -58,7 +58,7 @@ export default function ColorsInput() {
       </div>
       <div className="color-input">
         {colorsArray.map((color, key) => (
-          <>
+          <Fragment key={color + key}>
             <div
               className="color-input-item"
               style={
@@ -78,7 +78,7 @@ export default function ColorsInput() {
                 onClick={e => setItemColorStatus({ color, key })}
               ></div>
             </div>
-          </>
+          </Fragment>
         ))}
       </div>
       {itemColorStatus ? (
