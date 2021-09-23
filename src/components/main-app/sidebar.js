@@ -4,9 +4,10 @@ import { StringParam, useQueryParam } from 'use-query-params';
 import { copyColor, getColorsArray, themeToggler } from 'utils';
 import {
   TilesInput,
-  ShapeInput,
   ColorsInput,
   AlphaInput,
+  ShapeInput,
+  ShapeUpload,
 } from './sidebar-wrapper';
 import { ThemeProvider } from 'styled-components';
 import { GlobalStyles } from './themes/global-styles';
@@ -64,6 +65,9 @@ export default function Sidebar({ setTheme, theme }) {
           <ShapeInput />
           <br />
           <br />
+          <ShapeUpload />
+          <br />
+          <br />
           <TilesInput />
           <br />
           <br />
@@ -84,6 +88,19 @@ export default function Sidebar({ setTheme, theme }) {
           <CopyToClipboard text={text}>
             <button className="copy-btn">Copy</button>
           </CopyToClipboard>
+          <a
+            href={`data:text/json;charset=utf-8,${encodeURIComponent(text)}`}
+            download={`${colorFormat}.json`}
+            className="copy-btn"
+            style={{
+              textAlign: 'center',
+              height: '1.15rem',
+              fontSize: '0.85rem',
+              marginRight: '0.5rem',
+            }}
+          >
+            Export
+          </a>
           <br />
           <JSONPretty
             id="json-pretty"

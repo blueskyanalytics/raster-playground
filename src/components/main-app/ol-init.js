@@ -8,13 +8,39 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCompass } from '@fortawesome/free-solid-svg-icons';
 import { handleLocationButton } from 'utils';
 import { setSource } from '../../api/map-data';
-
+import { useSelector } from 'react-redux';
+import VectorLayer from 'ol/layer/Vector';
+import VectorSource from 'ol/source/Vector';
+import { GeoJSON, TopoJSON } from 'ol/format';
+const addVectorLayer = (title, type, jsonObj, featureProjection) => {
+  let source, features;
+  if (type === 'geojson') {
+    features = new GeoJSON().readFeatures(jsonObj, { featureProjection });
+    source = new VectorSource({
+      features,
+      format: new GeoJSON(),
+      overlaps: false,
+    });
+  } else if (type === 'topojson') {
+    features = new TopoJSON().readFeatures(jsonObj, { featureProjection });
+    source = new VectorSource({
+      features,
+      format: new TopoJSON(),
+      overlaps: false,
+    });
+  }
+  return new VectorLayer({
+    source,
+    title,
+  });
+};
 export default function OlInit() {
+  const shapeData = useSelector(state => state.shapeData);
   const [shape] = useQueryParam(URL_SHAPE, StringParam);
   const [tiles] = useQueryParam(URL_TILES, StringParam);
   const [colors] = useQueryParam(URL_COLORS, StringParam);
   const [opacity] = useQueryParam(URL_OPACITY, StringParam);
-
+  const prevShapeData = usePrevious(shapeData);
   const prevTiles = usePrevious(tiles);
   const prevShape = usePrevious(shape);
 
@@ -52,8 +78,39 @@ export default function OlInit() {
     if (olInstances.rasterSource) {
       olInstances.rasterSource.refresh();
     }
-  }, [shape, tiles, colors, opacity, prevTiles, prevShape]);
+    if (
+      shapeData &&
+      shapeData.fileType &&
+      shapeData.parsedFileData &&
+      prevShapeData !== shapeData
+    ) {
+      let jsonObj = JSON.stringify(shapeData.parsedFileData);
+      let featureProjection = olInstances.map.getView().getProjection();
+      let title = 'upload-file-layer';
 
+      olInstances.map.getLayers().forEach(vectorLayer => {
+        if (vectorLayer.get('title') === 'upload-file-layer')
+          olInstances.map.removeLayer(vectorLayer);
+      });
+
+      const newShape = addVectorLayer(
+        title,
+        shapeData.fileType,
+        jsonObj,
+        featureProjection
+      );
+      olInstances.map.addLayer(newShape);
+    }
+  }, [
+    shape,
+    tiles,
+    colors,
+    opacity,
+    prevTiles,
+    prevShape,
+    shapeData,
+    prevShapeData,
+  ]);
   return (
     <>
       <div>
