@@ -41,8 +41,12 @@ export default function Sidebar({ setTheme, theme }) {
           <h1 className="logo">
             Raster<span>Playground</span>
           </h1>
-          <div class="theme-switch-wrapper theme-toggle">
-            <label class="switch" for="checkbox" title="Change color scheme">
+          <div className="theme-switch-wrapper theme-toggle">
+            <label
+              className="switch"
+              htmlFor="checkbox"
+              title="Change color scheme"
+            >
               <input
                 type="checkbox"
                 id="checkbox"
@@ -51,9 +55,9 @@ export default function Sidebar({ setTheme, theme }) {
                 }
                 checked={theme === 'light' ? '' : 'checked'}
               />
-              <div class="slider round"></div>
-              <div class="toggle-sun">☀️</div>
-              <div class="toggle-moon">🌙</div>
+              <div className="slider round"></div>
+              <div className="toggle-sun">☀️</div>
+              <div className="toggle-moon">🌙</div>
             </label>
           </div>
           <hr />
