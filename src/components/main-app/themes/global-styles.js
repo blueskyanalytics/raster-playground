@@ -7,6 +7,10 @@ export const GlobalStyles = createGlobalStyle`
     transition: all 0.5s linear;
   }
 
+  .powered {
+    color: ${({ theme }) => theme.text};
+  }
+
   #json-pretty > pre::-webkit-scrollbar-thumb{
     background-color: ${({ theme }) => theme.scroll};
   }
