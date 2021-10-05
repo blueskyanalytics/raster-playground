@@ -67,18 +67,27 @@ export default function OlInit() {
         </div>
         <div id="popup" class="ol-popup">
           <div className="powered">
-          Powered by <a href="http://blueskyhq.in/" target="_blank" rel="noreferrer">Blue Sky Analytics</a> | Made on <a href="https://openlayers.org/" target="_blank" rel="noreferrer">OpenLayers</a> | Basemap by <a href="mapbox.com" target="_blank" rel="noreferrer">Mapbox</a>
+            Powered by{' '}
+            <a href="http://blueskyhq.in/" target="_blank" rel="noreferrer">
+              Blue Sky Analytics
+            </a>{' '}
+            | Made on{' '}
+            <a href="https://openlayers.org/" target="_blank" rel="noreferrer">
+              OpenLayers
+            </a>{' '}
+            | Basemap by{' '}
+            <a href="mapbox.com" target="_blank" rel="noreferrer">
+              Mapbox
+            </a>
           </div>
           <div className="badges">
-          {
-            FOOTER_ICON.map((footer) => (
-<a href={footer.url} target="_blank" rel="noreferrer">
-          <img src={footer.img} alt={footer.label} />
-          </a>
-            ))
-          }
+            {FOOTER_ICON.map(footer => (
+              <a href={footer.url} target="_blank" rel="noreferrer">
+                <img src={footer.img} alt={footer.label} />
+              </a>
+            ))}
           </div>
-    </div>
+        </div>
       </div>
     </>
   );

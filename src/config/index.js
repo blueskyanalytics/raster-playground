@@ -15,27 +15,27 @@ export {
   THEME_DEFAULT,
 } from './default';
 
-const GITHUB_REPO = 'blueskyanalytics/raster-playground'
+const GITHUB_REPO = 'blueskyanalytics/raster-playground';
 
 export const FOOTER_ICON = [
   {
     label: 'fork',
     img: `https://img.shields.io/github/forks/${GITHUB_REPO}.svg?style=social&label=Contribute`,
-    url: `https://github.com/${GITHUB_REPO}`
+    url: `https://github.com/${GITHUB_REPO}`,
   },
   {
     label: 'stars',
     img: `https://img.shields.io/github/stars/${GITHUB_REPO}.svg?style=for-the-badge`,
-    url: `https://github.com/${GITHUB_REPO}/stargazers`
+    url: `https://github.com/${GITHUB_REPO}/stargazers`,
   },
   {
     label: 'stars',
     img: `https://img.shields.io/github/issues/${GITHUB_REPO}.svg?style=for-the-badge&color=blue`,
-    url: `https://github.com/${GITHUB_REPO}/issues`
+    url: `https://github.com/${GITHUB_REPO}/issues`,
   },
   {
     label: 'js',
     img: `https://forthebadge.com/images/badges/made-with-javascript.svg`,
-    url: `https://github.com/${GITHUB_REPO}`
-  }
-]
+    url: `https://github.com/${GITHUB_REPO}`,
+  },
+];
