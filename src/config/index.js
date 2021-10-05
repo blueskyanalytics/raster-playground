@@ -24,14 +24,14 @@ export const FOOTER_ICON = [
     url: `https://github.com/${GITHUB_REPO}`,
   },
   {
-    label: 'stars',
-    img: `https://img.shields.io/github/stars/${GITHUB_REPO}.svg?style=for-the-badge`,
-    url: `https://github.com/${GITHUB_REPO}/stargazers`,
+    label: 'issues',
+    img: `https://img.shields.io/github/hacktoberfest/2021/blueskyanalytics/raster-playground?label=hacktoberfest%2021&color=blue`,
+    url: `https://github.com/${GITHUB_REPO}/issues`,
   },
   {
     label: 'stars',
-    img: `https://img.shields.io/github/issues/${GITHUB_REPO}.svg?style=for-the-badge&color=blue`,
-    url: `https://github.com/${GITHUB_REPO}/issues`,
+    img: `https://img.shields.io/github/stars/${GITHUB_REPO}.svg?style=for-the-badge`,
+    url: `https://github.com/${GITHUB_REPO}/stargazers`,
   },
   {
     label: 'js',
