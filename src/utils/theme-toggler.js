@@ -1,16 +1,13 @@
 import { getSource } from 'api/map-data';
-
-const darkModeUrl =
-  'https://api.mapbox.com/styles/v1/srijitcoder/cke5v5nbb1uov19lj4n25qojl/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1Ijoic3Jpaml0Y29kZXIiLCJhIjoiY2s3MzhnZGZyMDlrbDNvbW5mcXpwZnoxMyJ9.ILgPQHEJq6lFRt2fN0j2sQ';
-const lightModeUrl =
-  'https://api.mapbox.com/styles/v1/srijitcoder/ckhnsil6g15ud19qqo9leet6e/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1Ijoic3Jpaml0Y29kZXIiLCJhIjoiY2s3MzhnZGZyMDlrbDNvbW5mcXpwZnoxMyJ9.ILgPQHEJq6lFRt2fN0j2sQ';
+import { BASEMAP_LIGHT_STYLE } from 'config';
+import { BASEMAP_DARK_STYLE } from 'config';
 
 export default function themeToggler(theme, setTheme) {
   theme === 'light' ? setTheme('light') : setTheme('dark');
   let source = getSource();
 
-  if (theme === 'dark') source.setUrl(darkModeUrl);
-  else if (theme === 'light') source.setUrl(lightModeUrl);
+  if (theme === 'dark') source.setUrl(BASEMAP_DARK_STYLE);
+  else if (theme === 'light') source.setUrl(BASEMAP_LIGHT_STYLE);
 
   source.refresh();
 }

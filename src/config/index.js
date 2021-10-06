@@ -15,6 +15,12 @@ export {
   THEME_DEFAULT,
 } from './default';
 
+export {
+  MAPBOX_STYLE_ACCESS_TOKEN,
+  BASEMAP_LIGHT_STYLE,
+  BASEMAP_DARK_STYLE,
+} from './basemap-url';
+
 const GITHUB_REPO = 'blueskyanalytics/raster-playground';
 
 export const FOOTER_ICON = [

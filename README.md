@@ -36,10 +36,11 @@ This utility helps simulate the color schemes quickly, along with clipping & map
 - [X] Dark Mode
 
 ## Installation
-clone repo and install using - 
+1. clone repo and install using - 
 ```sh
 npm install
 ```
+2. How to generate environment variables for development - ref [.env.example](.env.example)
 
 ## Run on local
 ```sh
