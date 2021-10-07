@@ -81,13 +81,45 @@
   position: relative
   z-index: 420
 
-.input-text
+.input-container
     width: -webkit-fill-available
     width: -moz-available
+    position: relative
+    overflow: hidden
+    height: 60px
+
+.input-text
     border: 0
     padding: 15px
     background: #ececec
     margin-top: 5px
+    margin-left: 15px
+    width: 50px
+    bottom: 0
+    position: absolute
+    width: 100%
+
+.range-slider
+    width: 100%
+
+.slider-container
+    position: relative
+    width: 62%
+    margin: 0
+    float: left
+
+.number-container
+    position: relative
+    width: 20%
+    height: 60px
+
+.bubble-container
+    position: absolute
+    border-radius: 25px
+    border-color: lightgrey
+    padding: 5px
+    border-style: solid
+    border-width: 1px
 
 .color-row 
     display: flex
