@@ -20,7 +20,7 @@ export default function AlphaInput() {
       <div className="input-container">
         <div className="slider-container">
           <div className="bubble-container">{opacity}</div>
-            <input
+          <input
             type="range"
             min="0"
             max="1"
