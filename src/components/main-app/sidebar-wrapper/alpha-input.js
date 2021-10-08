@@ -34,7 +34,7 @@ export default function AlphaInput() {
           <input
             type="number"
             value={opacity}
-            className="input-text"
+            className="input-text-slider"
             placeholder="Alpha Input"
             min="0"
             max="1"

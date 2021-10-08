@@ -81,20 +81,25 @@
   position: relative
   z-index: 420
 
-.input-container
+.input-text
     width: -webkit-fill-available
     width: -moz-available
-    position: relative
-    overflow: hidden
-    height: 60px
-
-.input-text
     border: 0
     padding: 15px
     background: #ececec
     margin-top: 5px
+
+
+.input-container
+    width: -webkit-fill-available
+    width: -moz-available
+    display: flex
+
+.input-text-slider
+    border: 0
+    padding: 15px
+    background: #ececec
     margin-left: 15px
-    width: 50px
     bottom: 0
     position: absolute
     width: 100%
@@ -105,8 +110,6 @@
 .slider-container
     position: relative
     width: 62%
-    margin: 0
-    float: left
     display: flex
     align-items: flex-end
     height: 60px
@@ -114,7 +117,6 @@
 .number-container
     position: relative
     width: 20%
-    height: 60px
 
 .bubble-container
     position: absolute
