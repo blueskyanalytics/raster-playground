@@ -37,6 +37,11 @@ export const GlobalStyles = createGlobalStyle`
     color: ${({ theme }) => theme.text};
   }
 
+  .input-text-slider {
+    background-color: ${({ theme }) => theme.background};
+    color: ${({ theme }) => theme.text};
+  }
+
   .fa.iconButton, #color-format, .copy-btn{
     background-color: ${({ theme }) => theme.btnBgColor};
     color: ${({ theme }) => theme.btnColor};

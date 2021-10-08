@@ -8,16 +8,31 @@ export default function AlphaInput() {
   return (
     <>
       <p>Alpha Value (0-1)</p>
-      <input
-        type="number"
-        value={opacity}
-        className="input-text"
-        placeholder="Alpha Input"
-        min="0"
-        max="1"
-        step="0.01"
-        onChange={e => onChangeOpacity(e.target.value, URL_UPDATE_PUSH)}
-      />
+      <div className="input-container">
+        <div className="slider-container">
+          <input
+            type="range"
+            min="0"
+            max="1"
+            value={opacity}
+            step="0.01"
+            className="range-slider"
+            onChange={e => onChangeOpacity(e.target.value, URL_UPDATE_PUSH)}
+          />
+        </div>
+        <div>
+          <input
+            type="number"
+            value={opacity}
+            className="input-text-slider"
+            placeholder="Alpha Input"
+            min="0"
+            max="1"
+            step="0.01"
+            onChange={e => onChangeOpacity(e.target.value, URL_UPDATE_PUSH)}
+          />
+        </div>
+      </div>
     </>
   );
 }
