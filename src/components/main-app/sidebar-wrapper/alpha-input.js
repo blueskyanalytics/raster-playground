@@ -19,7 +19,8 @@ export default function AlphaInput() {
       <p>Alpha Value (0-1)</p>
       <div className="input-container">
         <div className="slider-container">
-          <input
+          <div className="bubble-container">{opacity}</div>
+            <input
             type="range"
             min="0"
             max="1"
@@ -28,7 +29,6 @@ export default function AlphaInput() {
             className="range-slider"
             onChange={e => onChangeOpacity(e.target.value, URL_UPDATE_PUSH)}
           />
-          <div className="bubble-container">{opacity}</div>
         </div>
         <div className="number-container">
           <input
