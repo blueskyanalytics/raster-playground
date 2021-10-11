@@ -1,28 +1,28 @@
 .sidebar
-    width: 460px
-    height: 100%
-    position: fixed
-    background: white
-    top: 0
-    left: 0
-    z-index: 1
-    box-shadow: 4px 0px 15px #00000029
-    overflow-y: auto
+  width: 460px
+  height: 100%
+  position: fixed
+  background: white
+  top: 0
+  left: 0
+  z-index: 1
+  box-shadow: 4px 0px 15px #00000029
+  overflow-y: auto
 
-    .sidebar-wrapper
-        padding: 20px
+  .sidebar-wrapper
+    padding: 20px
 
-        hr 
-            margin-bottom: 30px
+    hr
+      margin-bottom: 30px
 
-        h1 
-            display: inline-block
-            font-weight: 700
-            margin-top: 0px
-            margin-bottom: 10px
-            span 
-                font-weight: 300
-  
+      h1
+        display: inline-block
+        font-weight: 700
+        margin-top: 0px
+        margin-bottom: 10px
+        span
+          font-weight: 300
+
 .theme-toggle
   .switch
     display: flex
@@ -82,76 +82,76 @@
   z-index: 420
 
 .input-text
-    width: -webkit-fill-available
-    width: -moz-available
-    border: 0
-    padding: 15px
-    background: #ececec
-    margin-top: 5px
+  width: -webkit-fill-available
+  width: -moz-available
+  border: 0
+  padding: 15px
+  background: #ececec
+  margin-top: 5px
 
-.color-row 
-    display: flex
-    flex-direction: row
-    flex-wrap: wrap
-    justify-content: space-between
-    align-items: baseline
+.color-row
+  display: flex
+  flex-direction: row
+  flex-wrap: wrap
+  justify-content: space-between
+  align-items: baseline
 
 .color-input
-    width: -webkit-fill-available
-    width: -moz-available
-    margin-top: 20px
+  width: -webkit-fill-available
+  width: -moz-available
+  margin-top: 20px
 
-    .color-input-item
-        width: 27%
-        border: 5px solid #eee
-        margin: 5px
-        height: 40px
-        display: inline-block
-        cursor: pointer
-        position: relative
-        z-index: 2
+.color-input-item.draggable
+  width: 27%
+  border: 5px solid #eee
+  margin: 5px
+  height: 40px
+  display: inline-block
+  cursor: pointer
+  position: relative
+  z-index: 2
 
-        .color-input-item-overlay
-            width: 100%
-            height: 40px
-            background: transparent
-            position: absolute
-            top: 0
-            left: 0
+  .color-input-item-overlay
+    width: 100%
+    height: 40px
+    background: transparent
+    position: absolute
+    top: 0
+    left: 0
 
-        .color-input-item-close
-            top: -15px
-            right: -10px
-            position: absolute
-            z-index: 3
-            background: white
-            border-radius: 50%
-            width: 18px
-            height: 18px
-            display: flex
-            align-items: center
-            justify-content: center
-            box-shadow: 0px 2px 4px #0000004f
-
-            svg
-                width: 10px
-
-.fa.iconButton
-    width: 30px
+  .color-input-item-close
+    top: -15px
+    right: -10px
+    position: absolute
+    z-index: 3
+    background: white
+    border-radius: 50%
+    width: 18px
     height: 18px
-    color: #FFF
-    background-color: #000
-    padding: 6px 0px
     display: flex
     align-items: center
     justify-content: center
-    font-size: 15px
-    border-radius: 6px
+    box-shadow: 0px 2px 4px #0000004f
+
+    svg
+      width: 10px
+
+.fa.iconButton
+  width: 30px
+  height: 18px
+  color: #FFF
+  background-color: #000
+  padding: 6px 0px
+  display: flex
+  align-items: center
+  justify-content: center
+  font-size: 15px
+  border-radius: 6px
 
 #json-pretty > pre
-    height: 13rem
-    padding: 0.5rem
-    overflow: auto
+  height: 13rem
+  padding: 0.5rem
+  overflow: auto
 
 #json-pretty > pre::-webkit-scrollbar
   width: 9px
@@ -180,25 +180,25 @@
   width: 4rem
 
 .copy-btn:active
-    opacity: 0.5    
+  opacity: 0.5
 
 .copy-btn:hover
-    cursor: pointer  
+  cursor: pointer
 
-.theme-switch-wrapper 
+.theme-switch-wrapper
   display: inline
   float: right
   align-items: center
   margin-top: 2%
 
 @media only screen and (max-width: 1440px)
-    .sidebar
-        width: 400px
+  .sidebar
+    width: 400px
 
 @media only screen and (max-width: 1366px)
-    .sidebar
-        width: 380px
+  .sidebar
+    width: 380px
 
 @media only screen and (max-width: 1280px)
-    .sidebar
-        width: 360px
+  .sidebar
+    width: 360px
