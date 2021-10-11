@@ -1,4 +1,4 @@
-[![Netlify Status](https://api.netlify.com/api/v1/badges/3a359879-ec8d-4b60-afe1-04b9f688bb90/deploy-status)](https://app.netlify.com/sites/raster-playground/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/3a359879-ec8d-4b60-afe1-04b9f688bb90/deploy-status)](https://app.netlify.com/sites/raster-playground/deploys) [![Stars](https://img.shields.io/github/stars/blueskyanalytics/raster-playground.svg)](https://github.com/blueskyanalytics/raster-playground/stargazers) [![hacktoberfest](https://img.shields.io/github/hacktoberfest/2021/blueskyanalytics/raster-playground?label=hacktoberfest%2021&color=blue)](https://github.com/blueskyanalytics/raster-playground/issues) [![Stars](https://img.shields.io/github/issues/blueskyanalytics/raster-playground.svg)](https://github.com/blueskyanalytics/raster-playground/issues)
 
 # Raster Playground
 > A color playground for raster maps.
@@ -36,10 +36,11 @@ This utility helps simulate the color schemes quickly, along with clipping & map
 - [X] Dark Mode
 
 ## Installation
-clone repo and install using - 
+1. clone repo and install using - 
 ```sh
 npm install
 ```
+2. How to generate environment variables for development - ref [.env.example](.env.example)
 
 ## Run on local
 ```sh
@@ -61,3 +62,7 @@ npm run build
 
 ## How to contribute
 Read contribution [here](CONTRIBUTING.md)
+    
+
+    
+[![Stars](https://forthebadge.com/images/badges/made-with-javascript.svg)](https://github.com/blueskyanalytics/raster-playground/issues)

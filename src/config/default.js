@@ -11,9 +11,6 @@ export const COLORS_DEFAULT2 = [
   '#006698',
 ];
 
-// export const COLORS_DEFAULT =
-//   '4b0c00-dd7f3d-d1a45b-b7be9e-abb8be-7db6d2-3e8eb4-006698';
-
 export const COLORS_DEFAULT =
   'f1eef6-e4d2e7-d7b5d8-db8dc4-df65b0-de4094-dd1c77-bb0e5d-980043';
 
