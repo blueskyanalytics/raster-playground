@@ -1,6 +1,7 @@
 import React from 'react';
 import { URL_SHAPE, URL_UPDATE_PUSH } from 'config';
 import { StringParam, useQueryParam } from 'use-query-params';
+import Tooltip from "./../tooltip.js";
 
 export default function ShapeInput() {
   const [shape, onChangeShape] = useQueryParam(URL_SHAPE, StringParam);
@@ -9,13 +10,7 @@ export default function ShapeInput() {
     <>
       <div className="color-row">
         <p>Shape URL (Only Topo JSON) </p>
-        <a
-          href="#add"
-          // onClick={() => addColor()}
-          className="iconButton fa fa-lg fa-info-circle"
-        >
-          {' '}
-        </a>
+        <Tooltip content={"Shape Url"}/>
       </div>
       <input
         type="text"

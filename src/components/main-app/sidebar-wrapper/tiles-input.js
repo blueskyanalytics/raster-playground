@@ -1,6 +1,7 @@
 import React from 'react';
 import { URL_TILES, URL_UPDATE_PUSH } from 'config';
 import { StringParam, useQueryParam } from 'use-query-params';
+import Tooltip from "./../tooltip.js";
 
 export default function TilesInput() {
   const [tiles, onChangeTiles] = useQueryParam(URL_TILES, StringParam);
@@ -9,13 +10,14 @@ export default function TilesInput() {
     <>
       <div className="color-row">
         <p>Tiles URL (XYZ Format)</p>
-        <a
+        {/* <a
           href="#add"
           // onClick={() => addColor()}
           className="iconButton fa fa-lg fa-info-circle"
         >
           {' '}
-        </a>
+        </a> */}
+        <Tooltip content={"Title Url"}/>
       </div>
       <input
         type="text"
