@@ -4,6 +4,7 @@ import { URL_COLORS, URL_UPDATE_PUSH } from 'config';
 import { ReactComponent as CloseSVG } from 'assets/svg/close.svg';
 import { getColorsArray, getColorsString } from 'utils';
 import { ChromePicker } from 'react-color';
+import Tooltip from "./../tooltip.js";
 
 const popover = {
   position: 'absolute',
@@ -48,20 +49,16 @@ export default function ColorsInput() {
     <>
       <div className="color-row">
         <p>Colors Palette</p>{' '}
-        <a
-          href="#add"
-          onClick={() => addColor()}
-          className="iconButton fa fa-lg fa-plus"
-        >
-          {' '}
-        </a>
-        <a
-          href="#add"
-          // onClick={() => addColor()}
-          className="iconButton fa fa-lg fa-info-circle"
-        >
-          {' '}
-        </a>
+        <div>
+          <a
+            href="#add"
+            onClick={() => addColor()}
+            className="iconButton fa fa-lg fa-plus"
+          >
+            {' '}
+          </a>
+          <Tooltip content={"Colors Url"}/>
+        </div>
       </div>
       <div className="color-input">
         {colorsArray.map((color, key) => (

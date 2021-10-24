@@ -10,13 +10,6 @@ export default function TilesInput() {
     <>
       <div className="color-row">
         <p>Tiles URL (XYZ Format)</p>
-        {/* <a
-          href="#add"
-          // onClick={() => addColor()}
-          className="iconButton fa fa-lg fa-info-circle"
-        >
-          {' '}
-        </a> */}
         <Tooltip content={"Title Url"}/>
       </div>
       <input

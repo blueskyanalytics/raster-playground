@@ -1,6 +1,7 @@
 import React from 'react';
 import { URL_OPACITY, URL_UPDATE_PUSH } from 'config';
 import { StringParam, useQueryParam } from 'use-query-params';
+import Tooltip from "./../tooltip.js";
 
 export default function AlphaInput() {
   const [opacity, onChangeOpacity] = useQueryParam(URL_OPACITY, StringParam);
@@ -9,13 +10,7 @@ export default function AlphaInput() {
     <>
       <div className="color-row">
         <p>Alpha Value (0-1)</p>
-        <a
-          href="#add"
-          // onClick={() => addColor()}
-          className="iconButton fa fa-lg fa-info-circle"
-        >
-          {' '}
-        </a>
+        <Tooltip content={"alpha Url"}/>
       </div>
       <div className="input-container">
         <div className="slider-container">

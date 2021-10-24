@@ -7,10 +7,10 @@ const  Tooltip = ({content}) => {
         <div>
             <Tippy content={content}>
                 <a
-                href="#add"
-                className="iconButton fa fa-lg fa-info-circle"
+                    href="#add"
+                    className="iconButton fa fa-lg fa-info-circle"
                 >
-                {' '}
+                    {' '}
                 </a>
             </Tippy>
         </div>
