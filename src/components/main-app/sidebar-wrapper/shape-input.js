@@ -7,7 +7,16 @@ export default function ShapeInput() {
 
   return (
     <>
-      <p>Shape URL (Only Topo JSON)</p>
+      <div className="color-row">
+        <p>Shape URL (Only Topo JSON) </p>
+        <a
+          href="#add"
+          // onClick={() => addColor()}
+          className="iconButton fa fa-lg fa-info-circle"
+        >
+          {' '}
+        </a>
+      </div>
       <input
         type="text"
         value={shape}

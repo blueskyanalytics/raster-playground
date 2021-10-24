@@ -7,7 +7,16 @@ export default function AlphaInput() {
 
   return (
     <>
-      <p>Alpha Value (0-1)</p>
+      <div className="color-row">
+        <p>Alpha Value (0-1)</p>
+        <a
+          href="#add"
+          // onClick={() => addColor()}
+          className="iconButton fa fa-lg fa-info-circle"
+        >
+          {' '}
+        </a>
+      </div>
       <div className="input-container">
         <div className="slider-container">
           <input

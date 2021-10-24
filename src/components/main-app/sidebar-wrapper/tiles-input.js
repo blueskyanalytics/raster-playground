@@ -7,7 +7,16 @@ export default function TilesInput() {
 
   return (
     <>
-      <p>Tiles URL (XYZ Format)</p>
+      <div className="color-row">
+        <p>Tiles URL (XYZ Format)</p>
+        <a
+          href="#add"
+          // onClick={() => addColor()}
+          className="iconButton fa fa-lg fa-info-circle"
+        >
+          {' '}
+        </a>
+      </div>
       <input
         type="text"
         value={tiles}

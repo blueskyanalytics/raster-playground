@@ -55,6 +55,13 @@ export default function ColorsInput() {
         >
           {' '}
         </a>
+        <a
+          href="#add"
+          // onClick={() => addColor()}
+          className="iconButton fa fa-lg fa-info-circle"
+        >
+          {' '}
+        </a>
       </div>
       <div className="color-input">
         {colorsArray.map((color, key) => (
