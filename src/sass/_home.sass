@@ -1,0 +1,208 @@
+$THEME-CLR: #fabc33
+	
+.home
+	background: #eee
+
+.main-nav
+	position: fixed
+	left: 0%
+	top: 0
+	width: 100%
+	z-index: 10
+	padding: 1rem
+	@include respond(phone)
+	    padding: 8px
+	.nav-content
+		width: 100%
+		margin: auto
+		padding: 1.2rem
+		display: flex
+		justify-content: space-between
+		align-items: center
+		background: #fff
+		@include common-border-radius
+		@include common-box-shadow
+		@include respond(tab-port)
+		 padding: 1rem
+.home-top
+	position: relative
+	min-height: 900px
+	height: 100vh
+	background: $THEME-CLR
+	background-size: cover
+	background-repeat: no-repeat
+	clip-path: polygon(0 0, 100% 0, 100% 80%, 0% 100%)
+	@include respond(tab-land)
+		min-height: unset
+		height: unset
+		padding: 15rem 0
+		clip-path: polygon(0 0, 100% 0, 100% 95%, 0% 100%)
+	@include respond(phone)
+		padding: 12rem 0 7rem 0
+	.top-content
+		position: relative
+		display: grid
+		grid-template-columns: 48% 45%
+		align-items: center
+		justify-content: space-between
+		padding: 0rem 0
+		min-height: 900px
+		height: 100vh
+		@include respond(tab-land)
+			display: unset
+			height: unset
+			min-height: unset
+
+		.main-content
+			z-index: 2
+			@include respond(tab-land)
+			   margin-bottom: 5rem
+			@include respond(phone)
+			   margin-bottom: 3rem
+			.top-msg
+				max-width: 650px
+			.action
+				display: flex
+				flex-wrap: wrap
+				a
+					@include respond(phone)
+					   width: 100%
+					&:first-child
+						margin-right: 1.5rem
+						@include respond(phone)
+						   margin: 0 0 1rem 0
+		.visual
+			z-index: 2
+
+			img
+				width: 100%
+				z-index: 3
+.features
+	padding: 3rem 0 5rem 0
+	text-align: center
+	background: #eee
+	.features-cont
+		margin-top: 5rem
+		display: grid
+		grid-template-columns: 1fr 1fr
+		grid-gap: 1.7rem
+		@include respond(phone)
+		   grid-template-columns: 1fr
+		   grid-gap: 1.5rem
+		   margin-top: 4rem
+		.feature
+			background: #fff
+			@include common-border-radius
+			padding: 4rem
+			@include common-border-radius
+			text-align: left
+			@include common-box-shadow
+			@include respond(tab-port)
+				padding: 4rem 2rem
+			.feature-icon-cont
+				margin-bottom: 1.3rem
+				img
+					width: 3rem
+.section-heading
+	position: relative
+	display: inline-block
+	margin-bottom: 2rem
+	&::after
+		content: ''
+		position: absolute
+		width: 5rem
+		background: #000
+		height: 3px
+		top: 110%
+		left: 50%
+		transform: translate(-50%, 0%)
+.section-heading-lft
+	&::after
+		background: #fff
+		left: 0%
+		transform: translate(0%, 0%)
+.section-intro
+	color: #555
+	@include respond(phone)
+	  width: 95%
+	  margin: auto
+	  line-height: 1.6
+
+.team
+	padding: 5rem 0
+	background: $THEME-CLR
+	text-align: center
+	position: relative
+
+	.team-members
+		display: grid
+		grid-template-columns: 1fr 1fr 1fr 1fr
+		align-items: center
+		grid-gap: 2rem
+		margin: 3rem auto 0 auto
+		@include respond(tab-port)
+			grid-template-columns: 1fr 1fr
+			grid-gap: 1rem
+		.member
+			background: #ffffff
+			padding: 10px 10px 20px 10px
+			@include common-border-radius
+			@include common-box-shadow
+			&:nth-child(2), &:nth-child(4)
+				margin-top: 3rem
+				@include respond(tab-port)
+				   margin-top: 0
+
+			.img-cont
+				width: 100%
+				img
+					width: 100%
+			.member-name
+				text-transform: uppercase
+				padding: 1rem 0 5px 0
+				color: #444
+			.member-prof
+				color: grey
+				text-transform: uppercase
+.call
+	padding: 5rem 0
+	background: #fff
+	text-align: center
+	.content
+		margin-top: 3rem
+
+.main-footer
+	background: #000
+	.upper
+		display: flex
+		justify-content: space-between
+		padding: 5rem 0
+		@include respond(phone)
+			padding: 5rem 1rem
+			display: block
+		.row-1
+			order: 2
+			@include respond(phone)
+				margin-bottom: 3rem
+			.social-cont
+				margin-top: 1rem
+				.icon
+					margin-right: .5rem
+					width: 1.8rem
+		.row-2
+			width: 40%
+			order: 1
+			@include respond(phone)
+				width: 100%
+			.short-desc
+				margin-top: 1rem
+				color: #eee
+
+	.lower
+		padding: 2rem 0
+		border-top: 1px solid #444
+		color: #eee
+		font-size: .8rem
+		text-align:
+		@include respond(phone)
+			padding: 2rem 1rem

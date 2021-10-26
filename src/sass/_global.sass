@@ -1,17 +1,28 @@
-@import url('https://fonts.googleapis.com/css2?family=Jost:wght@100;200;300;400;500;700&display=swap');
-@import url('//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css');
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@100;200;300;400;500;700&display=swap')
+@import url('//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css')
 
 *
     outline: none
-    font-family: 'Jost', sans-serif;
+    margin: 0
+    padding: 0
+    box-sizing: border-box
+    font-family: 'Jost', sans-serif
 
 body, html
     padding: 0
     margin: 0
+    overflow-x: hidden
+
+html
+    font-size: 16px
+    @include respond(tab-land)
+        font-size: 15px
+    @include respond(tab-port)
+        font-size: 14px
+    @include respond(big-desk)
+        font-size: 17px
 
 #root
-    width: 100vw
-    height: 100vh
     background: var(--start-screen-bg-color)
 
 .ol-zoom
@@ -21,5 +32,5 @@ body, html
 p
     margin: 0
 
-a, a:hover 
-	text-decoration: none
+a, a:hover
+    text-decoration: none
