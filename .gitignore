@@ -31,3 +31,5 @@ yarn-error.log*
 yarn.lock
 
 build/**
+# Local Netlify folder
+.netlify
