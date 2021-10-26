@@ -21,6 +21,10 @@ export default function OlInit() {
 
   useEffect(() => {
     const olInstances = olMain({ shape, tiles, colors, opacity });
+    console.log(
+      `olInstances.map.getLayers().getArray()[0].values_.source,`,
+      olInstances.map.getLayers().getArray()[0].values_.source
+    );
     setSource(olInstances.map.getLayers().getArray()[0].values_.source);
 
     if (olInstances.rasterSource && shape && prevTiles !== tiles) {
@@ -82,7 +86,12 @@ export default function OlInit() {
           </div>
           <div className="badges">
             {FOOTER_ICON.map(footer => (
-              <a href={footer.url} target="_blank" rel="noreferrer">
+              <a
+                key={footer.label}
+                href={footer.url}
+                target="_blank"
+                rel="noreferrer"
+              >
                 <img src={footer.img} alt={footer.label} />
               </a>
             ))}
