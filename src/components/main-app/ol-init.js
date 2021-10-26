@@ -65,7 +65,7 @@ export default function OlInit() {
             </button>
           </div>
         </div>
-        <div id="popup" class="ol-popup">
+        <div id="popup" className="ol-popup">
           <div className="powered">
             Powered by{' '}
             <a href="http://blueskyhq.in/" target="_blank" rel="noreferrer">
