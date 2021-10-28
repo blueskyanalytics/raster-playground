@@ -84,6 +84,19 @@ export default function Sidebar({ setTheme, theme }) {
           <CopyToClipboard text={text}>
             <button className="copy-btn">Copy</button>
           </CopyToClipboard>
+          <a
+            href={`data:text/json;charset=utf-8,${encodeURIComponent(text)}`}
+            download={`${colorFormat}.json`}
+            className="copy-btn"
+            style={{
+              textAlign: 'center',
+              height: '1.15rem',
+              fontSize: '0.85rem',
+              marginRight: '0.5rem',
+            }}
+          >
+            Export
+          </a>
           <br />
           <JSONPretty
             id="json-pretty"
