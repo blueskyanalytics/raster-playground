@@ -11,6 +11,8 @@ import {
   TILES_URL_DEFAULT,
   SHAPE_URL_DEFAULT,
   THEME_DEFAULT,
+  BASE_LAYER_DEFAULT,
+  URL_BASE_LAYER,
 } from 'config';
 import { StringParam, useQueryParam } from 'use-query-params';
 import { useCookie, useEffectOnce } from 'react-use';
@@ -21,6 +23,10 @@ export default function Main() {
   const [tiles, onChangeTiles] = useQueryParam(URL_TILES, StringParam);
   const [colors, onChangeColors] = useQueryParam(URL_COLORS, StringParam);
   const [opacity, onChangeOpacity] = useQueryParam(URL_OPACITY, StringParam);
+  const [baseLayer, onChangeBaseLayer] = useQueryParam(
+    URL_BASE_LAYER,
+    StringParam
+  );
   const [theme, setTheme] = useCookie('theme-color');
 
   useEffectOnce(() => {
@@ -51,6 +57,12 @@ export default function Main() {
       onChangeOpacity(OPACITY_DEFAULT, URL_UPDATE_PUSH);
     }
   }, [opacity, onChangeOpacity]);
+
+  useEffect(() => {
+    if (!baseLayer) {
+      onChangeBaseLayer(BASE_LAYER_DEFAULT, URL_UPDATE_PUSH);
+    }
+  }, [baseLayer, onChangeBaseLayer]);
 
   return (
     <>

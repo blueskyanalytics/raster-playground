@@ -5,6 +5,7 @@ export {
   URL_TILES,
   URL_COLORS,
   URL_OPACITY,
+  URL_BASE_LAYER,
 } from './url';
 
 export {
@@ -13,12 +14,16 @@ export {
   COLORS_DEFAULT,
   OPACITY_DEFAULT,
   THEME_DEFAULT,
+  BASE_LAYER_DEFAULT,
 } from './default';
 
 export {
   MAPBOX_STYLE_ACCESS_TOKEN,
   BASEMAP_LIGHT_STYLE,
   BASEMAP_DARK_STYLE,
+  BASEMAP_SATELLITE_STYLE,
+  BASEMAP_STREETS_STYLE,
+  BASEMAP_GREEN_STYLE,
 } from './basemap-url';
 
 const GITHUB_REPO = 'blueskyanalytics/raster-playground';

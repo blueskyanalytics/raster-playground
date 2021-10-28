@@ -1,3 +1,5 @@
+import { BASEMAP_LIGHT_STYLE } from './basemap-url';
+
 export const SHAPE_URL_DEFAULT = `${window.location.origin}/assets/shape/india-boundary.json`;
 export const TILES_URL_DEFAULT = `${window.location.origin}/assets/tiles/{z}/{x}/{-y}.png`;
 export const COLORS_DEFAULT2 = [
@@ -17,3 +19,5 @@ export const COLORS_DEFAULT =
 export const OPACITY_DEFAULT = 1;
 
 export const THEME_DEFAULT = 'dark';
+
+export const BASE_LAYER_DEFAULT = BASEMAP_LIGHT_STYLE;
