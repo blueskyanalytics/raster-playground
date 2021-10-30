@@ -49,7 +49,7 @@ export default function ColorsInput() {
     <>
       <div className="color-row">
         <p>Colors Palette</p>{' '}
-        <div>
+        <div className="container-icons">
           <a
             href="#add"
             onClick={() => addColor()}
