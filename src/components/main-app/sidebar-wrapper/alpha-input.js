@@ -7,7 +7,7 @@ export default function AlphaInput() {
 
   return (
     <>
-      <div>
+      <div className="color-row">
         <p>Alpha Value (0-1)</p>
         <Tooltips tipinfo={'alpha-input'} />
       </div>
