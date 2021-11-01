@@ -4,6 +4,7 @@ import { URL_COLORS, URL_UPDATE_PUSH } from 'config';
 import { ReactComponent as CloseSVG } from 'assets/svg/close.svg';
 import { getColorsArray, getColorsString } from 'utils';
 import { ChromePicker } from 'react-color';
+import Tooltips from './tool-tip';
 
 const popover = {
   position: 'absolute',
@@ -55,6 +56,7 @@ export default function ColorsInput() {
         >
           {' '}
         </a>
+        <Tooltips tipinfo={'color-info'}/>
       </div>
       <div className="color-input">
         {colorsArray.map((color, key) => (
