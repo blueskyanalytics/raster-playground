@@ -1,13 +1,17 @@
 import React from 'react';
 import { URL_OPACITY, URL_UPDATE_PUSH } from 'config';
 import { StringParam, useQueryParam } from 'use-query-params';
-
+import Tooltips from './tool-tip';
 export default function AlphaInput() {
   const [opacity, onChangeOpacity] = useQueryParam(URL_OPACITY, StringParam);
 
   return (
     <>
-      <p>Alpha Value (0-1)</p>
+      <div>
+        <p>Alpha Value (0-1)</p>
+        <Tooltips tipinfo={'alpha-input'} />
+      </div>
+
       <div className="input-container">
         <div className="slider-container">
           <input
