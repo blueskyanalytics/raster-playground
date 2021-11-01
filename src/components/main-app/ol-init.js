@@ -19,6 +19,7 @@ import { FOOTER_ICON } from 'config';
 
 import { getBaseMapUrl } from 'utils';
 
+
 export default function OlInit() {
   const [shape] = useQueryParam(URL_SHAPE, StringParam);
   const [tiles] = useQueryParam(URL_TILES, StringParam);
@@ -52,8 +53,12 @@ export default function OlInit() {
       olInstances.shapeSource.setUrl(shape);
       olInstances.shapeSource.refresh();
 
+      let featureProjection = olInstances.map.getView().getProjection();
+      console.log(`featureProjection`, featureProjection);
+
       olInstances.shapeSource.on('change', () => {
         let shapeExtentArray = olInstances.shapeSource.getExtent();
+
         if (
           shapeExtentArray &&
           !shapeExtentArray.includes(Infinity) &&

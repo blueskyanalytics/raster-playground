@@ -1,4 +1,4 @@
-let source = {};
+export let source = {};
 
 export const setSource = mapSource => {
   source = mapSource;

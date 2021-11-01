@@ -1,6 +1,7 @@
 import { Vector as VectorLayer } from 'ol/layer';
 import { Vector as VectorSource } from 'ol/source';
 import { TopoJSON } from 'ol/format';
+
 import { getVectorContext } from 'ol/render';
 import { Fill, Style, Stroke } from 'ol/style';
 
@@ -8,7 +9,7 @@ import { Fill, Style, Stroke } from 'ol/style';
  * @param {*} rasterLayer = Raster layer map instance generated from OL map init
  */
 export default function clipRasterLayer({ rasterLayer, shape }) {
-  //Create cliping layer from topojson
+  console.log(`shape`, shape);
   const shapeSource = new VectorSource({
     url: shape,
     format: new TopoJSON(),
