@@ -10,7 +10,7 @@ export default function AlphaInput() {
     <>
       <div className="color-row">
         <p>Alpha Value (0-1)</p>
-        <Tooltip content={"alpha Url"}/>
+        <Tooltip content={"Please change your alpha value accordingly"}/>
       </div>
       <div className="input-container">
         <div className="slider-container">

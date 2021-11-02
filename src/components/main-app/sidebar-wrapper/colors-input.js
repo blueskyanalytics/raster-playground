@@ -57,7 +57,7 @@ export default function ColorsInput() {
           >
             {' '}
           </a>
-          <Tooltip content={"Colors Url"}/>
+          <Tooltip content={"Select a color of your choice for Map"}/>
         </div>
       </div>
       <div className="color-input">
