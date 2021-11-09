@@ -24,7 +24,7 @@
     "react-json-pretty": "^2.2.0",
     "react-redux": "^7.2.6",
     "react-router": "^6.0.1",
-    "react-router-dom": "^6.0.1",
+    "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
     "react-use": "^17.3.1",
     "redux": "^4.1.2",
