@@ -22,6 +22,8 @@
             margin-bottom: 10px
             span 
                 font-weight: 300
+        #toggle-button
+                display: none        
   
 .theme-toggle
   .switch
@@ -80,6 +82,8 @@
   padding: 0.25em
   position: relative
   z-index: 420
+
+
 
 .input-text
     width: -webkit-fill-available
@@ -178,7 +182,7 @@
     overflow: auto
 
 #json-pretty > pre::-webkit-scrollbar
-  width: 9px
+  width: px9
 
 #json-pretty > pre::-webkit-scrollbar-thumb
   border-radius: 10px
@@ -226,3 +230,59 @@
 @media only screen and (max-width: 1280px)
     .sidebar
         width: 360px
+
+@media only screen and (max-width: 700px)
+
+   .sidebar
+      position:relative
+      width: 100%
+      height: 10 vh
+      
+
+      .sidebar-wrapper
+        padding: 20px
+
+        hr 
+            margin-bottom: 30px
+
+        h1 
+            display: inline-block
+            font-weight: 700
+            margin-top: 0px
+            margin-bottom: 10px
+            span 
+                font-weight: 300
+
+        #toggle-button
+             display: block
+               
+     
+     
+   .sidebarOpen
+      position: relative
+      width: 100%
+      height: auto
+      top: -730px
+      background: white
+      
+      
+    
+      .sidebar-wrapper
+        padding: 20px
+
+        hr 
+            margin-bottom: 30px
+
+        h1 
+            display: inline-block
+            font-weight: 700
+            margin-top: 0px
+            margin-bottom: 10px
+            span 
+                font-weight: 300
+
+        #toggle-button
+             display: block  
+      
+      
+     

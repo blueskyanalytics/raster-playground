@@ -1,5 +1,6 @@
 .main-map
     height: 100vh
+    
 
 .location-btn
     position: fixed
@@ -19,9 +20,11 @@
 
 .ol-control
     display: flex
+    
 
 .ol-zoom.ol-unselectable.ol-control
     display: block
+    
 
 #gcd-input-query.gcd-gl-input
     border: none
@@ -87,3 +90,25 @@
   
   a
     text-decoration: none
+
+
+@media only screen and (max-width: 700px)
+  .ol-zoom.ol-unselectable.ol-control
+    position: fixed
+    top: 9rem
+    right: 0.5rem
+    z-index: 1
+    margin-top: 0.5rem
+    display: flex
+
+ 
+    
+
+    
+    
+    
+    
+
+
+
+
