@@ -30,6 +30,7 @@ export default function OlInit() {
     URL_BASE_LAYER,
     StringParam
   );
+  
 
   const prevTiles = usePrevious(tiles);
   const prevShape = usePrevious(shape);
@@ -45,6 +46,7 @@ export default function OlInit() {
     }
 
     if (olInstances.baseMapSource && baseLayer && prevBaseLayer !== baseLayer) {
+      // console.log(`prevBaseLayer`, prevBaseLayer, baseLayer);
       olInstances.baseMapSource.setUrl(getBaseMapUrl(baseLayer));
       olInstances.baseMapSource.refresh();
     }
@@ -52,9 +54,6 @@ export default function OlInit() {
     if (olInstances.shapeSource && shape && prevShape !== shape) {
       olInstances.shapeSource.setUrl(shape);
       olInstances.shapeSource.refresh();
-
-      let featureProjection = olInstances.map.getView().getProjection();
-      console.log(`featureProjection`, featureProjection);
 
       olInstances.shapeSource.on('change', () => {
         let shapeExtentArray = olInstances.shapeSource.getExtent();

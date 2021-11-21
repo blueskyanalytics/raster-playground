@@ -7,6 +7,8 @@ import {
 } from 'config';
 
 export default function getBaseMapUrl(style) {
+  // console.log(`style`, style);
+  // console.log(`BASEMAP_LIGHT_STYLE`, BASEMAP_LIGHT_STYLE);
   if (style === 'light') {
     return BASEMAP_LIGHT_STYLE;
   } else if (style === 'dark') {
