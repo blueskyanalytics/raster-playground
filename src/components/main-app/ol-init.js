@@ -51,20 +51,6 @@ export default function OlInit() {
     if (olInstances.shapeSource && shape && prevShape !== shape) {
       olInstances.shapeSource.setUrl(shape);
       olInstances.shapeSource.refresh();
-
-      // olInstances.shapeSource.on('change', () => {
-      //   let shapeExtentArray = olInstances.shapeSource.getExtent();
-
-      //   if (
-      //     shapeExtentArray &&
-      //     !shapeExtentArray.includes(Infinity) &&
-      //     !shapeExtentArray.includes(-Infinity)
-      //   ) {
-      //     olInstances.map.getView().fit(olInstances.shapeSource.getExtent(), {
-      //       padding: [20, 20, 20, 420],
-      //     });
-      //   }
-      // });
     }
 
     if (olInstances.rasterLayer) {
