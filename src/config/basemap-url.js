@@ -1,5 +1,5 @@
 //You need to refer to ".env.example" to generate envs for your development
-
+console.log(`styletoke`, process.env.REACT_APP_MAPBOX_STYLE_ACCESS_TOKEN);
 export const MAPBOX_STYLE_ACCESS_TOKEN =
   process.env.REACT_APP_MAPBOX_STYLE_ACCESS_TOKEN;
 export const BASEMAP_LIGHT_STYLE = `${process.env.REACT_APP_MAPBOX_LIGHT_STYLE}?access_token=${MAPBOX_STYLE_ACCESS_TOKEN}`;

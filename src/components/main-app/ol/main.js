@@ -59,7 +59,7 @@ export default function olMain({ shape, tiles, colors, opacity, baseLayer }) {
   const boundaryLayer = clipRaster.boundaryLayer;
   shapeSource = clipRaster.shapeSource;
 
-  let baseMapLayerLoaded = baseMapLayerLoader(url);
+  const baseMapLayerLoaded = baseMapLayerLoader({ url });
   baseMapLayer = baseMapLayerLoaded.baseMapLayer;
   baseMapSource = baseMapLayerLoaded.baseMapSource;
 
