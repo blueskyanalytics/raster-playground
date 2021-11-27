@@ -2,7 +2,6 @@ import XYZ from 'ol/source/XYZ';
 import { Tile as TileLayer } from 'ol/layer';
 
 export function baseMapLayerLoader(url) {
- // console.log(`url`, url);
   const baseMapSource = new XYZ({
     url,
   });

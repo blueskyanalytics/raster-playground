@@ -15,10 +15,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCompass } from '@fortawesome/free-solid-svg-icons';
 import { handleLocationButton } from 'utils';
 import { setSource } from '../../api/map-data';
-import { FOOTER_ICON } from 'config';
+import { FOOTER_ICON, TOGGLE_ITEM } from 'config';
 
 import { getBaseMapUrl } from 'utils';
-
 
 export default function OlInit() {
   const [shape] = useQueryParam(URL_SHAPE, StringParam);
@@ -30,7 +29,6 @@ export default function OlInit() {
     URL_BASE_LAYER,
     StringParam
   );
-  
 
   const prevTiles = usePrevious(tiles);
   const prevShape = usePrevious(shape);
@@ -46,7 +44,6 @@ export default function OlInit() {
     }
 
     if (olInstances.baseMapSource && baseLayer && prevBaseLayer !== baseLayer) {
-      // console.log(`prevBaseLayer`, prevBaseLayer, baseLayer);
       olInstances.baseMapSource.setUrl(getBaseMapUrl(baseLayer));
       olInstances.baseMapSource.refresh();
     }
@@ -113,38 +110,24 @@ export default function OlInit() {
               Mapbox
             </a>
           </div>
-          <div className="button-block">
-            <button
-              className="toggle"
-              onClick={e => onChangeBaseLayer('light', URL_UPDATE_PUSH)}
-            >
-              light
-            </button>
-            <button
-              className="toggle"
-              onClick={e => onChangeBaseLayer('dark', URL_UPDATE_PUSH)}
-            >
-              dark
-            </button>
-            <button
-              className="toggle"
-              onClick={e => onChangeBaseLayer('satelight', URL_UPDATE_PUSH)}
-            >
-              satelight
-            </button>
-            <button
-              className="toggle"
-              onClick={e => onChangeBaseLayer('street', URL_UPDATE_PUSH)}
-            >
-              street
-            </button>
-            <button
-              className="toggle"
-              onClick={e => onChangeBaseLayer('green', URL_UPDATE_PUSH)}
-            >
-              green
-            </button>
+
+          <div className="toggle-block">
+            {TOGGLE_ITEM.map(toggle => (
+              <span
+                key={toggle.imgalt}
+                className={toggle.spanclassName}
+                onClick={e => onChangeBaseLayer(toggle.imgalt, URL_UPDATE_PUSH)}
+              >
+                <img
+                  className={toggle.imgclassName}
+                  src={toggle.imgsrc}
+                  alt={toggle.imgalt}
+                />
+                <p className={toggle.titleclassName}>{toggle.imgalt}</p>
+              </span>
+            ))}
           </div>
+
           <div className="badges">
             {FOOTER_ICON.map(footer => (
               <a

@@ -50,3 +50,48 @@ export const FOOTER_ICON = [
     url: `https://github.com/${GITHUB_REPO}`,
   },
 ];
+
+
+export const TOGGLE_ITEM = [
+  {
+    imgsrc:
+      'https://snazzy-maps-cdn.azureedge.net/assets/8097-wy.png?v=20170626083314',
+    imgclassName: 'imgstyle',
+    imgalt: 'light',
+    titleclassName: 'title',
+    spanclassName: 'toggle',
+  },
+  {
+    imgsrc:
+      'https://image.shutterstock.com/image-vector/earths-city-lights-political-map-260nw-434522143.jpg',
+    imgclassName: 'imgstyle',
+    imgalt: 'dark',
+    titleclassName: 'title',
+    spanclassName: 'toggle',
+  },
+  {
+    imgsrc:
+      'https://storage.googleapis.com/gweb-uniblog-publish-prod/original_images/google-earth-satellite-image_1.jpg',
+    imgclassName: 'imgstyle',
+    imgalt: 'satelight',
+    titleclassName: 'title',
+    spanclassName: 'toggle',
+  },
+  {
+    imgsrc:
+      'https://image.shutterstock.com/image-vector/berlin-colored-vector-map-260nw-501568915.jpg',
+    imgclassName: 'imgstyle',
+    imgalt: 'street',
+    titleclassName: 'title',
+    spanclassName: 'toggle',
+  },
+  {
+    imgsrc:
+      'https://static4.depositphotos.com/1011006/278/v/950/depositphotos_2785850-stock-illustration-dark-green-detailed-world-map.jpg',
+    imgclassName: 'imgstyle',
+    imgalt: 'green',
+    titleclassName: 'title',
+    spanclassName: 'toggle',
+  },
+];
+

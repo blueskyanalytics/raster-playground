@@ -13,7 +13,7 @@ export const lightTheme = {
 
 export const darkTheme = {
   body: '#15202B',
-  text: '#FFF',
+  text: '#808080',
   background: '#223547',
   btnBgColor: '#223547',
   btnColor: '#FFF',

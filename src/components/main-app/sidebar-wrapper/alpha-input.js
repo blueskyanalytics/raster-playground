@@ -1,7 +1,6 @@
 import React from 'react';
 import { URL_OPACITY, URL_UPDATE_PUSH } from 'config';
 import { StringParam, useQueryParam } from 'use-query-params';
-import Tooltips from 'components/tool-tip/toolTip';
 
 export default function AlphaInput() {
   const [opacity, onChangeOpacity] = useQueryParam(URL_OPACITY, StringParam);
@@ -10,7 +9,6 @@ export default function AlphaInput() {
     <>
       <div className="color-row">
         <p>Alpha Value (0-1)</p>
-        <Tooltips tipinfo={'alpha-input-info'} />
       </div>
       <div className="input-container">
         <div className="slider-container">

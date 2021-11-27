@@ -9,7 +9,6 @@ import { Fill, Style, Stroke } from 'ol/style';
  * @param {*} rasterLayer = Raster layer map instance generated from OL map init
  */
 export default function clipRasterLayer({ rasterLayer, shape }) {
-  // console.log(`shape`, shape);
   const shapeSource = new VectorSource({
     url: shape,
     format: new TopoJSON(),
