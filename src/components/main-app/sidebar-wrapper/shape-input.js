@@ -7,7 +7,7 @@ export default function ShapeInput() {
 
   return (
     <>
-      <p>Shape URL (Only Topo JSON)</p>
+      <p>Shape URL ( Topo & Geo JSON ) </p>
       <input
         type="text"
         value={shape}

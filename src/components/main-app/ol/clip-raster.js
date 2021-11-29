@@ -1,6 +1,6 @@
 import { Vector as VectorLayer } from 'ol/layer';
 import { Vector as VectorSource } from 'ol/source';
-import { GeoJSON, TopoJSON } from 'ol/format';
+import { TopoJSON, GeoJSON } from 'ol/format';
 import { getVectorContext } from 'ol/render';
 import { Fill, Style, Stroke } from 'ol/style';
 
@@ -9,12 +9,14 @@ import { Fill, Style, Stroke } from 'ol/style';
  */
 
 function get_url_extension(url) {
-  return url.split(/[#?]/)[0].split('.').pop().trim();
+  if (url) {
+    return url.split(/[#?]/)[0].split('.').pop().trim();
+  }
 }
 
 export default function clipRasterLayer({ rasterLayer, shape }) {
   const urlExtension = get_url_extension(shape);
- 
+
   const shapeSource = new VectorSource({
     url: shape,
     format: urlExtension === 'geojson' ? new GeoJSON() : new TopoJSON(),

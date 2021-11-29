@@ -7,6 +7,7 @@ import {
   ShapeInput,
   ColorsInput,
   AlphaInput,
+  UploadShapeFile,
 } from './sidebar-wrapper';
 import { ThemeProvider } from 'styled-components';
 import { GlobalStyles } from './themes/global-styles';
@@ -61,6 +62,9 @@ export default function Sidebar({ setTheme, theme }) {
             </label>
           </div>
           <hr />
+          <UploadShapeFile />
+          <br />
+          <br />
           <ShapeInput />
           <br />
           <br />

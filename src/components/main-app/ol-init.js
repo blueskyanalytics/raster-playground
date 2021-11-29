@@ -10,14 +10,47 @@ import { handleLocationButton } from 'utils';
 import { setSource } from '../../api/map-data';
 import { FOOTER_ICON } from 'config';
 
+import { useSelector } from 'react-redux';
+import VectorLayer from 'ol/layer/Vector';
+import VectorSource from 'ol/source/Vector';
+import { GeoJSON, TopoJSON } from 'ol/format';
+
+const addNewVectorLayer = (title, type, jsonObj, featureProjection) => {
+  let source, features;
+
+  if (type === 'geojson') {
+    features = new GeoJSON().readFeatures(jsonObj, { featureProjection });
+    source = new VectorSource({
+      features,
+      format: new GeoJSON(),
+      overlaps: false,
+    });
+  } else if (type === 'json') {
+    features = new TopoJSON().readFeatures(jsonObj, { featureProjection });
+    source = new VectorSource({
+      features,
+      format: new TopoJSON(),
+      overlaps: false,
+    });
+  }
+
+  return new VectorLayer({
+    source,
+    title,
+  });
+};
+
 export default function OlInit() {
   const [shape] = useQueryParam(URL_SHAPE, StringParam);
   const [tiles] = useQueryParam(URL_TILES, StringParam);
   const [colors] = useQueryParam(URL_COLORS, StringParam);
   const [opacity] = useQueryParam(URL_OPACITY, StringParam);
 
+  const shapeData = useSelector(state => state.shapeData);
+
   const prevTiles = usePrevious(tiles);
   const prevShape = usePrevious(shape);
+  const prevShapeData = usePrevious(shapeData);
 
   useEffect(() => {
     const olInstances = olMain({ shape, tiles, colors, opacity });
@@ -53,7 +86,40 @@ export default function OlInit() {
     if (olInstances.rasterSource) {
       olInstances.rasterSource.refresh();
     }
-  }, [shape, tiles, colors, opacity, prevTiles, prevShape]);
+
+    if (
+      shapeData &&
+      shapeData.type &&
+      shapeData.data &&
+      prevShapeData !== shapeData
+    ) {
+      let jsonObj = JSON.parse(shapeData.data);
+      let featureProjection = olInstances.map.getView().getProjection();
+      let title = 'upload-file-layer';
+
+      olInstances.map.getLayers().forEach(vectorLayer => {
+        if (vectorLayer.get('title') === 'upload-file-layer')
+          olInstances.map.removeLayer(vectorLayer);
+      });
+
+      const newShape = addNewVectorLayer(
+        title,
+        shapeData.type,
+        jsonObj,
+        featureProjection
+      );
+      olInstances.map.addLayer(newShape);
+    }
+  }, [
+    shape,
+    tiles,
+    colors,
+    opacity,
+    prevTiles,
+    prevShape,
+    shapeData,
+    prevShapeData,
+  ]);
 
   return (
     <>
@@ -65,7 +131,7 @@ export default function OlInit() {
             </button>
           </div>
         </div>
-        <div id="popup" class="ol-popup">
+        <div id="popup" className="ol-popup">
           <div className="powered">
             Powered by{' '}
             <a href="http://blueskyhq.in/" target="_blank" rel="noreferrer">
@@ -82,7 +148,12 @@ export default function OlInit() {
           </div>
           <div className="badges">
             {FOOTER_ICON.map(footer => (
-              <a href={footer.url} target="_blank" rel="noreferrer">
+              <a
+                key={footer.label}
+                href={footer.url}
+                target="_blank"
+                rel="noreferrer"
+              >
                 <img src={footer.img} alt={footer.label} />
               </a>
             ))}
