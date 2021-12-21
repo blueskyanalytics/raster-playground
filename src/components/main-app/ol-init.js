@@ -18,6 +18,7 @@ import { setSource } from '../../api/map-data';
 import { FOOTER_ICON, TOGGLE_ITEM } from 'config';
 
 import { getBaseMapUrl } from 'utils';
+import ImgToggler from './imgToggle';
 
 export default function OlInit() {
   const [shape] = useQueryParam(URL_SHAPE, StringParam);
@@ -112,18 +113,12 @@ export default function OlInit() {
 
           <div className="toggle-block">
             {TOGGLE_ITEM.map(toggle => (
-              <span
-                key={toggle.imgalt}
-                className={toggle.spanclassName}
-                onClick={e => onChangeBaseLayer(toggle.imgalt, URL_UPDATE_PUSH)}
-              >
-                <img
-                  className={toggle.imgclassName}
-                  src={toggle.imgsrc}
-                  alt={toggle.imgalt}
-                />
-                <p className={toggle.titleclassName}>{toggle.imgalt}</p>
-              </span>
+              <ImgToggler
+                imgsrc={toggle.imgsrc}
+                imgalt={toggle.imgalt}
+                onChangeBaseLayer={onChangeBaseLayer}
+                url={URL_UPDATE_PUSH}
+              />
             ))}
           </div>
 
