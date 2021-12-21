@@ -16,4 +16,6 @@ export const COLORS_DEFAULT =
 
 export const OPACITY_DEFAULT = 1;
 
-export const THEME_DEFAULT = 'dark';
+export const THEME_DEFAULT = 'light';
+
+export const BASE_LAYER_DEFAULT = 'light';

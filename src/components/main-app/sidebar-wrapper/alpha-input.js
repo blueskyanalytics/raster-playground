@@ -7,7 +7,9 @@ export default function AlphaInput() {
 
   return (
     <>
-      <p>Alpha Value (0-1)</p>
+      <div className="color-row">
+        <p>Alpha Value (0-1)</p>
+      </div>
       <div className="input-container">
         <div className="slider-container">
           <input

@@ -2,12 +2,16 @@ import React from 'react';
 import { URL_TILES, URL_UPDATE_PUSH } from 'config';
 import { StringParam, useQueryParam } from 'use-query-params';
 
+
 export default function TilesInput() {
   const [tiles, onChangeTiles] = useQueryParam(URL_TILES, StringParam);
 
   return (
     <>
-      <p>Tiles URL (XYZ Format)</p>
+      <div className="color-row">
+        <p>Tiles URL (XYZ Format)</p>
+      </div>
+
       <input
         type="text"
         value={tiles}

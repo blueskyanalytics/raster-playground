@@ -5,6 +5,7 @@ import { ReactComponent as CloseSVG } from 'assets/svg/close.svg';
 import { getColorsArray, getColorsString } from 'utils';
 import { ChromePicker } from 'react-color';
 
+
 const popover = {
   position: 'absolute',
   zIndex: '3',

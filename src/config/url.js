@@ -4,3 +4,4 @@ export const URL_SHAPE = 'shape';
 export const URL_TILES = 'tiles';
 export const URL_COLORS = 'colors';
 export const URL_OPACITY = 'opacity';
+export const URL_BASE_LAYER = 'layer';

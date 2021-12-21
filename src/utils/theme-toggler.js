@@ -1,6 +1,5 @@
 import { getSource } from 'api/map-data';
-import { BASEMAP_LIGHT_STYLE } from 'config';
-import { BASEMAP_DARK_STYLE } from 'config';
+import { BASEMAP_LIGHT_STYLE, BASEMAP_DARK_STYLE } from 'config';
 
 export default function themeToggler(theme, setTheme) {
   theme === 'light' ? setTheme('light') : setTheme('dark');
