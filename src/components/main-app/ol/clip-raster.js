@@ -63,5 +63,6 @@ export default function clipRasterLayer({ rasterLayer, shape }) {
     e.context.globalCompositeOperation = 'source-over';
   });
 
+
   return { clipLayer, boundaryLayer, shapeSource };
 }

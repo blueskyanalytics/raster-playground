@@ -6,6 +6,7 @@ import {
   setMap,
 } from 'utils';
 
+
 let map = null;
 let rasterSource = null;
 let rasterColorSource = null;

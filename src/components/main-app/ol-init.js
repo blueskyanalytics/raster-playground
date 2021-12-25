@@ -15,7 +15,10 @@ import VectorLayer from 'ol/layer/Vector';
 import VectorSource from 'ol/source/Vector';
 import { GeoJSON, TopoJSON } from 'ol/format';
 
-const addNewVectorLayer = (title, type, jsonObj, featureProjection) => {
+import { getVectorContext } from 'ol/render';
+import { Fill, Style } from 'ol/style';
+
+const addClipLayer = (title, type, jsonObj, featureProjection) => {
   let source, features;
 
   if (type === 'geojson') {
@@ -34,10 +37,12 @@ const addNewVectorLayer = (title, type, jsonObj, featureProjection) => {
     });
   }
 
-  return new VectorLayer({
+  const newShape = new VectorLayer({
     source,
     title,
   });
+
+  return { newShape };
 };
 
 export default function OlInit() {
@@ -102,13 +107,36 @@ export default function OlInit() {
           olInstances.map.removeLayer(vectorLayer);
       });
 
-      const newShape = addNewVectorLayer(
+      const { newShape } = addClipLayer(
         title,
         shapeData.type,
         jsonObj,
         featureProjection
       );
-      olInstances.map.addLayer(newShape);
+
+      newShape.getSource().on('precompose', function () {
+        olInstances.rasterLayer.setExtent(newShape.getSource().getExtent());
+      });
+
+      const style = new Style({
+        fill: new Fill({
+          color: 'black',
+        }),
+      });
+
+      olInstances.rasterLayer.on('postrender', function (e) {
+        const vectorContext = getVectorContext(e);
+        e.context.globalCompositeOperation = 'destination-in';
+        newShape.getSource().forEachFeature(function (feature) {
+          vectorContext.drawFeature(feature, style);
+        });
+        e.context.globalCompositeOperation = 'source-over';
+      });
+
+      if (olInstances.map) {
+        let map = olInstances.map;
+        newShape.setMap(map);
+      }
     }
   }, [
     shape,
