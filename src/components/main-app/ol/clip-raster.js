@@ -16,7 +16,6 @@ function get_url_extension(url) {
 
 export default function clipRasterLayer({ rasterLayer, shape }) {
   const urlExtension = get_url_extension(shape);
-
   const shapeSource = new VectorSource({
     url: shape,
     format: urlExtension === 'geojson' ? new GeoJSON() : new TopoJSON(),
@@ -62,7 +61,5 @@ export default function clipRasterLayer({ rasterLayer, shape }) {
     });
     e.context.globalCompositeOperation = 'source-over';
   });
-
-
   return { clipLayer, boundaryLayer, shapeSource };
 }

@@ -6,7 +6,6 @@ import {
   setMap,
 } from 'utils';
 
-
 let map = null;
 let rasterSource = null;
 let rasterColorSource = null;
@@ -39,7 +38,6 @@ export default function olMain({ shape, tiles, colors, opacity }) {
   rasterLayer = loadRaster.rasterLayer;
   rasterSource = loadRaster.rasterSource;
   rasterColorSource = loadRaster.rasterColorSource;
-
   const clipRaster = clipRasterLayer({ rasterLayer, shape });
   const clipLayer = clipRaster.clipLayer;
   const boundaryLayer = clipRaster.boundaryLayer;
