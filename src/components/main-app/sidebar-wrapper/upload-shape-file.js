@@ -33,18 +33,22 @@ export default function UploadShapeFile() {
     <>
       <p>upload shape files(Topo & Geo JSON)</p>
 
-      <input
-        type="file"
-        className="input-text"
-        onChange={e => {
-          setFile(e.target.files[0]);
-        }}
-        accept={fileTypes}
-      />
+      <div className="container-background">
+        <div className="second-container">
+          <input
+            type="file"
+            className="input-text"
+            onChange={e => {
+              setFile(e.target.files[0]);
+            }}
+            accept={fileTypes}
+          />
 
-      <button className="btn" onClick={() => handleShapeFile()}>
-        upload
-      </button>
+          <button id="btn" onClick={() => handleShapeFile()}>
+            upload
+          </button>
+        </div>
+      </div>
     </>
   );
 }

@@ -15,9 +15,6 @@ import VectorLayer from 'ol/layer/Vector';
 import VectorSource from 'ol/source/Vector';
 import { GeoJSON, TopoJSON } from 'ol/format';
 
-import { getVectorContext } from 'ol/render';
-import { Fill, Style } from 'ol/style';
-
 const addClipLayer = (title, type, jsonObj, featureProjection) => {
   let source, features;
 
@@ -113,25 +110,6 @@ export default function OlInit() {
         jsonObj,
         featureProjection
       );
-
-      newShape.getSource().on('precompose', function () {
-        olInstances.rasterLayer.setExtent(newShape.getSource().getExtent());
-      });
-
-      const style = new Style({
-        fill: new Fill({
-          color: 'black',
-        }),
-      });
-
-      olInstances.rasterLayer.on('postrender', function (e) {
-        const vectorContext = getVectorContext(e);
-        e.context.globalCompositeOperation = 'destination-in';
-        newShape.getSource().forEachFeature(function (feature) {
-          vectorContext.drawFeature(feature, style);
-        });
-        e.context.globalCompositeOperation = 'source-over';
-      });
 
       if (olInstances.map) {
         let map = olInstances.map;
