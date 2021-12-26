@@ -1,17 +1,24 @@
 import { Vector as VectorLayer } from 'ol/layer';
 import { Vector as VectorSource } from 'ol/source';
-import { TopoJSON } from 'ol/format';
+import { TopoJSON, GeoJSON } from 'ol/format';
 import { getVectorContext } from 'ol/render';
 import { Fill, Style, Stroke } from 'ol/style';
 
 /**
  * @param {*} rasterLayer = Raster layer map instance generated from OL map init
  */
+
+function get_url_extension(url) {
+  if (url) {
+    return url.split(/[#?]/)[0].split('.').pop().trim();
+  }
+}
+
 export default function clipRasterLayer({ rasterLayer, shape }) {
-  //Create cliping layer from topojson
+  const urlExtension = get_url_extension(shape);
   const shapeSource = new VectorSource({
     url: shape,
-    format: new TopoJSON(),
+    format: urlExtension === 'geojson' ? new GeoJSON() : new TopoJSON(),
     overlaps: false,
   });
 
@@ -54,6 +61,5 @@ export default function clipRasterLayer({ rasterLayer, shape }) {
     });
     e.context.globalCompositeOperation = 'source-over';
   });
-
   return { clipLayer, boundaryLayer, shapeSource };
 }

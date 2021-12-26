@@ -36,6 +36,16 @@ export const GlobalStyles = createGlobalStyle`
     background-color: ${({ theme }) => theme.background};
     color: ${({ theme }) => theme.text};
   }
+  
+  .container-background {
+    background-color: ${({ theme }) => theme.background};
+    color: ${({ theme }) => theme.text};
+    display: ${'flex'};
+  }
+
+  .second-container {
+    margin-top: ${'-5px'};
+  }
 
   .input-text-slider {
     background-color: ${({ theme }) => theme.background};
