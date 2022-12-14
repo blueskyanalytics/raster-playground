@@ -34,7 +34,7 @@ This utility helps simulate the color schemes quickly, along with clipping & map
 - [X] Search bar to search places 
 - [X] Go to current location
 - [X] Dark Mode
-
+- [X] Auto Hide sidebar
 ## Installation
 1. clone repo and install using - 
 ```sh

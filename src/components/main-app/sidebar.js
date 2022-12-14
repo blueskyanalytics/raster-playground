@@ -21,22 +21,45 @@ export default function Sidebar({ setTheme, theme }) {
   const [opacity] = useQueryParam(URL_OPACITY, StringParam);
   const [text, setText] = useState('');
   const [colorFormat, setColorFormat] = useState('rgba');
-
+   let i=1;
   useEffect(() => {
     const colorArray = getColorsArray(colors);
+    const sidebar=document.querySelector(".sidebar");
+    const open=document.getElementById("open");
+    const close=document.getElementById("close");
+    open.addEventListener("click",()=>{
+      if(sidebar.classList.contains("hide"))
+      sidebar.classList.remove("hide");
+    })
+    close.addEventListener("click",()=>{
+      sidebar.classList.add("hide");
+    })
+    sidebar.onmouseover=()=>{
+      i=0;
+    }
+    const timer=setInterval(()=>{
+      i++;
+      if(i>10&&!sidebar.classList.contains("hide"))
+      { 
+        sidebar.classList.add("hide");
+        i=0;
+      }
+    },1000);
+
     setText(
       JSON.stringify(copyColor(colorArray, opacity, colorFormat), undefined, 4)
     );
-  }, [colors, opacity, colorFormat]);
+  }, [colors, opacity, colorFormat,i]);
 
   const handleColorFormatChange = event => {
     setColorFormat(event.target.value);
   };
-
   return (
     <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
       <GlobalStyles />
+      <div id="open"><i className="fa fa-cog"></i></div>
       <div className="sidebar">
+      <div id="close"><i className="fa fa-times"></i></div>
         <div className="sidebar-wrapper">
           <h1 className="logo">
             Raster<span>Playground</span>
