@@ -7,7 +7,7 @@ export default function TilesInput() {
 
   return (
     <>
-      <p>Tiles URL (XYZ Format)</p>
+      <p className="label">Tiles Url - XYZ</p>
       <input
         type="text"
         value={tiles}

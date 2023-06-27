@@ -1,16 +1,11 @@
 import { URL_COLORS, URL_OPACITY } from 'config';
 import React, { useEffect, useState } from 'react';
 import { StringParam, useQueryParam } from 'use-query-params';
-import { copyColor, getColorsArray, themeToggler } from 'utils';
-import {
-  TilesInput,
-  ShapeInput,
-  ColorsInput,
-  AlphaInput,
-} from './sidebar-wrapper';
+import { copyColor, getColorsArray } from 'utils';
+import { TilesInput, ShapeInput, ColorsInput } from './sidebar-wrapper';
 import { ThemeProvider } from 'styled-components';
 import { GlobalStyles } from './themes/global-styles';
-import { lightTheme, darkTheme } from './themes/themes';
+import { lightTheme } from './themes/themes';
 import '../../sass/index.sass';
 import JSONPretty from 'react-json-pretty';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
@@ -34,44 +29,15 @@ export default function Sidebar({ setTheme, theme }) {
   };
 
   return (
-    <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
+    <ThemeProvider theme={lightTheme}>
       <GlobalStyles />
       <div className="sidebar">
         <div className="sidebar-wrapper">
-          <h1 className="logo">
-            Raster<span>Playground</span>
-          </h1>
-          <div className="theme-switch-wrapper theme-toggle">
-            <label
-              className="switch"
-              htmlFor="checkbox"
-              title="Change color scheme"
-            >
-              <input
-                type="checkbox"
-                id="checkbox"
-                onChange={() =>
-                  themeToggler(theme === 'light' ? 'dark' : 'light', setTheme)
-                }
-                checked={theme === 'light' ? '' : 'checked'}
-              />
-              <div className="slider round"></div>
-              <div className="toggle-sun">☀️</div>
-              <div className="toggle-moon">🌙</div>
-            </label>
+          <div className="sidebar-urls">
+            <ShapeInput />
+            <TilesInput />
           </div>
-          <hr />
-          <ShapeInput />
-          <br />
-          <br />
-          <TilesInput />
-          <br />
-          <br />
           <ColorsInput />
-          <br />
-          <AlphaInput />
-          <br />
-          <br />
           <select
             id="color-format"
             defaultValue="rgba"

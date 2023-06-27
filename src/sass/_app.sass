@@ -1,15 +1,20 @@
 .sidebar
-    width: 460px
-    height: 100%
+    width: 80%
+    height: 160px
     position: fixed
     background: white
-    top: 0
-    left: 0
+    bottom: 4rem
+    left: 50%
+    transform: translateX(-50%)
     z-index: 1
     box-shadow: 4px 0px 15px #00000029
     overflow-y: auto
+    border-radius: 15px
 
     .sidebar-wrapper
+        display: grid
+        grid-template-columns: 1fr 1fr 1fr
+        grid-gap: 10px
         padding: 20px
 
         hr 
@@ -22,7 +27,7 @@
             margin-bottom: 10px
             span 
                 font-weight: 300
-  
+ 
 .theme-toggle
   .switch
     display: flex
@@ -215,14 +220,34 @@
   align-items: center
   margin-top: 2%
 
-@media only screen and (max-width: 1440px)
-    .sidebar
-        width: 400px
+.logo
+  position: fixed
+  top: 0
+  z-index: 100
+  left: 50%
+  transform: translateX(-50%)
+  color: #ffffff
 
-@media only screen and (max-width: 1366px)
-    .sidebar
-        width: 380px
+.logo span 
+  font-weight: 400
 
-@media only screen and (max-width: 1280px)
-    .sidebar
-        width: 360px
+.sidebar-urls
+  display: flex
+  flex-direction: column
+
+.label
+  color: $label-color
+  font-size: $label-size
+
+// commenting until I do mobile implementation
+// @media only screen and (max-width: 1440px)
+//     .sidebar
+//         width: 400px
+
+// @media only screen and (max-width: 1366px)
+//     .sidebar
+//         width: 380px
+
+// @media only screen and (max-width: 1280px)
+//     .sidebar
+//         width: 360px

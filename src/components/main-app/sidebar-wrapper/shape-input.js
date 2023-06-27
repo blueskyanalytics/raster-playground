@@ -6,8 +6,8 @@ export default function ShapeInput() {
   const [shape, onChangeShape] = useQueryParam(URL_SHAPE, StringParam);
 
   return (
-    <>
-      <p>Shape URL (Only Topo JSON)</p>
+    <div className="shapes-input">
+      <p className="label">Shape Url - JSON</p>
       <input
         type="text"
         value={shape}
@@ -15,6 +15,6 @@ export default function ShapeInput() {
         placeholder="Shape URL"
         onChange={e => onChangeShape(e.target.value, URL_UPDATE_PUSH)}
       />
-    </>
+    </div>
   );
 }
