@@ -45,42 +45,43 @@ export default function ColorsInput() {
   };
 
   return (
-    <>
-      <div className="color-row">
-        <p>Colors Palette</p>{' '}
-        <a
-          href="#add"
-          onClick={() => addColor()}
-          className="iconButton fa fa-lg fa-plus"
-        >
-          {' '}
-        </a>
+    <div className="input-group">
+      <div className="logo-background">
+        <img
+          className=""
+          src={`${window.location.origin}/assets/svg/fill-drip.svg`}
+          alt="globe-asia"
+        />
       </div>
-      <div className="color-input">
-        {colorsArray.map((color, key) => (
-          <Fragment key={color + key}>
-            <div
-              className="color-input-item"
-              style={
-                itemColorStatus && itemColorStatus.key === key
-                  ? { background: color, borderColor: 'black' }
-                  : { background: color }
-              }
-            >
+      <div className="sub-input-group">
+        <p className="label">Colorsets</p>{' '}
+        <div className="color-input">
+          {colorsArray.map((color, key) => (
+            <Fragment key={color + key}>
               <div
-                className="color-input-item-close"
-                onClick={e => deleteColor(key, colorsArray, onChangeColor)}
+                className="color-input-item"
+                style={
+                  itemColorStatus && itemColorStatus.key === key
+                    ? { background: color, borderColor: 'black' }
+                    : { background: color }
+                }
               >
-                <CloseSVG />
+                <div
+                  className="color-input-item-close"
+                  onClick={e => deleteColor(key, colorsArray, onChangeColor)}
+                >
+                  <CloseSVG />
+                </div>
+                <div
+                  className="color-input-item-overlay"
+                  onClick={e => setItemColorStatus({ color, key })}
+                ></div>
               </div>
-              <div
-                className="color-input-item-overlay"
-                onClick={e => setItemColorStatus({ color, key })}
-              ></div>
-            </div>
-          </Fragment>
-        ))}
+            </Fragment>
+          ))}
+        </div>
       </div>
+      {/* commenting this on purpose
       {itemColorStatus ? (
         <div style={popover}>
           <div
@@ -94,7 +95,7 @@ export default function ColorsInput() {
             onChange={changeItemColor}
           />
         </div>
-      ) : null}
-    </>
+      ) : null} */}
+    </div>
   );
 }

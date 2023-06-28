@@ -7,9 +7,7 @@ import { ThemeProvider } from 'styled-components';
 import { GlobalStyles } from './themes/global-styles';
 import { lightTheme } from './themes/themes';
 import '../../sass/index.sass';
-import JSONPretty from 'react-json-pretty';
-import { CopyToClipboard } from 'react-copy-to-clipboard';
-import * as JSONPrettyMon from 'react-json-pretty/dist/acai';
+import OutputBox from './sidebar-wrapper/output-box';
 
 export default function Sidebar({ setTheme, theme }) {
   const [colors] = useQueryParam(URL_COLORS, StringParam);
@@ -38,24 +36,10 @@ export default function Sidebar({ setTheme, theme }) {
             <TilesInput />
           </div>
           <ColorsInput />
-          <select
-            id="color-format"
-            defaultValue="rgba"
-            onChange={event => handleColorFormatChange(event)}
-          >
-            <option value="hex">HEX</option>
-            <option value="rgba">RGBA</option>
-            <option value="hsla">HSLA</option>
-          </select>
-          <CopyToClipboard text={text}>
-            <button className="copy-btn">Copy</button>
-          </CopyToClipboard>
-          <br />
-          <JSONPretty
-            id="json-pretty"
-            data={text}
-            theme={JSONPrettyMon}
-          ></JSONPretty>
+          <OutputBox
+            text={text}
+            handleColorFormatChange={handleColorFormatChange}
+          />
         </div>
       </div>
     </ThemeProvider>

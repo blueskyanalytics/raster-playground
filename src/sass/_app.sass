@@ -87,12 +87,9 @@
   z-index: 420
 
 .input-text
-    width: -webkit-fill-available
-    width: -moz-available
-    border: 0
-    padding: 15px
-    background: #ececec
-    margin-top: 5px
+    font-size: $input-size
+    border: none
+    width: 100%
 
 .input-container
     width: -webkit-fill-available
@@ -129,13 +126,16 @@
 .color-input
     width: -webkit-fill-available
     width: -moz-available
-    margin-top: 20px
+    display: flex
+    flex-wrap: wrap
+    gap: 10px
 
     .color-input-item
-        width: 27%
-        border: 5px solid #eee
-        margin: 5px
+        width: 40px
+        border: 1px solid #eee
         height: 40px
+        border-radius: 100%
+        margin-top: 8px
         display: inline-block
         cursor: pointer
         position: relative
@@ -149,8 +149,8 @@
             left: 0
 
         .color-input-item-close
-            top: -15px
-            right: -10px
+            top: -5px
+            right: -5px
             position: absolute
             z-index: 2
             background: white
@@ -192,7 +192,6 @@
 #color-format
   border: none
   border-radius: 6px
-  background-color: #000
   color: #fff
   padding: 4px
 
@@ -234,10 +233,33 @@
 .sidebar-urls
   display: flex
   flex-direction: column
+  gap: 10px
 
 .label
   color: $label-color
   font-size: $label-size
+
+.logo-background
+  display: flex
+  justify-content: center
+  align-items: center
+  width: 45px
+  height: 40px
+  background: $logo-background
+  border-radius: 40px
+
+.input-group
+  display: flex
+  flex-direction: row
+  align-items: flex-start
+  gap: 10px
+  width: 100%
+  border: 1px solid rgba(0, 69, 71, 0.09)
+  border-radius: 5px
+  padding: 8px
+
+.sub-input-group
+  width: 100%
 
 // commenting until I do mobile implementation
 // @media only screen and (max-width: 1440px)
