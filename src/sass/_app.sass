@@ -1,6 +1,6 @@
 .sidebar
     width: 80%
-    height: 160px
+    height: 200px
     position: fixed
     background: white
     bottom: 4rem
@@ -10,12 +10,16 @@
     box-shadow: 4px 0px 15px #00000029
     overflow-y: auto
     border-radius: 15px
+    display: flex
+    align-items: center
 
     .sidebar-wrapper
         display: grid
-        grid-template-columns: 1fr 1fr 1fr
+        grid-template-columns: 1.3fr 1fr 1fr
+        grid-template-rows: 100%
         grid-gap: 10px
         padding: 20px
+        height: 90%
 
         hr 
             margin-bottom: 30px
@@ -177,8 +181,15 @@
     font-size: 15px
     border-radius: 6px
 
+#json-pretty
+  height: 90%
+  overflow: auto
+
+
+.__json-pretty__
+  margin: 0
+
 #json-pretty > pre
-    height: 13rem
     padding: 0.5rem
     overflow: auto
 
@@ -190,10 +201,10 @@
   -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1)
 
 #color-format
+  background: #ffffff !important
+  color: $label-color !important
   border: none
-  border-radius: 6px
-  color: #fff
-  padding: 4px
+  font-size: $label-size
 
 #color-format:hover
   cursor: pointer
@@ -233,6 +244,8 @@
 .sidebar-urls
   display: flex
   flex-direction: column
+  height: 100%
+  justify-content: space-between
   gap: 10px
 
 .label
@@ -260,6 +273,7 @@
 
 .sub-input-group
   width: 100%
+  height: 100%
 
 // commenting until I do mobile implementation
 // @media only screen and (max-width: 1440px)
