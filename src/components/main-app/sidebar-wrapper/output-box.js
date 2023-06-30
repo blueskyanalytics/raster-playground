@@ -14,6 +14,17 @@ const OutputBox = ({ handleColorFormatChange, text }) => {
         />
       </div>
       <div className="sub-input-group">
+        <CopyToClipboard text={text}>
+          <button className="copy-button">
+            <img
+              className=""
+              src={`${window.location.origin}/assets/svg/copy.svg`}
+              alt="copy-icon"
+              height={15}
+              width={15}
+            />
+          </button>
+        </CopyToClipboard>
         <select
           id="color-format"
           defaultValue="rgba"
@@ -23,9 +34,6 @@ const OutputBox = ({ handleColorFormatChange, text }) => {
           <option value="rgba">RGBA</option>
           <option value="hsla">HSLA</option>
         </select>
-        {/* <CopyToClipboard text={text}>
-          <button className="copy-btn">Copy</button>
-        </CopyToClipboard> */}
         <JSONPretty
           id="json-pretty"
           data={text}

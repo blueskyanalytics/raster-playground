@@ -79,9 +79,19 @@ export default function ColorsInput() {
               </div>
             </Fragment>
           ))}
+          <Fragment>
+            <div className="color-input-item" onClick={() => addColor()}>
+              <div className="add-color">
+                <img
+                  className=""
+                  src={`${window.location.origin}/assets/svg/plus.svg`}
+                  alt="globe-asia"
+                />
+              </div>
+            </div>
+          </Fragment>
         </div>
       </div>
-      {/* commenting this on purpose
       {itemColorStatus ? (
         <div style={popover}>
           <div
@@ -95,7 +105,7 @@ export default function ColorsInput() {
             onChange={changeItemColor}
           />
         </div>
-      ) : null} */}
+      ) : null}
     </div>
   );
 }
