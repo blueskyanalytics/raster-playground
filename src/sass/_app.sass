@@ -292,6 +292,65 @@
   height: 40px
   border-radius: 100%
 
+
+.ol-zoom.ol-unselectable.ol-control 
+  position: absolute
+  top: 50%
+  right: 50px
+  transform: translateY(-50%)
+  background: none
+  backface-visibility: 0.5
+  border: none
+  display: flex !important
+  gap: 10px !important
+  flex-direction: column !important
+
+.ol-zoom .ol-zoom-in , .ol-zoom .ol-zoom-out
+  border-radius: 100% !important
+  width: 40px
+  height: 40px
+
+.ol-zoom::after 
+  content: ""
+  display: block
+  height: 3px
+  width: 100%
+  background: rgba(0,60,136,0.8)
+
+.location-btn
+  position: absolute !important
+  top: 50% !important
+  transform: translateY(100%)
+  right: 48px !important
+  background: none !important
+  border-radius: 100% !important
+  width: 50px !important
+  height: 50px !important
+
+.location-btn  button
+  height: 100% !important
+  width: 100% !important
+  border-radius: 100% !important
+
+.ol-geocoder
+  position: static !important
+
+.gcd-gl-control.ol-control
+  position: absolute !important
+  right: 50px !important
+  top: 21px !important
+  background: rgba(0,60,136,0.5)
+  border-radius: 20px
+
+.gcd-gl-control.ol-control input
+  background: none
+  border-radius: 20%
+  height: 3rem !important
+
+#gcd-input-query.gcd-gl-input::placeholder 
+  color: white
+  padding-left: 10px
+
 // commenting until I do mobile implementation
 // @media only screen and (max-width: 1440px)
 //     .sidebar
