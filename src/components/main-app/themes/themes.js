@@ -5,9 +5,9 @@ export const lightTheme = {
   btnBgColor: '#000',
   btnColor: '#FFF',
   scroll: '#000',
-  jsonKey: '#b553bf',
+  jsonKey: '#000000',
   jsonValue: '#1e1e1e',
-  jsonString: '#b553bf',
+  jsonString: '#000000',
   jsonColor: 'darkBlue',
 };
 

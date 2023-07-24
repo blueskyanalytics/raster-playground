@@ -14,6 +14,7 @@
     "loadash": "^1.0.0",
     "node-sass": "^4.14.1",
     "ol": "^6.4.3",
+    "ol-ext": "^4.0.9",
     "ol-geocoder": "^4.1.1",
     "query-string": "^6.13.7",
     "rainbowvis.js": "^1.0.1",

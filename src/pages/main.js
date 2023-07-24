@@ -10,11 +10,9 @@ import {
   OPACITY_DEFAULT,
   TILES_URL_DEFAULT,
   SHAPE_URL_DEFAULT,
-  THEME_DEFAULT,
 } from 'config';
 import { StringParam, useQueryParam } from 'use-query-params';
-import { useCookie, useEffectOnce } from 'react-use';
-import { themeToggler } from 'utils';
+import { useCookie } from 'react-use';
 
 export default function Main() {
   const [shape, onChangeShape] = useQueryParam(URL_SHAPE, StringParam);
@@ -22,11 +20,6 @@ export default function Main() {
   const [colors, onChangeColors] = useQueryParam(URL_COLORS, StringParam);
   const [opacity, onChangeOpacity] = useQueryParam(URL_OPACITY, StringParam);
   const [theme, setTheme] = useCookie('theme-color');
-
-  useEffectOnce(() => {
-    if (!theme) themeToggler(THEME_DEFAULT, setTheme);
-    else themeToggler(theme, setTheme);
-  }, [theme]);
 
   useEffect(() => {
     if (!shape) {
