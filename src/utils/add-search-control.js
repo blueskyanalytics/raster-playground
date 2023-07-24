@@ -4,7 +4,7 @@ export default function addSearchControl(map) {
   var geocoder = new Geocoder('nominatim', {
     provider: 'osm',
     lang: 'en-US',
-    placeholder: 'Search...',
+    placeholder: 'Search',
     limit: 10,
     debug: false,
     autoComplete: true,

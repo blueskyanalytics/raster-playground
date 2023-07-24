@@ -32,11 +32,6 @@ export const GlobalStyles = createGlobalStyle`
     color: ${({ theme }) => theme.jsonString} !important;
   }
 
-  .input-text {
-    background-color: ${({ theme }) => theme.background};
-    color: ${({ theme }) => theme.text};
-  }
-
   .input-text-slider {
     background-color: ${({ theme }) => theme.background};
     color: ${({ theme }) => theme.text};

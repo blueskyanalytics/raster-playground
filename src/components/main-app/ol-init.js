@@ -8,7 +8,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCompass } from '@fortawesome/free-solid-svg-icons';
 import { handleLocationButton } from 'utils';
 import { setSource } from '../../api/map-data';
-import { FOOTER_ICON } from 'config';
 
 export default function OlInit() {
   const [shape] = useQueryParam(URL_SHAPE, StringParam);
@@ -59,6 +58,9 @@ export default function OlInit() {
     <>
       <div>
         <div id="map" className="main-map">
+          <h1 className="logo">
+            Raster<span>Playground</span>
+          </h1>
           <div className="ol-control location-btn">
             <button onClick={() => handleLocationButton()}>
               <FontAwesomeIcon icon={faCompass} />
@@ -66,6 +68,7 @@ export default function OlInit() {
           </div>
         </div>
         <div id="popup" class="ol-popup">
+          {/* commenting this on purpose 
           <div className="powered">
             Powered by{' '}
             <a href="http://blueskyhq.in/" target="_blank" rel="noreferrer">
@@ -79,14 +82,14 @@ export default function OlInit() {
             <a href="mapbox.com" target="_blank" rel="noreferrer">
               Mapbox
             </a>
-          </div>
-          <div className="badges">
+          </div> */}
+          {/* <div className="badges">
             {FOOTER_ICON.map(footer => (
               <a href={footer.url} target="_blank" rel="noreferrer">
                 <img src={footer.img} alt={footer.label} />
               </a>
             ))}
-          </div>
+          </div> */}
         </div>
       </div>
     </>

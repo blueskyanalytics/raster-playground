@@ -2,7 +2,7 @@ import Map from 'ol/Map';
 import XYZ from 'ol/source/XYZ';
 import { Tile as TileLayer } from 'ol/layer';
 import View from 'ol/View';
-import { BASEMAP_LIGHT_STYLE } from 'config';
+import { BASEMAP_GREEN_STYLE } from 'config';
 
 export default function initMap({ rasterLayer, clipLayer, boundaryLayer }) {
   return new Map({
@@ -13,7 +13,7 @@ export default function initMap({ rasterLayer, clipLayer, boundaryLayer }) {
         className: true,
         preload: Infinity,
         source: new XYZ({
-          url: BASEMAP_LIGHT_STYLE,
+          url: BASEMAP_GREEN_STYLE,
         }),
       }),
       clipLayer,
